@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     siteName: "Adik Soleh Portfolio",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+        url: "https://portofolio-web-umber-chi.vercel.app/me_photo.jpeg",
         width: 1200,
         height: 1600,
         alt: "Adik Soleh headshot",
@@ -80,7 +80,7 @@ export const metadata: Metadata = {
     description:
       "Portofolio proyek Adik Soleh: NestJS, Vue.js, React, Express, PostgreSQL, dan Prisma.",
     images: [
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+      "https://portofolio-web-umber-chi.vercel.app/me_photo.jpeg",
     ],
   },
   robots: {
