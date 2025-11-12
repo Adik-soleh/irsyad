@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Adik Soleh — Full Stack Developer",
   description:
-    "Portfolio resmi Adik Soleh, full stack developer yang membangun aplikasi NestJS, Vue, React, dan Express end-to-end dengan fokus pada performa, keamanan, dan kesiapan produksi.",
+    "Portofolio resmi Adik Soleh, full stack developer fokus NestJS, Vue, React, dan Express untuk produk performa tinggi.",
   keywords: [
     "Adik Soleh",
     "Full Stack Developer",
