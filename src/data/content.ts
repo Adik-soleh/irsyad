@@ -38,15 +38,14 @@ export const heroContent: HeroContent = {
   summary:
     "Full stack developer yang fokus pada JavaScript/TypeScript stack. Berpengalaman membangun aplikasi NestJS + Vue untuk kementerian, React + Express untuk commerce, dan Laravel CMS untuk operasi internal.",
   skills: ["NestJS", "Vue.js", "React", "Express.js", "PostgreSQL", "Prisma", "Laravel", "TypeScript", "Tailwind", "Git", "Php", "MySQL"],
-  photo:
-    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80",
+  photo: "/me_photo.jpeg",
   primaryCta: {
     label: "Hubungi via WhatsApp",
     href: "https://wa.me/62895360103563",
   },
   secondaryCta: {
     label: "Kirim email",
-    href: "mailto:adiksoleh4@gmail.com",
+    href: "adiksoleh4@gmail.com",
   },
   cvCta: {
     label: "Download CV",
