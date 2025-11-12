@@ -155,6 +155,7 @@ export const metadata: Metadata = {
     google: "nUJSObGv_-CmURG9EHWu__BADlyxPxHcvZUihFACegM",
     other: {
       "pinterest": "pinterest-verification-code",
+      "msvalidate.01": "FD3B3973E1E1A715B214DEB094638F63",
     },
   },
 };
