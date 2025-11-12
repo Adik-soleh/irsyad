@@ -19,9 +19,9 @@ export function NewsShowcase({ entries }: { entries: NewsEntry[] }) {
         </span>
       </div>
       <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-indigo-700/70 via-slate-900 to-slate-950 p-8 text-white shadow-[0_25px_80px_rgba(7,12,34,0.7)]">
-        <span className="pointer-events-none absolute right-8 top-6 rounded-full border border-white/20 bg-white/5 px-4 py-1 text-xs font-semibold text-white/80 backdrop-blur">
+        {/* <span className="pointer-events-none absolute right-8 top-6 rounded-full border border-white/20 bg-white/5 px-4 py-1 text-xs font-semibold text-white/80 backdrop-blur">
           Klik kartu news untuk lihat detail
-        </span>
+        </span> */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-slate-950 to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-slate-950 to-transparent" />
         <div className="marquee" aria-hidden>
