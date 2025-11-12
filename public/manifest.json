@@ -1,0 +1,16 @@
+{
+  "name": "Adik Soleh Portfolio",
+  "short_name": "AdikSoleh",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030b17",
+  "theme_color": "#0b1f3a",
+  "description": "Portfolio resmi Adik Soleh, full stack developer yang membangun produk NestJS, Vue, React, dan Express.",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ]
+}
