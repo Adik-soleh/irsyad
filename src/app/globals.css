@@ -38,6 +38,7 @@ body {
     "Segoe UI", sans-serif;
   position: relative;
   overflow-x: hidden;
+  transition: background-color 0.6s ease, color 0.6s ease, filter 0.6s ease;
 }
 
 body::after {
@@ -85,4 +86,31 @@ a {
   .marquee-track {
     animation-play-state: paused;
   }
+}
+
+html.theme-light body {
+  color-scheme: light;
+  background-color: #f5f7fb;
+  background-image: radial-gradient(circle at 30% 20%, rgba(14, 116, 144, 0.18), transparent 40%),
+    radial-gradient(circle at 80% 0%, rgba(169, 127, 255, 0.18), transparent 45%),
+    repeating-linear-gradient(
+      115deg,
+      rgba(15, 23, 42, 0.08) 0px,
+      rgba(15, 23, 42, 0.08) 1px,
+      transparent 1px,
+      transparent 18px
+    );
+  filter: invert(1) hue-rotate(180deg);
+}
+
+html.theme-light body::after {
+  opacity: 0.35;
+}
+
+html.theme-light img,
+html.theme-light picture,
+html.theme-light video,
+html.theme-light canvas,
+html.theme-light svg {
+  filter: invert(1) hue-rotate(180deg);
 }
