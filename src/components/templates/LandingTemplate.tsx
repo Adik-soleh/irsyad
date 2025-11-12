@@ -26,7 +26,7 @@ export function LandingTemplate() {
       <div className="mx-auto flex max-w-6xl flex-col gap-4 px-3 pb-10 pt-0 sm:gap-12 sm:px-6 sm:pb-14 sm:pt-8 lg:gap-16 lg:px-8 lg:pb-16 lg:pt-10">
         <div className="-mt-4 sm:mt-0">
           <NavigationBar items={navItems} socialLinks={socialLinks} />
-          <div className="mt-0 sm:mt-6">
+          <div className="mt-0 sm:mt-6 pt-10">
             <HeroSection content={heroContent} stats={stats} socialLinks={socialLinks} />
           </div>
         </div>
