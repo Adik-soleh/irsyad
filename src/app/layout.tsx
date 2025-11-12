@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,6 +14,43 @@ const geistMono = Geist_Mono({
 });
 
 const siteUrl = "https://portofolio-web-umber-chi.vercel.app";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Adik Soleh",
+  url: siteUrl,
+  jobTitle: "Full Stack Developer",
+  image: "https://portofolio-web-umber-chi.vercel.app/me_photo.jpeg",
+  sameAs: [
+    "https://linkedin.com/in/adik-soleh",
+    "https://github.com/adik-soleh",
+    "mailto:holapeople2024@gmail.com",
+    "https://wa.me/62895360103563",
+  ],
+  worksFor: {
+    "@type": "Organization",
+    name: "Freelance / Remote",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "PT DumbWays Indonesia Teknologi",
+  },
+  knowsAbout: [
+    "NestJS",
+    "Vue.js",
+    "React",
+    "Express.js",
+    "PostgreSQL",
+    "Prisma",
+    "Next.js",
+  ],
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    email: "holapeople2024@gmail.com",
+    availableLanguage: ["id", "en"],
+  },
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -55,6 +93,10 @@ export const metadata: Metadata = {
     canonical: "/",
     types: {
       "application/json": `${siteUrl}/api/cv`,
+    },
+    languages: {
+      "id-ID": siteUrl,
+      "en-US": `${siteUrl}/en`,
     },
   },
   openGraph: {
@@ -108,6 +150,13 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/favicon.ico",
   },
+  manifest: "/manifest.json",
+  verification: {
+    google: "google-site-verification-code",
+    other: {
+      "pinterest": "pinterest-verification-code",
+    },
+  },
 };
 
 export default function RootLayout({
@@ -116,11 +165,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} bg-slate-950 text-white antialiased`}
-      >
-        {children}
+    <html lang="id" className="theme-dark">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ThemeProvider>{children}</ThemeProvider>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </body>
     </html>
   );
