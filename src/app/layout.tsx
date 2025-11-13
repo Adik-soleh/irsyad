@@ -24,7 +24,7 @@ const structuredData = {
   sameAs: [
     "https://linkedin.com/in/adik-soleh",
     "https://github.com/adik-soleh",
-    "mailto:holapeople2024@gmail.com",
+    "mailto:adiksoleh4@gmail.com",
     "https://wa.me/62895360103563",
   ],
   worksFor: {
@@ -47,7 +47,7 @@ const structuredData = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer service",
-    email: "holapeople2024@gmail.com",
+    email: "adiksoleh4@gmail.com",
     availableLanguage: ["id", "en"],
   },
 };

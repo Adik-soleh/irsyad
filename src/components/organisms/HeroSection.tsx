@@ -62,13 +62,13 @@ export function HeroSection({ content, stats, socialLinks }: Props) {
             <Button href={content.primaryCta.href} variant="primary">
               {content.primaryCta.label}
             </Button>
-            <Button
+            {/* <Button
               href={content.secondaryCta.href}
               variant="secondary"
               className="border-white/30 text-white"
             >
               {content.secondaryCta.label}
-            </Button>
+            </Button> */}
             {content.cvCta && (
               <Button
                 href={content.cvCta.href}
