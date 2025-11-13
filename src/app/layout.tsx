@@ -146,9 +146,9 @@ export const metadata: Metadata = {
     address: false,
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/web_icon.png",
+    shortcut: "/web_icon.png",
+    apple: "/web_icon.png",
   },
   manifest: "/manifest.json",
   verification: {
