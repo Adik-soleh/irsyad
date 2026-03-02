@@ -13,14 +13,14 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://portofolio-web-umber-chi.vercel.app";
+const siteUrl = "https://adiportofolio.fun";
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Adik Soleh",
   url: siteUrl,
   jobTitle: "Full Stack Developer",
-  image: "https://portofolio-web-umber-chi.vercel.app/me_photo.jpeg",
+  image: "https://adiportofolio.fun/me_photo.jpeg",
   sameAs: [
     "https://linkedin.com/in/adik-soleh",
     "https://github.com/adik-soleh",
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
     siteName: "Adik Soleh Portfolio",
     images: [
       {
-        url: "https://portofolio-web-umber-chi.vercel.app/me_photo.jpeg",
+        url: "https://adiportofolio.fun/me_photo.jpeg",
         width: 1200,
         height: 1600,
         alt: "Adik Soleh headshot",
@@ -122,7 +122,7 @@ export const metadata: Metadata = {
     description:
       "Portofolio proyek Adik Soleh: NestJS, Vue.js, React, Express, PostgreSQL, dan Prisma.",
     images: [
-      "https://portofolio-web-umber-chi.vercel.app/me_photo.jpeg",
+      "https://adiportofolio.fun/me_photo.jpeg",
     ],
   },
   robots: {
