@@ -43,6 +43,7 @@ const structuredData = {
     "PostgreSQL",
     "Prisma",
     "Next.js",
+    "Nuxt.js",
   ],
   contactPoint: {
     "@type": "ContactPoint",
