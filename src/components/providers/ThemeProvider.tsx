@@ -26,11 +26,10 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.remove("dark", "light");
-    const target = theme === "light" ? "light" : "dark";
-    root.classList.add(target);
-    root.style.setProperty("color-scheme", theme);
-    window.localStorage.setItem("adisoleh-theme", theme);
+
+    root.classList.toggle("dark", theme === "dark");
+
+    localStorage.setItem("adisoleh-theme", theme);
   }, [theme]);
 
   const value = useMemo(
