@@ -14,10 +14,11 @@ const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 const getInitialTheme = (): Theme => {
   if (typeof window === "undefined") return "dark";
+
   const stored = window.localStorage.getItem("adisoleh-theme") as Theme | null;
   if (stored) return stored;
-  const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  return "dark";
+
+  return "dark"; // force default
 };
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
