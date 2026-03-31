@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-type Theme = "dark" | "light";
+type Theme = "dark"
 
 interface ThemeContextValue {
   theme: Theme;
@@ -13,29 +13,24 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 const getInitialTheme = (): Theme => {
-  if (typeof window === "undefined") return "dark";
-
-  const stored = window.localStorage.getItem("adisoleh-theme") as Theme | null;
-  if (stored) return stored;
-
   return "dark"; // force default
 };
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>("dark");
 
-  useEffect(() => {
-    const root = document.documentElement;
+  // useEffect(() => {
+  //   const root = document.documentElement;
 
-    root.classList.toggle("dark", theme === "dark");
+  //   root.classList.toggle("dark", theme === "dark");
 
-    localStorage.setItem("adisoleh-theme", theme);
-  }, [theme]);
+  //   localStorage.setItem("adisoleh-theme", theme);
+  // }, [theme]);
 
   const value = useMemo(
     () => ({
       theme,
-      toggleTheme: () => setTheme((prev) => (prev === "dark" ? "light" : "dark")),
+      toggleTheme: () => setTheme((prev) => ("dark")),
       setTheme,
     }),
     [theme],
