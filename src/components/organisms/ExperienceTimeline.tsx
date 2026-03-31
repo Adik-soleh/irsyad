@@ -4,19 +4,26 @@ import { Experience } from "@/types/content";
 
 export function ExperienceTimeline({ experiences }: { experiences: Experience[] }) {
   return (
-    <section id="experience" className="space-y-10">
+    <section id="experience" className="space-y-16 pt-10">
       <SectionHeading
-        eyebrow="Journey"
-        title="Pengalaman membangun komunitas"
-        description="Peran lintas product design, research, dan shipping di startup teknologi dan kolektif komunitas."
+        eyebrow="Perjalanan Karir"
+        title="Pengalaman Membangun Produk"
+        description="Peran lintas product design, research, dan engineering di startup teknologi dan kolektif komunitas."
       />
-      <div className="grid gap-6 md:grid-cols-2">
-        {experiences.map((experience) => (
-          <ExperienceCard
-            key={`${experience.company}-${experience.period}`}
-            experience={experience}
-          />
-        ))}
+      
+      <div className="relative max-w-4xl mx-auto">
+        {/* Background Vertical Line */}
+        <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-0.5 bg-slate-200 dark:bg-white/10 transform md:-translate-x-1/2 z-0" />
+        
+        <div className="space-y-12">
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={`${experience.company}-${experience.period}`}
+              experience={experience}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -16,6 +16,9 @@ export type Project = {
   year: string;
   link: string;
   cover: string;
+  problem?: string;
+  uiSolution?: string;
+  systemSolution?: string;
 };
 
 export type Experience = {
@@ -62,9 +65,11 @@ export type HeroContent = {
   };
 };
 
-export type Service = {
+export type SkillCategory = {
   title: string;
-  description: string;
-  icon: string;
-  items: string[];
+  skills: string[];
+};
+
+export type Tool = {
+  name: string;
 };

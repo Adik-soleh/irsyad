@@ -4,22 +4,16 @@ import { Project } from "@/types/content";
 
 export function ProjectsShowcase({ projects }: { projects: Project[] }) {
   return (
-    <section id="projects" className="space-y-10">
+    <section id="projects" className="space-y-16 pt-10">
       <SectionHeading
-        eyebrow="Recent Projects"
-        title="Produk yang baru saja dikirim"
-        description="Misi utamanya: shipping fitur bernilai tinggi dan mendokumentasikan proses agar tim mudah scale."
+        eyebrow="Portofolio Pilihan"
+        title="Bukan Sekadar Tampilan, Namun Resolusi Masalah"
+        description="Setiap sistem yang dibangun melalui proses problem discovery, architectural planning, hingga shipping tampilan end-to-end yang solid."
       />
-      <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[#050e20]/70 p-6">
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#050e20] to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#050e20] to-transparent" />
-        <div className="flex gap-6 overflow-x-auto pb-4">
-          {projects.map((project) => (
-            <div key={project.title} className="min-w-[280px] flex-1 lg:min-w-[360px]">
-              <ProjectCard project={project} />
-            </div>
-          ))}
-        </div>
+      <div className="flex flex-col gap-24 lg:gap-32">
+        {projects.map((project, index) => (
+          <ProjectCard key={project.title} project={project} index={index} />
+        ))}
       </div>
     </section>
   );

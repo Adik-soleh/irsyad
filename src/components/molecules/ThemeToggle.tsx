@@ -1,46 +1,55 @@
 "use client";
 
-import { useTheme } from "@/components/providers/ThemeProvider";
+import { useEffect, useState } from "react";
+import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-interface Props {
-  className?: string;
-}
+export function ThemeToggle({ className }: { className?: string }) {
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
 
-export function ThemeToggle({ className }: Props) {
-  const { theme, toggleTheme } = useTheme();
-  const isLight = theme === "light";
+  useEffect(() => {
+    // Read from localStorage without trying to access DOM directly in render
+    const stored = window.localStorage.getItem("adisoleh-theme") as "dark" | "light" | null;
+    if (stored) {
+      setTheme(stored);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    
+    // Apply changes
+    const root = document.documentElement;
+    root.classList.remove("dark", "light");
+    root.classList.add(nextTheme);
+    root.style.setProperty("color-scheme", nextTheme);
+    window.localStorage.setItem("adisoleh-theme", nextTheme);
+  };
 
   return (
     <button
-      type="button"
       onClick={toggleTheme}
-      aria-pressed={isLight}
       className={cn(
-        "group relative flex h-11 w-28 items-center justify-between rounded-full border border-white/20 bg-slate-900/40 px-4 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-500",
-        isLight && "bg-white/80 text-slate-900",
-        className,
+        "group relative flex h-10 w-20 items-center justify-between rounded-full border border-slate-200 dark:border-white/20 bg-slate-100 dark:bg-[#071329] p-1 shadow-inner",
+        className
       )}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
-      <span
+      <div
         className={cn(
-          "absolute inset-0 rounded-full bg-gradient-to-r from-sky-500 via-violet-500 to-fuchsia-500 opacity-0 transition-opacity duration-500",
-          isLight && "opacity-70",
+          "absolute left-1 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-md transition-transform duration-300 ease-in-out dark:bg-[#1a2b4b]",
+          theme === "dark" ? "translate-x-10" : "translate-x-0"
         )}
-        aria-hidden
       />
-      <span className="relative z-10 flex items-center gap-1">Dark</span>
-      <span className="relative z-10 flex items-center gap-1 text-slate-900 transition-colors duration-500 group-hover:text-slate-700">
-        Light
-      </span>
-      <span
-        className={cn(
-          "absolute left-1 top-1 h-9 w-9 rounded-full bg-slate-900/80 text-lg text-white shadow-lg transition-all duration-500",
-          isLight && "left-16 bg-white text-slate-900",
-        )}
-      >
-        {isLight ? "☀" : "☾"}
-      </span>
+      
+      <div className="relative z-10 ml-1.5 flex h-full items-center text-amber-500">
+        <Sun size={14} className={cn("transition-opacity", theme === "light" ? "opacity-100" : "opacity-0")} />
+      </div>
+
+      <div className="relative z-10 mr-1.5 flex h-full items-center text-slate-400">
+        <Moon size={14} className={cn("transition-opacity", theme === "dark" ? "opacity-100" : "opacity-0")} />
+      </div>
     </button>
   );
 }

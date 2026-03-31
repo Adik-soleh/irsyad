@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
@@ -147,9 +142,9 @@ export const metadata: Metadata = {
     address: false,
   },
   icons: {
-    icon: "/web_icon.png",
-    shortcut: "/web_icon.png",
-    apple: "/web_icon.png",
+    icon: "/testing.png",
+    shortcut: "/testing.png",
+    apple: "/testing.png",
   },
   manifest: "/manifest.json",
   verification: {
@@ -167,8 +162,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="theme-dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang="id" className="dark">
+      <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
         <script
           type="application/ld+json"

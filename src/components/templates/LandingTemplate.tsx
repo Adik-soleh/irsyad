@@ -5,36 +5,41 @@ import { ExperienceTimeline } from "@/components/organisms/ExperienceTimeline";
 import { NewsShowcase } from "@/components/organisms/NewsShowcase";
 import { ContactSection } from "@/components/organisms/ContactSection";
 import { Footer } from "@/components/organisms/Footer";
-import { ServicesSection } from "@/components/organisms/ServicesSection";
+import { AboutTechStack } from "@/components/organisms/AboutTechStack";
 import {
   experiences,
   heroContent,
   navItems,
   newsEntries,
   projects,
-  services,
+  skillCategories,
+  tools,
   socialLinks,
   stats,
 } from "@/data/content";
 
 export function LandingTemplate() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-slate-950 text-white">
-      <div className="pointer-events-none absolute -left-40 top-0 hidden h-[520px] w-[520px] rounded-full bg-sky-500/20 blur-[120px] sm:block" />
-      <div className="pointer-events-none absolute bottom-10 right-0 hidden h-[420px] w-[420px] rounded-full bg-fuchsia-500/20 blur-[150px] sm:block" />
+    <div className="relative min-h-screen">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 pb-16 pt-4 sm:gap-16 sm:px-6 sm:pb-24 sm:pt-6 lg:gap-24 lg:px-8">
+        <NavigationBar items={navItems} socialLinks={socialLinks} />
 
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-3 pb-10 pt-0 sm:gap-12 sm:px-6 sm:pb-14 sm:pt-8 lg:gap-16 lg:px-8 lg:pb-16 lg:pt-10">
-        <div className="-mt-4 sm:mt-0">
-          <NavigationBar items={navItems} socialLinks={socialLinks} />
-          <div className="mt-0 sm:mt-6 pt-10">
-            <HeroSection content={heroContent} stats={stats} socialLinks={socialLinks} />
+        <main className="flex flex-col">
+          <HeroSection content={heroContent} socialLinks={socialLinks} />
+
+          {/* Overlapping Content Container */}
+          <div className="relative z-10 flex flex-col gap-24 sm:gap-32 lg:gap-40 pt-16 sm:pt-24 mt-16 sm:mt-24
+            before:absolute before:inset-0 before:-z-10 before:w-screen before:left-1/2 before:-translate-x-1/2 before:bg-[#fafafa] dark:before:bg-[#09090b] 
+            before:border-t before:border-zinc-200 dark:before:border-white/10 
+            before:shadow-[0_-30px_60px_rgba(0,0,0,0.04)] dark:before:shadow-[0_-30px_60px_rgba(255,255,255,0.02)]">
+            <AboutTechStack categories={skillCategories} tools={tools} />
+            <ProjectsShowcase projects={projects} />
+            <ExperienceTimeline experiences={experiences} />
+            <NewsShowcase entries={newsEntries} />
+            <ContactSection />
           </div>
-        </div>
-        <ServicesSection services={services} />
-        <ProjectsShowcase projects={projects} />
-        <ExperienceTimeline experiences={experiences} />
-        <NewsShowcase entries={newsEntries} />
-        <ContactSection />
+        </main>
+
         <Footer />
       </div>
     </div>

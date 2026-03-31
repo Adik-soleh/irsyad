@@ -15,7 +15,7 @@ export function ServiceCard({ service }: { service: Service }) {
       <ul className="mt-6 space-y-2 text-sm text-slate-300">
         {service.items.map((item) => (
           <li key={item} className="flex items-center gap-2">
-            <span className="text-sky-400">•</span>
+            <span className="text-zinc-400">•</span>
             <span>{item}</span>
           </li>
         ))}
