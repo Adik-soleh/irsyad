@@ -17,7 +17,7 @@ const getInitialTheme = (): Theme => {
   const stored = window.localStorage.getItem("adisoleh-theme") as Theme | null;
   if (stored) return stored;
   const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  return prefersDark ? "dark" : "light";
+  return "dark";
 };
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
