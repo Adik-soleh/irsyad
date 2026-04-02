@@ -3,6 +3,8 @@ import circle_app from "@/assets/projects/circleApp.png";
 import lakoe from "@/assets/projects/lakoe.png";
 import airlane from "@/assets/projects/airLane.png";
 import notion from "@/assets/projects/notion.png";
+import compro from "@/assets/projects/compro.png";
+import dashboard from "@/assets/projects/dashboard.png";
 
 export const images = {
   projects: {
@@ -10,6 +12,8 @@ export const images = {
     circleApp: circle_app,
     lakoe: lakoe,
     airlane: airlane,
-    notion: notion
+    notion: notion,
+    compro: compro,
+    dashboard: dashboard,
   },
 };
