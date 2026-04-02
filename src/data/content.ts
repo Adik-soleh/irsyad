@@ -142,7 +142,7 @@ export const projects: Project[] = [
     title: "Company Profile",
     description:
       "Website company profile interaktif untuk agensi digital (Lunatic Foundry) yang berfokus pada konversi, menampilkan portofolio karya, serta layanan UI/UX dan Web/Mobile Development.",
-    tags: ["Next.js", "Tailwind CSS", "Docker", ],
+    tags: ["Next.js", "Tailwind CSS", "Docker",],
     year: "2026",
     link: "https://anywareagency.vercel.app/",
     cover: images.projects.compro,
@@ -151,17 +151,17 @@ export const projects: Project[] = [
     systemSolution: "Membangun arsitektur frontend dengan fokus pada 'speed-obsessed engineering' menggunakan optimasi aset dan Lazy Loading, kemudian di-deploy melalui otomatisasi Vercel agar memastikan performa website yang cepat dan SEO-friendly.",
   },
   {
-  title: "Gading New Town Dashboard",
-  description:
-    "Sistem informasi manajemen perumahan berbasis web untuk memudahkan interaksi antara Pengurus RT dan Warga dalam mengelola data warga, pembayaran IPL bulanan, pengaduan, hingga perizinan.",
-  tags: ["React", "NestJS", "PostgreSQL", "Prisma"],
-  year: "2024",
-  link: "https://github.com/Adik-soleh/Gading_New_Town",
-  cover: images.projects.dashboard,
-  problem: "Proses administrasi tingkat RT yang masih manual, yang seringkali menyulitkan pelacakan pembayaran bukti IPL yang valid, penanganan keluhan warga, serta pendataan mutasi warga.",
-  uiSolution: "Membangun antarmuka dashboard Single Page Application (SPA) yang responsif menggunakan React (Vite) dan Tailwind CSS, dengan pemisahan tampilan spesifik antara hak akses pengurus RT dan warga.",
-  systemSolution: "Menerapkan arsitektur decoupled menggunakan framework NestJS dan database PostgreSQL dengan Prisma ORM, serta menerapkan Role-Based Access Control (RBAC) dan keamanan Better-Auth.",
-}
+    title: "Gading New Town Dashboard",
+    description:
+      "Sistem informasi manajemen perumahan berbasis web untuk memudahkan interaksi antara Pengurus RT dan Warga dalam mengelola data warga, pembayaran IPL bulanan, pengaduan, hingga perizinan.",
+    tags: ["React", "NestJS", "PostgreSQL", "Prisma"],
+    year: "2024",
+    link: "https://github.com/Adik-soleh/Gading_New_Town",
+    cover: images.projects.dashboard,
+    problem: "Proses administrasi tingkat RT yang masih manual, yang seringkali menyulitkan pelacakan pembayaran bukti IPL yang valid, penanganan keluhan warga, serta pendataan mutasi warga.",
+    uiSolution: "Membangun antarmuka dashboard Single Page Application (SPA) yang responsif menggunakan React (Vite) dan Tailwind CSS, dengan pemisahan tampilan spesifik antara hak akses pengurus RT dan warga.",
+    systemSolution: "Menerapkan arsitektur decoupled menggunakan framework NestJS dan database PostgreSQL dengan Prisma ORM, serta menerapkan Role-Based Access Control (RBAC) dan keamanan Better-Auth.",
+  }
 ];
 
 export const experiences: Experience[] = [

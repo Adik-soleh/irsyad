@@ -59,9 +59,9 @@ export function ContactSection() {
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="rounded-[32px] border border-slate-200 dark:border-white/10 bg-white dark:bg-black/40 p-8 sm:p-10 shadow-xl backdrop-blur"
+          className="flex flex-col min-w-0 rounded-[32px] border border-slate-200 dark:border-white/10 bg-white dark:bg-black/40 p-6 sm:p-10 shadow-xl backdrop-blur max-w-full"
         >
-          <div className="mb-8">
+          <div className="mb-8 overflow-hidden break-words">
             <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Kirim Pesan</h3>
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Saya akan merespon dalam 1x24 jam dengan feedback dan estimasi kasaran.
@@ -110,7 +110,7 @@ export function ContactSection() {
               />
             </div>
 
-            <div className="pt-2 flex items-center gap-4">
+            <div className="pt-2 flex flex-wrap items-center gap-4">
               <button
                 type="submit"
                 disabled={status === "loading" || status === "success"}
@@ -186,14 +186,14 @@ export function ContactSection() {
                 <Code2 size={20} className="text-slate-900 dark:text-white shrink-0 mt-0.5" />
                 <div>
                   <strong className="block text-slate-900 dark:text-white font-medium">Stack Utama</strong>
-                  <span className="text-sm text-slate-600 dark:text-slate-400">Next.js · Node.js · PostgreSQL</span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">React · Vue · Next.js · NestJS · Node.js · PostgreSQL · MySQL</span>
                 </div>
               </li>
               <li className="flex items-start gap-3">
                 <Server size={20} className="text-slate-900 dark:text-white shrink-0 mt-0.5" />
                 <div>
-                  <strong className="block text-slate-900 dark:text-white font-medium">Infrastruktur</strong>
-                  <span className="text-sm text-slate-600 dark:text-slate-400">Deploy di Vercel / Fly.io, CI/CD GitHub Actions. Ready untuk kolaborasi.</span>
+                  <strong className="block text-slate-900 dark:text-white font-medium">Infrastruktur & DevOps</strong>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">Docker · Kubernetes · AWS / GCP · CI/CD Automated Pipelines. Arsitektur scalable siap production.</span>
                 </div>
               </li>
             </ul>

@@ -20,7 +20,7 @@ import {
 
 export function LandingTemplate() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-x-clip">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 pb-16 pt-4 sm:gap-16 sm:px-6 sm:pb-24 sm:pt-6 lg:gap-24 lg:px-8">
         <NavigationBar items={navItems} socialLinks={socialLinks} />
 
