@@ -9,6 +9,7 @@ import {
   Stat,
   Tool,
 } from "@/types/content";
+import { images } from "@/constants/images";
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "#home" },
@@ -83,9 +84,8 @@ export const projects: Project[] = [
       "Membangun dan memelihara sistem kepegawaian digital berskala nasional memakai NestJS, Vue.js, Docker, dan Redis untuk caching data pegawai.",
     tags: ["NestJS", "Vue.js", "Docker", "Redis"],
     year: "2025",
-    link: "https://ehrm.pu.go.id/dev/authentication/signin/form",
-    cover:
-      "https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=1200&q=80",
+    link: "https://ehrm.abhipraya.co/authentication/signin/cover",
+    cover: images.projects.pupr,
     problem: "Sistem kepegawaian manual, data tersebar di banyak spreadsheet yang menyebabkan inkonsistensi dan lambatnya proses audit internal.",
     uiSolution: "Membangun Vue.js micro-frontend yang responsif dan sangat dioptimasi untuk admin dashboard dengan complex data grids yang intuitif.",
     systemSolution: "Merancang NestJS REST API dengan Docker container dan Redis caching, yang mampu menurunkan query latency hingga 75% saat load tinggi.",
@@ -97,8 +97,7 @@ export const projects: Project[] = [
     tags: ["React", "Express", "PostgreSQL"],
     year: "2024",
     link: "https://lakoe-frontend-beta.vercel.app/",
-    cover:
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80",
+    cover: images.projects.lakoe,
     problem: "Banyak UMKM kesulitan menerima sistem pembayaran digital dan melakukan tracking pengiriman otomatis lewat logistik lokal.",
     uiSolution: "Checkout flow instan dari sisi klien dengan state management berbasis Redux, mengurangi cart abandon rate.",
     systemSolution: "Implementasi Express backend webhook untuk mendengar callback sukses dari Midtrans, lalu memanggil Biteship untuk mencetak resi.",
@@ -110,8 +109,7 @@ export const projects: Project[] = [
     tags: ["React", "Express", "Chakra UI"],
     year: "2024",
     link: "https://cirle-app-type-script.vercel.app/",
-    cover:
-      "https://images.unsplash.com/photo-1494173853739-c21f58b16055?auto=format&fit=crop&w=1200&q=80",
+    cover: images.projects.circleApp,
     problem: "Forum komunitas konvensional kurang engaging karena membutuhkan refresh manual untuk melihat komentar/balasan baru.",
     uiSolution: "Tampilan timeline endless-scroll layaknya X/Twitter yang memfokuskan user pada konten secara instan dengan Dark Mode default.",
     systemSolution: "Integrasi Socket.IO namespace pada Express API + Prisma untuk siaran notifikasi komentar baru ke klien secara real-time.",
@@ -123,8 +121,7 @@ export const projects: Project[] = [
     tags: ["Laravel", "Filament", "MySQL"],
     year: "2023",
     link: "https://github.com/Adik-soleh/SkyBook-App",
-    cover:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80",
+    cover: images.projects.airlane,
     problem: "Tingginya kesalahan input jadwal maskapai saat dilakukan secara manual atau tanpa validasi form yang kuat dari sisi panel.",
     uiSolution: "Menggunakan Laravel Filament untuk menghasilkan form TALL Stack (Tailwind, Alpine, Livewire) yang dinamis, auto-validasi, dan mudah dipahami staf.",
     systemSolution: "Membatasi endpoint API dengan middleware Sanctum JWT Auth. Penanganan role-base access (Admin vs Agen).",

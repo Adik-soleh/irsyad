@@ -15,7 +15,7 @@ export type Project = {
   tags: string[];
   year: string;
   link: string;
-  cover: string;
+  cover: any;
   problem?: string;
   uiSolution?: string;
   systemSolution?: string;
