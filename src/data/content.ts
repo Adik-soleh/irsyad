@@ -126,6 +126,18 @@ export const projects: Project[] = [
     uiSolution: "Menggunakan Laravel Filament untuk menghasilkan form TALL Stack (Tailwind, Alpine, Livewire) yang dinamis, auto-validasi, dan mudah dipahami staf.",
     systemSolution: "Membatasi endpoint API dengan middleware Sanctum JWT Auth. Penanganan role-base access (Admin vs Agen).",
   },
+  {
+    title: "Notion Mini",
+    description:
+      "Platform workspace dan manajemen catatan terstruktur bergaya Notion untuk pengelolaan blok konten secara dinamis dan real-time.",
+    tags: ["Vue.js", "Express.js", "Prisma", "Tailwind CSS", "PostgreSQL"],
+    year: "2024",
+    link: "https://notion-mini.vercel.app",
+    cover: images.projects.notion,
+    problem: "Aplikasi pencatatan konvensional yang terlalu hierarkis dan statis, sehingga membatasi fleksibilitas penambahan berbagai media (teks, kode, gambar, checklist) secara seragam.",
+    uiSolution: "Membangun antarmuka SPA interaktif menggunakan Vue.js dan Tiptap editor dengan fitur drag-and-drop, memberikan pengalaman memformat catatan yang seamless bagi user.",
+    systemSolution: "Merancang REST API terukur dengan arsitektur penyimpanan otomatis berbasis block (node-tree) menggunakan Node.js/Express, Prisma ORM, dan Vercel Serverless Functions.",
+  },
 ];
 
 export const experiences: Experience[] = [
