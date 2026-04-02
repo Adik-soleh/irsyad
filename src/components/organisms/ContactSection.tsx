@@ -166,7 +166,7 @@ export function ContactSection() {
                 </div>
               </a>
 
-              <a href="https://wa.me/62895360103563" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors group">
+              <a href="https://wa.me/62895360103563?text=Halo%20Mas%20Adik%2C%20saya%20tertarik%20untuk%20diskusi%20mengenai%20project%20%2F%20penawaran%20kerja%20sama%20nih." target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-700 dark:text-slate-300 hover:text-black dark:hover:text-white transition-colors group">
                 <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-200/50 dark:bg-white/5 group-hover:bg-slate-200 dark:group-hover:bg-white/10 transition-colors">
                   <Image src="/wa.svg" alt="WhatsApp" width={20} height={20} className="dark:invert object-contain opacity-70 group-hover:opacity-100 transition-opacity" />
                 </div>

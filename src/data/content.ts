@@ -22,7 +22,7 @@ export const navItems: NavItem[] = [
 
 export const socialLinks: SocialLink[] = [
   { label: "Email", href: "mailto:adiksoleh4@gmail.com" },
-  { label: "WhatsApp", href: "https://wa.me/62895360103563" },
+  { label: "WhatsApp", href: "https://wa.me/62895360103563?text=Halo%20Mas%20Adik%2C%20saya%20tertarik%20untuk%20diskusi%20mengenai%20project%20%2F%20penawaran%20kerja%20sama%20nih." },
   { label: "LinkedIn", href: "https://linkedin.com/in/adik-soleh" },
   { label: "GitHub", href: "https://github.com/adik-soleh" },
 ];
@@ -43,7 +43,7 @@ export const heroContent: HeroContent = {
   photo: "/me_photo.jpeg",
   primaryCta: {
     label: "Hubungi via WhatsApp",
-    href: "https://wa.me/62895360103563",
+    href: "https://wa.me/62895360103563?text=Halo%20Mas%20Adik%2C%20saya%20tertarik%20untuk%20diskusi%20mengenai%20project%20%2F%20penawaran%20kerja%20sama%20nih.",
   },
   secondaryCta: {
     label: "Kirim email",
