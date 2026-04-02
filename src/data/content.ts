@@ -193,6 +193,20 @@ export const experiences: Experience[] = [
 
 export const newsEntries: NewsEntry[] = [
   {
+    slug: "ai-driven-development",
+    title: "Evolusi Workflow: Integrasi AI Agent dalam Fullstack Development",
+    excerpt:
+      "Bagaimana pemanfaatan AI seperti Cursor, Copilot, dan Agentic Workflow mengubah total kecepatan shipping produk digital ke production.",
+    content: [
+      "Beberapa bulan terakhir, peran Artificial Intelligence di ranah software engineering bergeser sangat masif. AI tak lagi sebatas menebak sintaks auto-complete, melainkan sudah berevolusi menjadi partner pair-programming (AI Agent) yang cerdas.",
+      "Dalam eksperimen di beberapa project freelance, saya memasukkan pendekatan 'AI-Driven Development' menggunakan berbagai tools mutakhir. Mulai dari boilerplating backend NestJS yang lebih efisien, deteksi bug lintas file yang jauh lebih akurat, sampai refactoring legacy code jadi code yang lebih clean dan scalable.",
+      "Peran developer mulai bergeser dari sekadar 'mengetik kode' ke arah 'system designer/director'. Kemampuan memberi prompting dan review logic yang solid justru menjadi jauh lebih krusial. Kombinasi insting kita sebagai engineer ditambah kecepatan asisten AI menghasilkan delivery time luar biasa yang hemat hingga 40%."
+    ],
+    date: "02 Apr 2026",
+    category: "Tech & Opinion",
+    readingTime: "3 menit",
+  },
+  {
     slug: "ehrm-docker-rollout",
     title: "Docker rollout untuk E-HRM PUPR",
     excerpt:
