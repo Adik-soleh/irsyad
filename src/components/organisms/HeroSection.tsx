@@ -53,7 +53,10 @@ export function HeroSection({ content, socialLinks }: Props) {
             <div>
               <h1 className="text-4xl font-bold leading-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
                 <span className="text-slate-900 dark:text-white">{content.name}</span>
-                <br className="hidden sm:block" /> — {content.tagline}
+                <br className="hidden sm:block" />
+                <span className="text-slate-500 dark:text-slate-400">
+                  {content.tagline}
+                </span>
               </h1>
               <p className="mt-6 text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
                 "Membangun Pengalaman Web yang Mulus dan Sistem yang Tangguh"
