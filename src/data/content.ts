@@ -193,6 +193,21 @@ export const experiences: Experience[] = [
 
 export const newsEntries: NewsEntry[] = [
   {
+    "slug": "web3-beyond-crypto-infrastructure",
+    "title": "Web3 Bukan Sekadar Crypto: Membangun Infrastruktur Aplikasi Terdesentralisasi",
+    "excerpt": "Web3 berkembang jauh melampaui cryptocurrency, dengan fokus pada desentralisasi data, identitas digital, dan arsitektur aplikasi tanpa otoritas tunggal.",
+    "content": [
+      "Selama ini, Web3 seringkali diasosiasikan hanya dengan cryptocurrency dan trading aset digital. Padahal, esensi utama dari Web3 adalah desentralisasi, yaitu menghilangkan ketergantungan pada satu entitas pusat dalam mengelola data dan sistem.",
+      "Teknologi seperti blockchain, smart contract, dan decentralized storage memungkinkan developer untuk membangun aplikasi yang transparan, trustless, dan lebih tahan terhadap single point of failure. Contohnya adalah penggunaan IPFS untuk penyimpanan file dan smart contract untuk mengatur logic bisnis secara otomatis tanpa backend tradisional.",
+      "Bagi developer, Web3 menghadirkan paradigma baru dalam membangun aplikasi. Alih-alih menggunakan REST API konvensional, kita berinteraksi langsung dengan blockchain melalui RPC atau SDK tertentu. Hal ini membutuhkan pemahaman tambahan terkait wallet integration, gas fee, serta keamanan smart contract.",
+      "Namun, tantangan terbesar Web3 saat ini bukan hanya dari sisi teknologi, tetapi juga dari sisi user experience. Proses seperti wallet connection, signing transaction, dan handling network seringkali masih terasa kompleks bagi user awam. Di sinilah peran developer sangat krusial untuk menyederhanakan experience tersebut.",
+      "Ke depan, Web3 berpotensi menjadi fondasi bagi berbagai use case seperti digital identity, ownership data, hingga sistem voting yang transparan. Meski adopsinya masih bertahap, developer yang memahami konsep ini sejak awal akan memiliki keunggulan dalam membangun produk generasi berikutnya."
+    ],
+    "date": "06 Apr 2026",
+    "category": "Tech & Opinion",
+    "readingTime": "4 menit"
+  },
+  {
     slug: "ai-driven-development",
     title: "Evolusi Workflow: Integrasi AI Agent dalam Fullstack Development",
     excerpt:
