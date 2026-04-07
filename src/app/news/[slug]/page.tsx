@@ -10,6 +10,8 @@ interface PageProps {
   }>;
 }
 
+const siteUrl = "https://adiportofolio.fun";
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const entry = getNewsEntry(slug);
@@ -21,9 +23,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const pageTitle = `${entry.title} — Adi News`;
+  const pageUrl = `${siteUrl}/news/${entry.slug}`;
+
   return {
-    title: `${entry.title} — Adi News`,
+    title: pageTitle,
     description: entry.excerpt,
+    openGraph: {
+      title: pageTitle,
+      description: entry.excerpt,
+      url: pageUrl,
+      siteName: "Adik Soleh Portfolio",
+      type: "article",
+      locale: "id_ID",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description: entry.excerpt,
+    },
   };
 }
 
