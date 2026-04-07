@@ -193,6 +193,22 @@ export const experiences: Experience[] = [
 
 export const newsEntries: NewsEntry[] = [
   {
+    "slug": "modern-framework-2026-meta-framework-era",
+    "title": "Framework 2026: Era Meta-Framework & Fullstack Tanpa Ribet",
+    "excerpt": "Framework modern kini bukan sekadar tools, tapi jadi ekosistem lengkap yang menggabungkan frontend, backend, hingga deployment dalam satu stack.",
+    "content": [
+      "Di tahun 2026, tren framework berubah cukup drastis. Developer tidak lagi merakit stack dari nol, melainkan menggunakan meta-framework yang sudah menyediakan semuanya: routing, data fetching, API, hingga deployment dalam satu paket.",
+      "Framework seperti Next.js dan Nuxt kini menjadi standar baru dalam pengembangan web modern. Keduanya mendukung hybrid rendering (SSR, SSG, CSR) sekaligus, sehingga developer bisa memilih strategi rendering sesuai kebutuhan tanpa berpindah tools.",
+      "Selain itu, muncul juga framework baru seperti SvelteKit dan Qwik yang fokus pada performa ekstrem. Dengan pendekatan compile-time dan lazy loading granular, aplikasi bisa berjalan lebih ringan dan cepat bahkan di jaringan lambat.",
+      "Di sisi backend, NestJS semakin populer karena arsitekturnya yang modular dan berbasis TypeScript. Hal ini membuat developer bisa membangun sistem scalable dengan struktur yang lebih rapi dan maintainable.",
+      "Tren besar lainnya adalah integrasi edge runtime. Banyak framework kini secara default berjalan di edge (seperti Vercel Edge atau Cloudflare Workers), sehingga latency bisa ditekan dan performa meningkat drastis.",
+      "Kesimpulannya, framework modern bukan lagi sekadar library UI, tapi sudah menjadi 'operating system' untuk web app. Developer cukup fokus ke logic bisnis, sementara kompleksitas infrastruktur ditangani oleh framework."
+    ],
+    "date": "07 Apr 2026",
+    "category": "Tech Stack",
+    "readingTime": "4 menit"
+  },
+  {
     "slug": "web3-beyond-crypto-infrastructure",
     "title": "Web3 Bukan Sekadar Crypto: Membangun Infrastruktur Aplikasi Terdesentralisasi",
     "excerpt": "Web3 berkembang jauh melampaui cryptocurrency, dengan fokus pada desentralisasi data, identitas digital, dan arsitektur aplikasi tanpa otoritas tunggal.",
