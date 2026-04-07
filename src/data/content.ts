@@ -193,45 +193,47 @@ export const experiences: Experience[] = [
 
 export const newsEntries: NewsEntry[] = [
   {
-    "slug": "modern-framework-2026-meta-framework-era",
-    "title": "Framework 2026: Era Meta-Framework & Fullstack Tanpa Ribet",
-    "excerpt": "Framework modern kini bukan sekadar tools, tapi jadi ekosistem lengkap yang menggabungkan frontend, backend, hingga deployment dalam satu stack.",
-    "content": [
-      "Di tahun 2026, tren framework berubah cukup drastis. Developer tidak lagi merakit stack dari nol, melainkan menggunakan meta-framework yang sudah menyediakan semuanya: routing, data fetching, API, hingga deployment dalam satu paket.",
-      "Framework seperti Next.js dan Nuxt kini menjadi standar baru dalam pengembangan web modern. Keduanya mendukung hybrid rendering (SSR, SSG, CSR) sekaligus, sehingga developer bisa memilih strategi rendering sesuai kebutuhan tanpa berpindah tools.",
-      "Selain itu, muncul juga framework baru seperti SvelteKit dan Qwik yang fokus pada performa ekstrem. Dengan pendekatan compile-time dan lazy loading granular, aplikasi bisa berjalan lebih ringan dan cepat bahkan di jaringan lambat.",
-      "Di sisi backend, NestJS semakin populer karena arsitekturnya yang modular dan berbasis TypeScript. Hal ini membuat developer bisa membangun sistem scalable dengan struktur yang lebih rapi dan maintainable.",
-      "Tren besar lainnya adalah integrasi edge runtime. Banyak framework kini secara default berjalan di edge (seperti Vercel Edge atau Cloudflare Workers), sehingga latency bisa ditekan dan performa meningkat drastis.",
-      "Kesimpulannya, framework modern bukan lagi sekadar library UI, tapi sudah menjadi 'operating system' untuk web app. Developer cukup fokus ke logic bisnis, sementara kompleksitas infrastruktur ditangani oleh framework."
+    slug: "modern-framework-2026-meta-framework-era",
+    title: "Framework 2026: Era Meta-Framework, Fullstack Gak Pake Ribet!",
+    excerpt:
+      "Framework jaman sekarang udah bukan cuma tools doang — udah kayak ekosistem lengkap yang nyatuin frontend, backend, sampe deployment dalam satu stack. Gila sih.",
+    content: [
+      "Tahun 2026 ini, dunia framework berubah drastis banget. Developer udah gak perlu lagi rakit stack dari nol. Sekarang tinggal pake meta-framework yang udah nyediain semuanya: routing, data fetching, API, sampe deployment — semua dalam satu paket. Enak banget kan?",
+      "Next.js sama Nuxt sekarang udah jadi standar baru buat bikin web modern. Dua-duanya support hybrid rendering (SSR, SSG, CSR) sekaligus, jadi kita bisa pilih strategi rendering sesuka hati tanpa harus ganti-ganti tools.",
+      "Terus muncul juga framework baru kayak SvelteKit sama Qwik yang fokusnya di performa ekstrem. Pake pendekatan compile-time dan lazy loading granular, aplikasi jadi super ringan dan ngebut bahkan di jaringan yang lemot sekalipun.",
+      "Di sisi backend, NestJS makin nge-hype karena arsitekturnya modular dan full TypeScript. Jadinya developer bisa bangun sistem yang scalable dengan struktur yang rapi dan gampang di-maintain.",
+      "Tren gede lainnya itu edge runtime. Banyak framework sekarang by default jalan di edge (kayak Vercel Edge atau Cloudflare Workers), jadi latency bisa ditekan abis dan performa naik drastis.",
+      "Intinya, framework modern itu udah bukan sekadar library UI lagi — udah jadi semacam 'operating system' buat web app. Kita tinggal fokus ke logic bisnis aja, urusan infra biar framework yang handle. Auto chill."
     ],
-    "date": "07 Apr 2026",
-    "category": "Tech Stack",
-    "readingTime": "4 menit"
+    date: "07 Apr 2026",
+    category: "Tech Stack",
+    readingTime: "4 menit",
   },
   {
-    "slug": "web3-beyond-crypto-infrastructure",
-    "title": "Web3 Bukan Sekadar Crypto: Membangun Infrastruktur Aplikasi Terdesentralisasi",
-    "excerpt": "Web3 berkembang jauh melampaui cryptocurrency, dengan fokus pada desentralisasi data, identitas digital, dan arsitektur aplikasi tanpa otoritas tunggal.",
-    "content": [
-      "Selama ini, Web3 seringkali diasosiasikan hanya dengan cryptocurrency dan trading aset digital. Padahal, esensi utama dari Web3 adalah desentralisasi, yaitu menghilangkan ketergantungan pada satu entitas pusat dalam mengelola data dan sistem.",
-      "Teknologi seperti blockchain, smart contract, dan decentralized storage memungkinkan developer untuk membangun aplikasi yang transparan, trustless, dan lebih tahan terhadap single point of failure. Contohnya adalah penggunaan IPFS untuk penyimpanan file dan smart contract untuk mengatur logic bisnis secara otomatis tanpa backend tradisional.",
-      "Bagi developer, Web3 menghadirkan paradigma baru dalam membangun aplikasi. Alih-alih menggunakan REST API konvensional, kita berinteraksi langsung dengan blockchain melalui RPC atau SDK tertentu. Hal ini membutuhkan pemahaman tambahan terkait wallet integration, gas fee, serta keamanan smart contract.",
-      "Namun, tantangan terbesar Web3 saat ini bukan hanya dari sisi teknologi, tetapi juga dari sisi user experience. Proses seperti wallet connection, signing transaction, dan handling network seringkali masih terasa kompleks bagi user awam. Di sinilah peran developer sangat krusial untuk menyederhanakan experience tersebut.",
-      "Ke depan, Web3 berpotensi menjadi fondasi bagi berbagai use case seperti digital identity, ownership data, hingga sistem voting yang transparan. Meski adopsinya masih bertahap, developer yang memahami konsep ini sejak awal akan memiliki keunggulan dalam membangun produk generasi berikutnya."
+    slug: "web3-beyond-crypto-infrastructure",
+    title: "Web3 Itu Bukan Cuma Crypto Doang, Bro",
+    excerpt:
+      "Web3 udah berkembang jauh banget dari sekadar crypto. Sekarang fokusnya ke desentralisasi data, identitas digital, dan arsitektur app tanpa bos tunggal.",
+    content: [
+      "Selama ini Web3 sering banget dikaitinnya cuma sama cryptocurrency dan trading aset digital. Padahal inti dari Web3 itu desentralisasi — ngilangin ketergantungan sama satu pihak yang pegang semua data dan sistem.",
+      "Teknologi kayak blockchain, smart contract, dan decentralized storage bikin developer bisa bangun aplikasi yang transparan, trustless, dan lebih tahan banting dari single point of failure. Contohnya pake IPFS buat nyimpen file dan smart contract buat ngatur logic bisnis otomatis tanpa backend tradisional. Keren sih konsepnya.",
+      "Buat developer, Web3 ini bawa paradigma baru. Kalo biasanya kita pake REST API, di sini kita langsung interaksi sama blockchain lewat RPC atau SDK tertentu. Butuh pemahaman ekstra soal wallet integration, gas fee, dan keamanan smart contract.",
+      "Tapi tantangan paling gede Web3 sekarang itu bukan di teknologinya — lebih ke user experience-nya. Proses kayak wallet connection, signing transaction, handling network itu masih ribet banget buat user awam. Nah di sinilah peran kita sebagai developer penting banget buat nyederhain semua itu.",
+      "Ke depannya, Web3 punya potensi jadi fondasi buat banyak hal — digital identity, ownership data, sampe sistem voting yang transparan. Emang adopsinya masih pelan-pelan, tapi developer yang udah paham dari sekarang bakal punya advantage gede buat bikin produk generasi selanjutnya."
     ],
-    "date": "06 Apr 2026",
-    "category": "Tech & Opinion",
-    "readingTime": "4 menit"
+    date: "06 Apr 2026",
+    category: "Tech & Opinion",
+    readingTime: "4 menit",
   },
   {
     slug: "ai-driven-development",
-    title: "Evolusi Workflow: Integrasi AI Agent dalam Fullstack Development",
+    title: "AI Sekarang Jadi Temen Ngoding, Bukan Cuma Auto-Complete",
     excerpt:
-      "Bagaimana pemanfaatan AI seperti Cursor, Copilot, dan Agentic Workflow mengubah total kecepatan shipping produk digital ke production.",
+      "Gimana AI kayak Cursor, Copilot, dan Agentic Workflow literally ngubah kecepatan shipping produk ke production. Spoiler: hemat waktu gila-gilaan.",
     content: [
-      "Beberapa bulan terakhir, peran Artificial Intelligence di ranah software engineering bergeser sangat masif. AI tak lagi sebatas menebak sintaks auto-complete, melainkan sudah berevolusi menjadi partner pair-programming (AI Agent) yang cerdas.",
-      "Dalam eksperimen di beberapa project freelance, saya memasukkan pendekatan 'AI-Driven Development' menggunakan berbagai tools mutakhir. Mulai dari boilerplating backend NestJS yang lebih efisien, deteksi bug lintas file yang jauh lebih akurat, sampai refactoring legacy code jadi code yang lebih clean dan scalable.",
-      "Peran developer mulai bergeser dari sekadar 'mengetik kode' ke arah 'system designer/director'. Kemampuan memberi prompting dan review logic yang solid justru menjadi jauh lebih krusial. Kombinasi insting kita sebagai engineer ditambah kecepatan asisten AI menghasilkan delivery time luar biasa yang hemat hingga 40%."
+      "Beberapa bulan terakhir ini, peran AI di dunia software engineering bergeser masif banget. AI udah bukan sekadar nebak-nebak sintaks auto-complete lagi — sekarang udah jadi partner pair-programming alias AI Agent yang beneran pinter.",
+      "Di beberapa project freelance, gue coba masukin pendekatan 'AI-Driven Development' pake berbagai tools canggih. Mulai dari boilerplating backend NestJS yang jauh lebih cepet, deteksi bug lintas file yang akurasinya ngeri, sampe refactoring legacy code jadi lebih clean dan scalable. Literally game changer.",
+      "Peran developer sekarang mulai bergeser dari 'ngetik kode' ke arah 'system designer/director'. Skill prompting dan review logic yang solid justru jadi jauh lebih penting. Kombinasi insting kita sebagai engineer plus kecepatan AI bikin delivery time bisa hemat sampe 40%. Gokil sih."
     ],
     date: "02 Apr 2026",
     category: "Tech & Opinion",
@@ -239,13 +241,13 @@ export const newsEntries: NewsEntry[] = [
   },
   {
     slug: "ehrm-docker-rollout",
-    title: "Docker rollout untuk E-HRM PUPR",
+    title: "Akhirnya E-HRM PUPR Naik Docker, Auto Stabil!",
     excerpt:
-      "Memaketkan service NestJS dan Vue ke Docker + Redis sehingga dashboard pegawai kementerian lebih stabil.",
+      "Service NestJS sama Vue udah di-wrap ke Docker + Redis. Dashboard pegawai kementerian jadi jauh lebih stabil dan gak drama lagi pas deploy.",
     content: [
-      "Minggu ini kami men-deploy versi containerized dari E-HRM. NestJS API, worker queue, dan front-end Vue kini berjalan di cluster Docker yang sama sehingga proses rilis jauh lebih terprediksi.",
-      "Redis dipakai untuk caching data pegawai yang sering diakses. Latency pencarian turun dari 1.2 detik menjadi 320 ms, cukup signifikan untuk pengguna internal yang membuka ratusan record per jam.",
-      "Selanjutnya saya sedang menyusun playbook scaling agar tim infra PUPR bisa mengambil alih ketika traffic memuncak saat periode audit tahunan.",
+      "Minggu ini kita berhasil deploy versi containerized dari E-HRM. NestJS API, worker queue, sama front-end Vue sekarang jalan di cluster Docker yang sama — proses rilis jadi jauh lebih predictable dan gak bikin deg-degan lagi.",
+      "Redis dipake buat caching data pegawai yang sering diakses. Latency pencarian turun dari 1.2 detik jadi 320 ms — lumayan signifikan buat pengguna internal yang buka ratusan record per jam. Mereka happy, kita juga happy.",
+      "Sekarang lagi nyusun playbook scaling biar tim infra PUPR bisa handle sendiri kalo traffic lagi peak pas periode audit tahunan. Biar gak harus standby 24/7 terus haha."
     ],
     date: "18 Nov 2024",
     category: "Build log",
@@ -253,13 +255,13 @@ export const newsEntries: NewsEntry[] = [
   },
   {
     slug: "lakoe-midtrans-checkout",
-    title: "Lakoe Store resmi terima Midtrans",
+    title: "Lakoe Store Akhirnya Bisa Terima Pembayaran Beneran!",
     excerpt:
-      "Integrasi Midtrans dan Biteship selesai sehingga checkout React + Express berjalan end-to-end.",
+      "Integrasi Midtrans sama Biteship kelar — checkout di React + Express udah jalan end-to-end. Gak pake dummy lagi!",
     content: [
-      "Lakoe Store awalnya hanya mendukung pembayaran dummy. Setelah menambahkan Midtrans Snap API, order bisa langsung diverifikasi lewat webhook Express.",
-      "Saya memasangkan Prisma untuk merekam status pembayaran per transaksi serta sinkron Biteship agar label pengiriman otomatis muncul di dashboard admin.",
-      "Testing regresi dilakukan lewat Vitest + Thunder Client collection sehingga setiap rilis tetap aman walau tim kecil.",
+      "Lakoe Store awalnya cuma support pembayaran dummy doang. Setelah nambahin Midtrans Snap API, order sekarang bisa langsung diverifikasi lewat webhook Express. Finally, pembayaran beneran!",
+      "Gue pasangin juga Prisma buat nge-record status pembayaran per transaksi, plus sinkron sama Biteship biar label pengiriman otomatis muncul di dashboard admin. Satu flow, semua ke-handle.",
+      "Testing regresi pake Vitest + Thunder Client collection, jadi setiap rilis tetap aman walaupun timnya kecil. Quality tetap nomor satu lah."
     ],
     date: "05 Nov 2024",
     category: "Release",
@@ -267,13 +269,13 @@ export const newsEntries: NewsEntry[] = [
   },
   {
     slug: "circle-realtime-update",
-    title: "Realtime comment di Circle App",
+    title: "Circle App Sekarang Bisa Komentar Realtime, Cuy!",
     excerpt:
-      "Menambahkan channel komentar hidup menggunakan Socket.IO agar komunitas mini terasa responsif.",
+      "Nambahin channel komentar live pake Socket.IO biar komunitas mini-nya kerasa lebih hidup dan responsif.",
     content: [
-      "Circle App kini mendukung komentar real-time. Socket.IO berjalan di Express server dan memanfaatkan namespace berbeda untuk feed publik.",
-      "Untuk menjaga keamanan, setiap koneksi divalidasi JWT yang dikeluarkan API, sementara payload disimpan di PostgreSQL lewat Prisma agar tetap konsisten.",
-      "Hasilnya, durasi percakapan di cohort privat meningkat karena setiap notifikasi datang detik itu juga, bukan lagi pooling 30 detik.",
+      "Circle App sekarang udah support komentar real-time! Socket.IO jalan di Express server dan pake namespace berbeda buat feed publik. Jadi semua komentar langsung muncul tanpa harus refresh.",
+      "Buat keamanan, setiap koneksi di-validasi pake JWT yang dikeluarin API. Payload-nya disimpen di PostgreSQL lewat Prisma biar data tetep konsisten. Aman terkendali.",
+      "Hasilnya? Durasi percakapan di cohort privat naik karena notifikasi dateng detik itu juga — bukan lagi polling tiap 30 detik. User-nya langsung kerasa bedanya, mantap."
     ],
     date: "24 Okt 2024",
     category: "Feature",
@@ -281,13 +283,13 @@ export const newsEntries: NewsEntry[] = [
   },
   {
     slug: "skybook-filament-handover",
-    title: "SkyBook Admin siap di-handover",
+    title: "SkyBook Admin Siap Diserahin ke Tim Ops!",
     excerpt:
-      "Melengkapi CMS Laravel + Filament dengan dokumentasi deployment agar tim ops bisa lanjut mandiri.",
+      "CMS Laravel + Filament udah dilengkapin dokumentasi deployment biar tim ops bisa jalan sendiri tanpa harus nanya-nanya lagi.",
     content: [
-      "SkyBook Admin kini memiliki modul pelacakan booking baru. Filament memudahkan pembuatan form dinamis untuk jadwal penerbangan.",
-      "Saya menambahkan Sanctum guard khusus admin sehingga akses antar peran bisa dipisah tanpa menulis ulang middleware.",
-      "Dokumentasi deployment di XAMPP + MySQL selesai, termasuk skrip seed agar tim ops dapat mengisi data awal hanya dengan sekali jalan.",
+      "SkyBook Admin sekarang punya modul pelacakan booking baru. Filament bikin pembuatan form dinamis buat jadwal penerbangan jadi gampang banget — drag, config, done.",
+      "Gue tambahin juga Sanctum guard khusus admin biar akses antar role bisa dipisah tanpa harus nulis ulang middleware. Clean dan efisien.",
+      "Dokumentasi deployment di XAMPP + MySQL udah beres, termasuk skrip seed biar tim ops bisa isi data awal cukup satu kali jalan. Tinggal serahin, auto jalan. Bye-bye hand-holding!"
     ],
     date: "10 Okt 2024",
     category: "Ops note",
