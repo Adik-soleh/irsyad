@@ -6,6 +6,7 @@ import { NewsShowcase } from "@/components/organisms/NewsShowcase";
 import { ContactSection } from "@/components/organisms/ContactSection";
 import { Footer } from "@/components/organisms/Footer";
 import { AboutTechStack } from "@/components/organisms/AboutTechStack";
+import { LiveChat } from "@/components/organisms/LiveChat";
 import {
   experiences,
   heroContent,
@@ -42,6 +43,7 @@ export function LandingTemplate() {
 
         <Footer />
       </div>
+      <LiveChat />
     </div>
   );
 }
