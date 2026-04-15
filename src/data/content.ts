@@ -308,6 +308,20 @@ export const newsEntries: NewsEntry[] = [
     category: "Ops note",
     readingTime: "4 menit",
   },
+  {
+    slug: "absen-app-barcode-feature",
+    title: "Implementasi Multi-Tenant & Barcode-Based Attendance System",
+    excerpt:
+      "Absensi berbasis barcode dengan arsitektur multi-tenant, optimized schema, dan siap production di environment scalable.",
+    content: [
+      "Arsitektur multi-tenant sudah fully implemented menggunakan pendekatan shared database dengan isolasi berbasis sekolahId. Setiap query ter-scoped secara ketat untuk memastikan data antar tenant tidak tercampur, dengan kontrol akses di level backend.",
+      "Fitur barcode scanning di-handle secara real-time untuk proses check-in dan check-out. Sistem menerima input dari scanner (kamera/device), memvalidasi identitas siswa, lalu langsung menulis data ke database tanpa proses manual.",
+      "Database menggunakan PostgreSQL dengan ORM Prisma, dilengkapi constraint unik pada kombinasi (siswaId, tanggal) untuk mencegah duplikasi absensi. Deployment menggunakan Supabase dengan connection pooling untuk menjaga performa saat concurrent request tinggi.",
+    ],
+    date: "15 Apr 2026",
+    category: "Dev Update",
+    readingTime: "5 menit",
+  }
 ];
 
 export function getNewsEntry(slug: string) {
