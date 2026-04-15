@@ -167,7 +167,7 @@ export const projects: Project[] = [
     description:
       "Platform manajemen absensi digital berbasis web dengan arsitektur multi-tenant, QR Code scanner, dan Role-Based Access Control (RBAC) untuk efisiensi pengelolaan kehadiran di berbagai sekolah.",
     tags: ["React", "NestJS", "PostgreSQL", "Prisma"],
-    year: "2024",
+    year: "2026",
     link: "https://absensi-app-xeoc.vercel.app",
     cover: images.projects.absensi,
     problem: "Pencatatan kehadiran manual yang tidak efisien, sulitnya monitoring data secara real-time, serta kebutuhan akan sistem yang mampu mengelola banyak sekolah dalam satu platform dengan data yang terisolasi.",
