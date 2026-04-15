@@ -168,7 +168,7 @@ export const projects: Project[] = [
       "Platform manajemen absensi digital berbasis web dengan arsitektur multi-tenant, QR Code scanner, dan Role-Based Access Control (RBAC) untuk efisiensi pengelolaan kehadiran di berbagai sekolah.",
     tags: ["React", "NestJS", "PostgreSQL", "Prisma"],
     year: "2024",
-    link: "https://github.com/Adik-soleh/absensi_app",
+    link: "https://absensi-app-xeoc.vercel.app",
     cover: images.projects.absensi,
     problem: "Pencatatan kehadiran manual yang tidak efisien, sulitnya monitoring data secara real-time, serta kebutuhan akan sistem yang mampu mengelola banyak sekolah dalam satu platform dengan data yang terisolasi.",
     uiSolution: "Membangun dashboard Single Page Application (SPA) yang responsif menggunakan React (Vite) dan Tailwind CSS, menghadirkan fitur QR Code Scanner untuk presensi instan serta visualisasi statistik kehadiran yang informatif.",
