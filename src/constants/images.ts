@@ -5,6 +5,7 @@ import airlane from "@/assets/projects/airLane.png";
 import notion from "@/assets/projects/notion.png";
 import compro from "@/assets/projects/compro.png";
 import dashboard from "@/assets/projects/dashboard.png";
+import absensi from "@/assets/projects/absensi.png"
 
 export const images = {
   projects: {
@@ -15,5 +16,6 @@ export const images = {
     notion: notion,
     compro: compro,
     dashboard: dashboard,
+    absensi
   },
 };

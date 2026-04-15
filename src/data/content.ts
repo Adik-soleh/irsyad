@@ -161,7 +161,20 @@ export const projects: Project[] = [
     problem: "Proses administrasi tingkat RT yang masih manual, yang seringkali menyulitkan pelacakan pembayaran bukti IPL yang valid, penanganan keluhan warga, serta pendataan mutasi warga.",
     uiSolution: "Membangun antarmuka dashboard Single Page Application (SPA) yang responsif menggunakan React (Vite) dan Tailwind CSS, dengan pemisahan tampilan spesifik antara hak akses pengurus RT dan warga.",
     systemSolution: "Menerapkan arsitektur decoupled menggunakan framework NestJS dan database PostgreSQL dengan Prisma ORM, serta menerapkan Role-Based Access Control (RBAC) dan keamanan Better-Auth.",
+  },
+  {
+    title: "Sistem Absensi Sekolah Dashboard",
+    description:
+      "Platform manajemen absensi digital berbasis web dengan arsitektur multi-tenant, QR Code scanner, dan Role-Based Access Control (RBAC) untuk efisiensi pengelolaan kehadiran di berbagai sekolah.",
+    tags: ["React", "NestJS", "PostgreSQL", "Prisma"],
+    year: "2024",
+    link: "https://github.com/Adik-soleh/absensi_app",
+    cover: images.projects.absensi,
+    problem: "Pencatatan kehadiran manual yang tidak efisien, sulitnya monitoring data secara real-time, serta kebutuhan akan sistem yang mampu mengelola banyak sekolah dalam satu platform dengan data yang terisolasi.",
+    uiSolution: "Membangun dashboard Single Page Application (SPA) yang responsif menggunakan React (Vite) dan Tailwind CSS, menghadirkan fitur QR Code Scanner untuk presensi instan serta visualisasi statistik kehadiran yang informatif.",
+    systemSolution: "Mengimplementasikan arsitektur Multi-Tenant dengan framework NestJS dan Prisma ORM pada database PostgreSQL, yang memastikan isolasi data antar sekolah serta keamanan akses menggunakan sistem autentikasi JWT.",
   }
+
 ];
 
 export const experiences: Experience[] = [
