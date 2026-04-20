@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
+import InitialLoader from "@/components/molecules/InitialLoader";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -164,6 +165,7 @@ export default function RootLayout({
   return (
     <html lang="id" className="dark">
       <body className={`${inter.variable} font-sans antialiased`}>
+        <InitialLoader />
         <ThemeProvider>{children}</ThemeProvider>
         <script
           type="application/ld+json"
