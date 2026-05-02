@@ -1,132 +1,143 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { io, Socket } from 'socket.io-client';
 
 export type Message = {
   id: string;
+  role: 'user' | 'assistant';
   content: string;
-  senderRole: 'guest' | 'admin';
-  senderName: string;
   createdAt: string;
 };
 
+type HistoryItem = { role: 'user' | 'assistant'; content: string };
+
+const STORAGE_KEY = 'chat_history';
+
 export function useChat() {
   const [socket, setSocket] = useState<Socket | null>(null);
-  const [sessionId, setSessionId] = useState<string | null>(null);
   const [messages, setMessages] = useState<Message[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
+  const guestNameRef = useRef<string | undefined>(undefined);
 
   useEffect(() => {
-    // Determine the socket URL. For local dev, use the backend port.
-    // In production, you would point to the deployed Render backend URL.
-    const url = process.env.NEXT_PUBLIC_CHAT_SERVER_URL;
+    const base = process.env.NEXT_PUBLIC_CHAT_SERVER_URL;
+    if (!base) return;
+    const url = base.endsWith('/chat') ? base : `${base}/chat`;
     const newSocket = io(url, {
       autoConnect: false,
       withCredentials: true,
     });
-
     setSocket(newSocket);
-
     return () => {
       newSocket.disconnect();
     };
   }, []);
 
   useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) setMessages(JSON.parse(raw));
+    } catch {}
+  }, []);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+    } catch {}
+  }, [messages]);
+
+  useEffect(() => {
     if (!socket) return;
 
-    socket.on('connect', () => {
-      setIsConnected(true);
-    });
+    const onConnect = () => setIsConnected(true);
+    const onDisconnect = () => setIsConnected(false);
+    const onTyping = (data: { typing: boolean }) => setIsTyping(data.typing);
+    const onReply = (data: { content: string }) => {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: crypto.randomUUID(),
+          role: 'assistant',
+          content: data.content,
+          createdAt: new Date().toISOString(),
+        },
+      ]);
+    };
+    const onError = (data: { message: string }) => {
+      console.error('Chat error:', data.message);
+    };
 
-    socket.on('disconnect', () => {
-      setIsConnected(false);
-    });
-
-    socket.on('guest:joined', (data) => {
-      setSessionId(data.sessionId);
-      if (data.messages) {
-        setMessages(data.messages);
-      }
-    });
-
-    socket.on('new:message', (data) => {
-      setMessages((prev) => [...prev, data.message]);
-    });
-
-    socket.on('admin:typing', (data) => {
-      setIsTyping(data.isTyping);
-    });
-
-    socket.on('session:closed', () => {
-      setSessionId(null);
-      setMessages([]);
-      localStorage.removeItem('chat_session_id');
-      socket.disconnect();
-    });
+    socket.on('connect', onConnect);
+    socket.on('disconnect', onDisconnect);
+    socket.on('chat:typing', onTyping);
+    socket.on('chat:reply', onReply);
+    socket.on('chat:error', onError);
 
     return () => {
-      socket.off('connect');
-      socket.off('disconnect');
-      socket.off('guest:joined');
-      socket.off('new:message');
-      socket.off('admin:typing');
-      socket.off('session:closed');
+      socket.off('connect', onConnect);
+      socket.off('disconnect', onDisconnect);
+      socket.off('chat:typing', onTyping);
+      socket.off('chat:reply', onReply);
+      socket.off('chat:error', onError);
     };
   }, [socket]);
 
-  const connect = useCallback((guestName: string, guestEmail?: string) => {
-    if (!socket) return;
-
-    socket.connect();
-    
-    // Check if there's an existing session in local storage
-    const existingSessionId = localStorage.getItem('chat_session_id');
-
-    socket.emit('guest:join', {
-      guestName,
-      guestEmail,
-      sessionId: existingSessionId,
-    }, (response: any) => {
-      if (response && response.sessionId) {
-        setSessionId(response.sessionId);
-        localStorage.setItem('chat_session_id', response.sessionId);
-      }
-    });
-  }, [socket]);
+  const connect = useCallback(
+    (guestName?: string) => {
+      guestNameRef.current = guestName;
+      if (!socket) return;
+      if (!socket.connected) socket.connect();
+    },
+    [socket],
+  );
 
   const disconnect = useCallback(() => {
-    if (socket) {
-      socket.disconnect();
-    }
+    socket?.disconnect();
   }, [socket]);
 
-  const sendMessage = useCallback((content: string) => {
-    if (!socket || !sessionId) return;
+  const sendMessage = useCallback(
+    (content: string) => {
+      if (!socket || !content.trim()) return;
 
-    socket.emit('guest:message', {
-      sessionId,
-      content,
-    });
-  }, [socket, sessionId]);
+      const userMsg: Message = {
+        id: crypto.randomUUID(),
+        role: 'user',
+        content,
+        createdAt: new Date().toISOString(),
+      };
 
-  const setTypingStatus = useCallback((typing: boolean) => {
-    if (!socket || !sessionId) return;
+      const history: HistoryItem[] = [...messages, userMsg].map((m) => ({
+        role: m.role,
+        content: m.content,
+      }));
 
-    socket.emit('guest:typing', {
-      sessionId,
-      isTyping: typing,
-    });
-  }, [socket, sessionId]);
+      setMessages((prev) => [...prev, userMsg]);
+
+      if (!socket.connected) socket.connect();
+
+      socket.emit('chat:message', {
+        content,
+        history: history.slice(0, -1),
+        guestName: guestNameRef.current,
+      });
+    },
+    [socket, messages],
+  );
+
+  const clearHistory = useCallback(() => {
+    setMessages([]);
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {}
+  }, []);
 
   return {
     isConnected,
-    sessionId,
     messages,
     isTyping,
     connect,
     disconnect,
     sendMessage,
-    setTypingStatus,
+    clearHistory,
   };
 }

@@ -7,10 +7,11 @@ export class MailService {
   private transporter: nodemailer.Transporter;
 
   constructor() {
+    const port = parseInt(process.env.MAIL_PORT || '587');
     this.transporter = nodemailer.createTransport({
       host: process.env.MAIL_HOST || 'smtp.gmail.com',
-      port: parseInt(process.env.MAIL_PORT || '587'),
-      secure: false,
+      port,
+      secure: port === 465,
       auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS,
@@ -61,7 +62,8 @@ export class MailService {
 
       this.logger.log(`Email notification sent for message from ${guestName}`);
     } catch (error) {
-      this.logger.error(`Failed to send email notification: ${error.message}`);
+      const msg = error instanceof Error ? error.message : String(error);
+      this.logger.error(`Failed to send email notification: ${msg}`);
     }
   }
 }
