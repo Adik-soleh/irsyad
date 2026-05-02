@@ -19,7 +19,7 @@ export function useChat() {
   useEffect(() => {
     // Determine the socket URL. For local dev, use the backend port.
     // In production, you would point to the deployed Render backend URL.
-    const url = process.env.NEXT_PUBLIC_CHAT_SERVER_URL || 'http://localhost:3001/chat';
+    const url = process.env.NEXT_PUBLIC_CHAT_SERVER_URL;
     const newSocket = io(url, {
       autoConnect: false,
       withCredentials: true,

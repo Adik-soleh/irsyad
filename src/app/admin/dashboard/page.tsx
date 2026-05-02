@@ -42,7 +42,7 @@ export default function AdminDashboard() {
         const token = localStorage.getItem('admin_token');
         if (!token) return;
 
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
         const headers = { 'Authorization': `Bearer ${token}` };
 
         // Fetch Stats

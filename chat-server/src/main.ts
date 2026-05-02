@@ -6,13 +6,16 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // Enable CORS
-  const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
-  
+  const frontendUrl = process.env.FRONTEND_URL;
+  if (!frontendUrl) {
+    throw new Error('FRONTEND_URL not set');
+  }
+
   app.enableCors({
     origin: (origin, callback) => {
       // Allow if no origin (like mobile apps or curl) or if it matches our frontend URL
-      if (!origin || 
-          origin === frontendUrl || 
+      if (!origin ||
+          origin === frontendUrl ||
           origin.replace(/\/$/, '') === frontendUrl.replace(/\/$/, '')) {
         callback(null, true);
       } else {

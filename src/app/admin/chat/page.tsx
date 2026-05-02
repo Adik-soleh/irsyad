@@ -41,7 +41,7 @@ export default function AdminChatPanel() {
   useEffect(() => {
     if (!token) return;
 
-    const url = process.env.NEXT_PUBLIC_CHAT_SERVER_URL || 'http://localhost:3001/chat';
+    const url = process.env.NEXT_PUBLIC_CHAT_SERVER_URL;
     const newSocket = io(url, {
       withCredentials: true,
     });

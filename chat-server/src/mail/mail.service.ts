@@ -47,7 +47,7 @@ export class MailService {
                 <p style="margin: 0 0 8px; color: #a1a1aa; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Pesan</p>
                 <p style="margin: 0; color: #fafafa; font-size: 14px; line-height: 1.6;">${message}</p>
               </div>
-              <a href="${process.env.FRONTEND_URL || 'http://localhost:3000'}/admin-chat" 
+              <a href="${process.env.FRONTEND_URL}/admin-chat" 
                  style="display: block; text-align: center; background: #3b82f6; color: #fff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: 600; font-size: 14px;">
                 Balas Sekarang →
               </a>

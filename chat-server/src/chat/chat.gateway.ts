@@ -17,7 +17,11 @@ import { MailService } from '../mail/mail.service';
 @WebSocketGateway({
   cors: {
     origin: (origin, callback) => {
-      const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+      const frontendUrl = process.env.FRONTEND_URL;
+      if (!frontendUrl) {
+        callback(new Error('FRONTEND_URL not set'), false);
+        return;
+      }
       if (!origin || origin === frontendUrl || origin.replace(/\/$/, '') === frontendUrl.replace(/\/$/, '')) {
         callback(null, true);
       } else {
