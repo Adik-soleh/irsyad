@@ -6,7 +6,6 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Enable CORS — supports comma-separated list in FRONTEND_URL
   const raw = process.env.FRONTEND_URL;
   if (!raw) {
     throw new Error('FRONTEND_URL not set');
@@ -30,7 +29,6 @@ async function bootstrap() {
     credentials: true,
   });
 
-  // Global validation pipe
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
