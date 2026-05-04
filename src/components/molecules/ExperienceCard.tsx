@@ -13,7 +13,6 @@ export function ExperienceCard({ experience, index }: Props) {
 
   return (
     <div className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group`}>
-      {/* Timeline Dot */}
       <motion.div
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
@@ -22,10 +21,8 @@ export function ExperienceCard({ experience, index }: Props) {
         className="absolute left-[11px] md:left-1/2 w-3.5 h-3.5 rounded-full bg-slate-400 dark:bg-white border-2 border-white dark:border-[#030b17] transform -translate-x-1/2 z-10"
       />
 
-      {/* Empty space for opposite side on MD screens */}
       <div className="hidden md:block w-[calc(50%-2rem)] p-10" />
 
-      {/* Card Content */}
       <motion.div
         initial={{ opacity: 0, x: isEven ? 50 : -50, y: 20 }}
         whileInView={{ opacity: 1, x: 0, y: 0 }}
