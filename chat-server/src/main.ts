@@ -6,24 +6,26 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Enable CORS
-  const frontendUrl = process.env.FRONTEND_URL;
-  if (!frontendUrl) {
+  // Enable CORS — supports comma-separated list in FRONTEND_URL
+  const raw = process.env.FRONTEND_URL;
+  if (!raw) {
     throw new Error('FRONTEND_URL not set');
   }
+  const allowedOrigins = raw
+    .split(',')
+    .map((s) => s.trim().replace(/\/$/, ''))
+    .filter(Boolean);
 
   app.enableCors({
     origin: (origin, callback) => {
-      // Allow if no origin (like mobile apps or curl) or if it matches our frontend URL
-      if (!origin ||
-          origin === frontendUrl ||
-          origin.replace(/\/$/, '') === frontendUrl.replace(/\/$/, '')) {
-        callback(null, true);
-      } else {
-        console.warn(`CORS blocked request from origin: ${origin}`);
-        console.warn(`Allowed origin (FRONTEND_URL): ${frontendUrl}`);
-        callback(null, false); // Block other origins but don't throw error to avoid crashing
+      if (!origin) return callback(null, true);
+      const normalized = origin.replace(/\/$/, '');
+      if (allowedOrigins.includes(normalized)) {
+        return callback(null, true);
       }
+      console.warn(`CORS blocked: ${origin}`);
+      console.warn(`Allowed: ${allowedOrigins.join(', ')}`);
+      return callback(null, false);
     },
     credentials: true,
   });
@@ -37,11 +39,11 @@ async function bootstrap() {
   );
 
   const port = process.env.PORT || 3001;
-  await app.listen(port);
-  
+  await app.listen(port, '0.0.0.0');
+
   console.log('--------------------------------------------------');
   console.log(`🚀 Chat server is active and listening on port ${port}`);
-  console.log(`🌍 Allowing CORS for: ${frontendUrl}`);
+  console.log(`🌍 Allowing CORS for: ${allowedOrigins.join(', ')}`);
   console.log(`📡 WebSocket namespace: /chat`);
   console.log('--------------------------------------------------');
 }

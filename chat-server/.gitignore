@@ -1,7 +1,30 @@
+# dependencies
 node_modules/
+
+# build output
 dist/
 
-# Keep environment variables out of version control
+# environment variables (KRUSIAL - jangan pernah push!)
 .env
+.env.*
 
+# generated
 /generated/prisma
+
+# deployment scripts (pakai CI/CD, bukan manual deploy)
+deploy.sh
+ecosystem.config.js
+
+# IDE & tool configs
+.claude/
+.vscode/
+.idea/
+
+# logs
+logs/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db

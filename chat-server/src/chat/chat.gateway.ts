@@ -15,20 +15,21 @@ import { MailService } from '../mail/mail.service';
 @WebSocketGateway({
   cors: {
     origin: (origin, callback) => {
-      const frontendUrl = process.env.FRONTEND_URL;
-      if (!frontendUrl) {
+      const raw = process.env.FRONTEND_URL;
+      if (!raw) {
         callback(new Error('FRONTEND_URL not set'), false);
         return;
       }
-      if (
-        !origin ||
-        origin === frontendUrl ||
-        origin.replace(/\/$/, '') === frontendUrl.replace(/\/$/, '')
-      ) {
-        callback(null, true);
-      } else {
-        callback(null, false);
+      const allowed = raw
+        .split(',')
+        .map((s) => s.trim().replace(/\/$/, ''))
+        .filter(Boolean);
+      if (!origin) return callback(null, true);
+      const normalized = origin.replace(/\/$/, '');
+      if (allowed.includes(normalized)) {
+        return callback(null, true);
       }
+      return callback(null, false);
     },
     credentials: true,
   },
