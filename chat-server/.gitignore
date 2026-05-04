@@ -13,7 +13,6 @@ dist/
 
 # deployment scripts (pakai CI/CD, bukan manual deploy)
 deploy.sh
-ecosystem.config.js
 
 # IDE & tool configs
 .claude/
