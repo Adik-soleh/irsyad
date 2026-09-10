@@ -103,3 +103,13 @@
     animation-play-state: paused;
   }
 }
+
+/* Section rule using the cube motif — a divider drawn from the same brand system. */
+.lattice-divider {
+  height: 62px;
+  background-image: linear-gradient(30deg, transparent 47%, rgba(0, 0, 0, 0.09) 47%, rgba(0, 0, 0, 0.09) 48.5%, transparent 48.5%),
+    linear-gradient(150deg, transparent 47%, rgba(0, 0, 0, 0.09) 47%, rgba(0, 0, 0, 0.09) 48.5%, transparent 48.5%);
+  background-size: 72px 124px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 25%, black 75%, transparent);
+  mask-image: linear-gradient(90deg, transparent, black 25%, black 75%, transparent);
+}

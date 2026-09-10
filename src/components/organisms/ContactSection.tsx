@@ -10,9 +10,11 @@ import { motion } from "framer-motion";
 
 type Props = {
   channels: ContactChannel[];
+  /** "classic" keeps the plain scope panel; "mediaKit" uses the grey media-kit block. */
+  variant?: "classic" | "mediaKit";
 };
 
-export function ContactSection({ channels }: Props) {
+export function ContactSection({ channels, variant = "mediaKit" }: Props) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -192,38 +194,100 @@ export function ContactSection({ channels }: Props) {
             </div>
           </div>
 
-          <div className="rounded-[32px] border border-slate-200 bg-[#fafafa] p-8 shadow-xl flex-1">
-            <h3 className="text-sm font-bold text-slate-500 mb-6 uppercase tracking-[0.2em]">
-              Ruang Lingkup Kerja
-            </h3>
+          {/* Classic keeps a plain scope panel; the editorial layout swaps in a media kit. */}
+          {variant === "classic" ? (
+            <div className="flex-1 rounded-[32px] border border-slate-200 bg-[#fafafa] p-8 shadow-xl">
+              <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.2em] text-slate-500">
+                Ruang Lingkup Kerja
+              </h3>
 
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <Megaphone size={20} className="text-slate-900 shrink-0 mt-0.5" />
-                <div>
-                  <strong className="block font-medium text-slate-900">Marketing & Ads</strong>
-                  <span className="text-sm text-slate-600">
-                    Meta for Business · Google Ads · Social Media Management · Content Strategy
-                  </span>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <PenTool size={20} className="text-slate-900 shrink-0 mt-0.5" />
-                <div>
-                  <strong className="block font-medium text-slate-900">Creative & Communication</strong>
-                  <span className="text-sm text-slate-600">
-                    Company profile · Annual report · Feed & reels · Banner, brosur, sertifikat
-                  </span>
-                </div>
-              </li>
-            </ul>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <Megaphone size={20} className="mt-0.5 shrink-0 text-slate-900" />
+                  <div>
+                    <strong className="block font-medium text-slate-900">Marketing &amp; Ads</strong>
+                    <span className="text-sm text-slate-600">
+                      Meta for Business · Google Ads · Social Media Management · Content Strategy
+                    </span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <PenTool size={20} className="mt-0.5 shrink-0 text-slate-900" />
+                  <div>
+                    <strong className="block font-medium text-slate-900">Creative &amp; Communication</strong>
+                    <span className="text-sm text-slate-600">
+                      Company profile · Annual report · Feed &amp; reels · Banner, brosur, sertifikat
+                    </span>
+                  </div>
+                </li>
+              </ul>
 
-            <div className="mt-8">
-              <Button href="#work" variant="outline" className="w-full justify-center">
-                Lihat Karya
-              </Button>
+              <div className="mt-8">
+                <Button href="#work" variant="outline" className="w-full justify-center">
+                  Lihat Karya
+                </Button>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="flex-1 rounded-[32px] bg-brand p-8 text-white shadow-xl">
+              <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
+                </span>
+                <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/85">
+                  Terbuka untuk kolaborasi
+                </p>
+              </div>
+
+              <h3 className="mt-6 font-display text-3xl">Media Kit</h3>
+
+              <ul className="mt-6 space-y-4 border-t border-white/25 pt-6">
+                <li className="flex items-start gap-3">
+                  <Megaphone size={18} className="mt-0.5 shrink-0 text-white" />
+                  <div>
+                    <strong className="block text-sm font-semibold">Marketing &amp; Ads</strong>
+                    <span className="text-sm text-white/75">
+                      Meta for Business · Google Ads · Social media management · Content strategy
+                    </span>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3">
+                  <PenTool size={18} className="mt-0.5 shrink-0 text-white" />
+                  <div>
+                    <strong className="block text-sm font-semibold">Creative &amp; Communication</strong>
+                    <span className="text-sm text-white/75">
+                      Company profile · Annual report · Feed &amp; reels · Banner, brosur, sertifikat
+                    </span>
+                  </div>
+                </li>
+              </ul>
+
+              <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-white/25 pt-6 text-sm">
+                <div>
+                  <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">
+                    Respon
+                  </dt>
+                  <dd className="mt-1 font-semibold">1×24 jam</dd>
+                </div>
+                <div>
+                  <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">
+                    Basis
+                  </dt>
+                  <dd className="mt-1 font-semibold">Jakarta · Remote</dd>
+                </div>
+              </dl>
+
+              <div className="mt-8 flex flex-col gap-3">
+                <Button href="/api/cv" variant="inverse" className="w-full justify-center" download>
+                  Download Portfolio (PDF)
+                </Button>
+                <Button href="#work" variant="outlineLight" className="w-full justify-center">
+                  Lihat Karya
+                </Button>
+              </div>
+            </div>
+          )}
         </motion.div>
       </div>
     </section>

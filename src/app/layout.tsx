@@ -124,9 +124,9 @@ export const metadata: Metadata = {
     address: false,
   },
   icons: {
-    icon: "/testing.png",
-    shortcut: "/testing.png",
-    apple: "/testing.png",
+    icon: "/irsyad_icon.png",
+    shortcut: "/irsyad_icon.png",
+    apple: "/irsyad_icon_apple.png",
   },
   manifest: "/manifest.json",
 };

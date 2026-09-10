@@ -1,5 +1,5 @@
-import { LandingTemplate } from "@/components/templates/LandingTemplate";
+import { DesignShell } from "@/components/templates/DesignShell";
 
 export default function Home() {
-  return <LandingTemplate />;
+  return <DesignShell />;
 }

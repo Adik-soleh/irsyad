@@ -9,8 +9,18 @@
   "icons": [
     {
       "src": "/web_icon.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/irsyad_icon_apple.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/irsyad_icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }

@@ -10,7 +10,7 @@ type Props = {
   index: number;
 };
 
-export function ProjectCard({ work, index }: Props) {
+export function ClassicWorkCard({ work, index }: Props) {
   const isEven = index % 2 === 0;
 
   return (

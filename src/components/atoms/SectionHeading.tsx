@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { RevealText } from "@/components/atoms/RevealText";
 
 type Props = {
   eyebrow?: string;
@@ -29,9 +30,9 @@ export function SectionHeading({
           {eyebrow}
         </p>
       )}
-      <h2 className="font-display text-4xl text-slate-900 sm:text-5xl lg:text-6xl">
+      <RevealText as="h2" className="font-display text-4xl text-slate-900 sm:text-5xl lg:text-6xl">
         {title}
-      </h2>
+      </RevealText>
       {description && (
         <p className={cn("max-w-2xl text-base text-slate-600", align === "center" && "mx-auto")}>
           {description}

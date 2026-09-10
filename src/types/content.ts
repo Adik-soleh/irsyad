@@ -6,22 +6,40 @@ export type NavItem = {
 };
 
 export type Stat = {
+  /** Rendered as-is before the count-up runs, and as the fallback without JS. */
   value: string;
   label: string;
   helper?: string;
+  /** Numeric target for the count-up. Omit to skip the animation. */
+  countTo?: number;
+  suffix?: string;
+  decimals?: number;
+};
+
+/** The labelled rows of a campaign sheet, in the order an agency one-pager reads. */
+export type WorkSpec = {
+  objective: string;
+  audience: string;
+  channel: string;
+  format: string;
+  result: string;
 };
 
 export type Work = {
   title: string;
+  /** Short label for the sticky case index. */
+  shortTitle: string;
   description: string;
   tags: string[];
   year: string;
   cover: StaticImageData;
-  /** What the brand was up against before the work started. */
+  /** Campaign-sheet rows — used by the editorial layout. */
+  spec: WorkSpec;
+  /** Longer narrative, shown under the spec table. */
+  note?: string;
+  /* The narrative trio below is what the classic layout renders instead. */
   challenge?: string;
-  /** The approach taken — strategy, creative, or process. */
   approach?: string;
-  /** What it produced, in numbers where numbers exist. */
   impact?: string;
 };
 

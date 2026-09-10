@@ -1,0 +1,63 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+type Options = {
+  /** Value to count to. */
+  to: number;
+  decimals?: number;
+  durationMs?: number;
+};
+
+/**
+ * Counts from zero to `to` the first time the returned ref enters the viewport.
+ * Respects prefers-reduced-motion by jumping straight to the final value.
+ */
+export function useCountUp<T extends HTMLElement>({ to, decimals = 0, durationMs = 1400 }: Options) {
+  const ref = useRef<T>(null);
+  const [value, setValue] = useState(0);
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || done) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      setValue(to);
+      setDone(true);
+      return;
+    }
+
+    let frame = 0;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        observer.disconnect();
+
+        const start = performance.now();
+        const tick = (now: number) => {
+          const progress = Math.min((now - start) / durationMs, 1);
+          // Ease-out cubic, so the number settles rather than stopping dead.
+          const eased = 1 - Math.pow(1 - progress, 3);
+          setValue(to * eased);
+          if (progress < 1) {
+            frame = requestAnimationFrame(tick);
+          } else {
+            setDone(true);
+          }
+        };
+        frame = requestAnimationFrame(tick);
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(node);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(frame);
+    };
+  }, [to, durationMs, done]);
+
+  return { ref, display: value.toFixed(decimals) };
+}

@@ -5,12 +5,14 @@ import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { Button } from "@/components/atoms/Button";
 import { HeroContent, SocialLink, Stat } from "@/types/content";
+import { RevealText } from "@/components/atoms/RevealText";
 import { ArrowRight, Download } from "lucide-react";
 
 type Props = {
   content: HeroContent;
   socialLinks: SocialLink[];
-  stats: Stat[];
+  /** Classic layout shows the numbers here; the editorial one gives them their own board. */
+  stats?: Stat[];
 };
 
 const iconMap: Record<string, string> = {
@@ -52,15 +54,19 @@ export function HeroSection({ content, socialLinks, stats }: Props) {
                 {content.greeting}
               </p>
               <div>
-                <h1 className="font-display text-5xl text-white sm:text-6xl lg:text-7xl">
+                <RevealText as="h1" className="font-display text-5xl text-white sm:text-6xl lg:text-7xl">
                   {content.name}
-                </h1>
+                </RevealText>
                 <p className="mt-4 text-sm font-semibold uppercase tracking-[0.35em] text-white/75">
                   {content.tagline}
                 </p>
-                <p className="mt-6 max-w-2xl text-xl font-medium leading-snug text-white">
+                <RevealText
+                  as="p"
+                  delay={0.1}
+                  className="mt-6 max-w-2xl text-xl font-medium leading-snug text-white"
+                >
                   {content.headline}
-                </p>
+                </RevealText>
                 <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85">
                   {content.summary}
                 </p>
@@ -157,23 +163,24 @@ export function HeroSection({ content, socialLinks, stats }: Props) {
         </motion.div>
       </div>
 
-      {/* Headline numbers straight from the campaign reports */}
-      <motion.div
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        className="mt-8 grid gap-4 sm:grid-cols-3"
-      >
-        {stats.map((stat) => (
-          <div key={stat.label} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="font-display text-4xl text-slate-900 sm:text-5xl">{stat.value}</p>
-            <p className="mt-3 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
-              {stat.label}
-            </p>
-            {stat.helper && <p className="mt-2 text-sm text-slate-600">{stat.helper}</p>}
-          </div>
-        ))}
-      </motion.div>
+      {stats && (
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mt-8 grid gap-4 sm:grid-cols-3"
+        >
+          {stats.slice(0, 3).map((stat) => (
+            <div key={stat.label} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+              <p className="font-display text-4xl text-slate-900 sm:text-5xl">{stat.value}</p>
+              <p className="mt-3 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
+                {stat.label}
+              </p>
+              {stat.helper && <p className="mt-2 text-sm text-slate-600">{stat.helper}</p>}
+            </div>
+          ))}
+        </motion.div>
+      )}
     </section>
   );
 }
