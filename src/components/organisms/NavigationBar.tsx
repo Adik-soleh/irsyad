@@ -62,11 +62,11 @@ export function NavigationBar({ items, socialLinks }: Props) {
       className="sticky top-2 z-50 sm:top-6"
     >
       <div className="relative">
-        <div className="flex items-center justify-between rounded-3xl border border-slate-200/50 dark:border-white/10 bg-white/70 dark:bg-black/80 px-4 sm:px-6 py-3 sm:py-4 shadow-sm backdrop-blur-xl transition-colors duration-500">
+        <div className="flex items-center justify-between rounded-3xl border border-slate-200/50 bg-white/70 px-4 sm:px-6 py-3 sm:py-4 shadow-sm backdrop-blur-xl transition-colors duration-500">
 
           <div className="flex-1 flex items-center text-sm font-medium z-10">
-            <span className="text-base font-bold tracking-tight text-slate-900 dark:text-white uppercase tracking-widest whitespace-nowrap">
-              Adi · Dev
+            <span className="font-display whitespace-nowrap text-xl tracking-wide text-slate-900">
+              Irsyad Rafly
             </span>
           </div>
 
@@ -80,26 +80,28 @@ export function NavigationBar({ items, socialLinks }: Props) {
                   href={item.href}
                   onClick={(e) => handleNavigate(e, item.href)}
                   className={cn(
-                    "relative px-4 py-2 transition-colors duration-300 rounded-full",
-                    isActive ? "text-white dark:!text-black font-semibold" : "text-slate-600 dark:text-white/70 hover:text-black dark:hover:text-white"
+                    "relative rounded-full px-4 py-2 transition-colors duration-300",
+                    isActive ? "font-semibold" : "text-slate-600 hover:text-black"
                   )}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="nav-pill"
-                      className="absolute inset-0 z-0 bg-black dark:bg-white rounded-full shadow-sm"
+                      className="absolute inset-0 z-0 rounded-full bg-slate-900 shadow-sm"
                       initial={false}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
-                  <span className="relative z-10">{item.label}</span>
+                  <span className={cn("relative z-10", isActive && "text-white")}>
+                    {item.label}
+                  </span>
                 </Link>
               );
             })}
           </nav>
 
           <div className="flex-1 flex items-center justify-end gap-4 text-sm z-10">
-            {/* <div className="hidden items-center gap-4 text-slate-500 dark:text-white/60 lg:flex">
+            {/* <div className="hidden items-center gap-4 text-slate-500 lg:flex">
               {socialLinks.map((link) => {
                 const iconPath = 
                   link.label === "Email" ? "/email.svg" : 
@@ -113,11 +115,11 @@ export function NavigationBar({ items, socialLinks }: Props) {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="transition-colors hover:text-black dark:hover:text-white flex items-center justify-center hover:scale-110 transform duration-200"
+                    className="transition-colors hover:text-black flex items-center justify-center hover:scale-110 transform duration-200"
                     title={link.label}
                   >
                     {iconPath ? (
-                      <Image src={iconPath} alt={link.label} width={18} height={18} className="dark:invert opacity-70 hover:opacity-100 transition-opacity" />
+                      <Image src={iconPath} alt={link.label} width={18} height={18} className="opacity-70 hover:opacity-100 transition-opacity" />
                     ) : (
                       link.label
                     )}
@@ -131,7 +133,7 @@ export function NavigationBar({ items, socialLinks }: Props) {
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 dark:border-white/20 text-slate-800 dark:text-white transition-colors hover:bg-slate-100 dark:hover:bg-white/10"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-800 transition-colors hover:bg-slate-100"
               >
                 {isOpen ? <X size={18} /> : <Menu size={18} />}
               </button>
@@ -147,7 +149,7 @@ export function NavigationBar({ items, socialLinks }: Props) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="absolute left-0 right-0 mt-4 rounded-3xl border border-slate-200/50 dark:border-white/10 bg-white/95 dark:bg-[#070707]/95 p-6 shadow-2xl backdrop-blur-xl lg:hidden"
+              className="absolute left-0 right-0 mt-4 rounded-3xl border border-slate-200/50 bg-white/95 p-6 shadow-2xl backdrop-blur-xl lg:hidden"
             >
               <nav className="flex flex-col gap-2">
                 {items.map((item) => {
@@ -161,8 +163,8 @@ export function NavigationBar({ items, socialLinks }: Props) {
                       className={cn(
                         "p-4 rounded-2xl text-lg font-medium transition-colors",
                         isActive
-                          ? "bg-slate-100 dark:bg-white/10 text-slate-900 dark:text-white"
-                          : "text-slate-700 dark:text-white/80 hover:bg-slate-50 dark:hover:bg-white/5"
+                          ? "bg-slate-100 text-slate-900"
+                          : "text-slate-700 hover:bg-slate-50"
                       )}
                     >
                       {item.label}
@@ -178,7 +180,7 @@ export function NavigationBar({ items, socialLinks }: Props) {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full border border-slate-200 dark:border-white/10 px-4 py-2 text-sm text-slate-600 dark:text-white/60 transition-colors hover:bg-slate-50 dark:hover:bg-white/10"
+                    className="rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-50"
                   >
                     {link.label}
                   </a>

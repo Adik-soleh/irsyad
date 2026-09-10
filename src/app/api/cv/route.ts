@@ -4,13 +4,13 @@ import { join } from "path";
 
 export async function GET() {
   try {
-    const filePath = join(process.cwd(), "src", "utils", "pdf", "my_cv.pdf");
+    const filePath = join(process.cwd(), "src", "utils", "pdf", "irsyad_portfolio.pdf");
     const fileBuffer = await fs.readFile(filePath);
 
     return new NextResponse(fileBuffer, {
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": "attachment; filename=Adik-Soleh-CV.pdf",
+        "Content-Disposition": "attachment; filename=Irsyad-Rafly-Wahyudi-Portfolio.pdf",
         "Cache-Control": "public, max-age=31536000, immutable",
       },
     });

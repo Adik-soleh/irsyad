@@ -15,30 +15,30 @@ export function NewsCard({ entry, index = 0 }: { entry: NewsEntry; index?: numbe
     >
       <Link
         href={`/news/${entry.slug}`}
-        className="group flex h-full flex-col justify-between rounded-3xl border border-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-black/40 p-6 md:p-8 transition-all duration-300 hover:-translate-y-2 hover:bg-white dark:hover:bg-white/5 hover:border-zinc-300 dark:hover:border-white/20 hover:shadow-xl dark:hover:shadow-white/5"
+        className="group flex h-full flex-col justify-between rounded-3xl border border-zinc-200 bg-zinc-50/50 p-6 md:p-8 transition-all duration-300 hover:-translate-y-2 hover:bg-white hover:border-zinc-300 hover:shadow-xl"
       >
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <span className="inline-flex items-center rounded-full border border-black/5 dark:border-white/10 bg-black/5 dark:bg-white/5 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-600 dark:text-zinc-400">
+            <span className="inline-flex items-center rounded-full border border-black/5 bg-black/5 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-zinc-600">
               {entry.category}
             </span>
-            <span className="text-xs font-medium text-zinc-500 dark:text-zinc-500">
+            <span className="text-xs font-medium text-zinc-500">
               {entry.date}
             </span>
           </div>
-          <h4 className="text-xl font-bold leading-tight text-zinc-900 dark:text-white transition-colors group-hover:text-black dark:group-hover:text-white">
+          <h4 className="text-xl font-bold leading-tight text-zinc-900 transition-colors group-hover:text-black">
             {entry.title}
           </h4>
-          <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+          <p className="text-sm leading-relaxed text-zinc-600">
             {entry.excerpt}
           </p>
         </div>
 
-        <div className="mt-8 flex items-center justify-between border-t border-zinc-200 dark:border-white/10 pt-4">
-          {/* <span className="text-xs font-semibold text-zinc-500 dark:text-zinc-500">
+        <div className="mt-8 flex items-center justify-between border-t border-zinc-200 pt-4">
+          {/* <span className="text-xs font-semibold text-zinc-500">
             {entry.readingTime}
           </span> */}
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-100 dark:bg-white/10 text-zinc-900 dark:text-white transition-transform group-hover:scale-110 group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-100 text-zinc-900 transition-transform group-hover:scale-110 group-hover:bg-black group-hover:text-white">
             <ArrowRight size={14} />
           </span>
         </div>

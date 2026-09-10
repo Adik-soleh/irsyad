@@ -1,327 +1,356 @@
 import {
+  Capability,
+  ContactChannel,
+  Education,
   Experience,
   HeroContent,
   NavItem,
   NewsEntry,
-  Project,
   SkillCategory,
   SocialLink,
   Stat,
   Tool,
+  Work,
 } from "@/types/content";
 import { images } from "@/constants/images";
+
+const WHATSAPP_NUMBER = "628111118355";
+const WHATSAPP_MESSAGE =
+  "Halo Irsyad, saya tertarik untuk diskusi mengenai kerja sama digital marketing.";
+const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+const EMAIL = "irsyad.rafly.wahyudi@gmail.com";
+const LINKEDIN = "https://www.linkedin.com/in/irsyad-rafly-1509932b5";
 
 export const navItems: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "News", href: "#news" },
-  { label: "Contact", href: "#contact" },
+  { label: "Karya", href: "#work" },
+  { label: "Karier", href: "#experience" },
+  { label: "Insight", href: "#insights" },
+  { label: "Kontak", href: "#contact" },
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: "Email", href: "mailto:adiksoleh4@gmail.com" },
-  { label: "WhatsApp", href: "https://wa.me/62895360103563?text=Halo%20Mas%20Adik%2C%20saya%20tertarik%20untuk%20diskusi%20mengenai%20project%20%2F%20penawaran%20kerja%20sama%20nih." },
-  { label: "LinkedIn", href: "https://linkedin.com/in/adik-soleh" },
-  { label: "GitHub", href: "https://github.com/adik-soleh" },
+  { label: "Email", href: `mailto:${EMAIL}` },
+  { label: "WhatsApp", href: WHATSAPP_LINK },
+  { label: "LinkedIn", href: LINKEDIN },
 ];
 
+export const contactChannels: ContactChannel[] = [
+  { label: "Email", value: EMAIL, href: `mailto:${EMAIL}`, icon: "/email.svg" },
+  { label: "WhatsApp", value: "+62 811 1118 355", href: WHATSAPP_LINK, icon: "/wa.svg" },
+  { label: "LinkedIn", value: "Irsyad Rafly", href: LINKEDIN, icon: "/linkedin.svg" },
+];
+
+/** Angka diambil dari laporan Meta Business Suite & Instagram Insights (Nov 2024 – Aug 2025). */
 export const stats: Stat[] = [
-  { value: "4 produk", label: "Live apps", helper: "HR, commerce, sosial" },
-  { value: "3+ thn", label: "Pengalaman", helper: "full stack" },
-  { value: "24 jam", label: "Response time", helper: "WhatsApp first" },
+  { value: "110.7K", label: "Total views", helper: "72.4K organik · 38.2K ads" },
+  { value: "94.6K", label: "Accounts reached", helper: "naik 2.4x dari periode sebelumnya" },
+  { value: "421%", label: "Impressions growth", helper: "110.9K impressions" },
 ];
 
 export const heroContent: HeroContent = {
-  greeting: "Halo, saya",
-  name: "Adik Soleh",
-  tagline: "Full Stack Developer",
+  greeting: "Portfolio",
+  name: "Irsyad Rafly Wahyudi",
+  tagline: "Digital Marketing Specialist",
+  headline: "Kampanye yang Dibaca Data, Bukan Tebakan",
   summary:
-    "Full stack developer yang fokus pada JavaScript/TypeScript stack. Berpengalaman membangun aplikasi NestJS + Vue untuk kementerian, React + Express untuk commerce, dan Laravel CMS untuk operasi internal.",
-  skills: ["NestJS", "Vue.js", "React", "Express.js", "PostgreSQL", "Prisma", "Laravel", "TypeScript", "Tailwind", "Git", "Php", "MySQL"],
-  photo: "/me_photo.jpeg",
+    "Digital Marketing Specialist dengan pengalaman kuat di social media management, paid advertising, dan content strategy. Merancang kampanye kreatif untuk mendorong brand awareness, engagement audiens, dan pertumbuhan bisnis yang terukur.",
+  skills: [
+    "Meta for Business",
+    "Google Ads",
+    "Social Media Strategy",
+    "Content Planning",
+    "Canva",
+    "Adobe Creative Suite",
+    "Figma",
+    "Copywriting",
+  ],
+  photo: "/irsyad_photo.jpg",
   primaryCta: {
-    label: "Hubungi via WhatsApp",
-    href: "https://wa.me/62895360103563?text=Halo%20Mas%20Adik%2C%20saya%20tertarik%20untuk%20diskusi%20mengenai%20project%20%2F%20penawaran%20kerja%20sama%20nih.",
+    label: "Lihat Karya",
+    href: "#work",
   },
   secondaryCta: {
-    label: "Kirim email",
-    href: "adiksoleh4@gmail.com",
+    label: "Hubungi Saya",
+    href: "#contact",
   },
   cvCta: {
-    label: "Download CV",
+    label: "Download Portfolio",
     href: "/api/cv",
   },
 };
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "WEB / TAMPILAN",
-    skills: ["React", "Vue.js", "Next.js", "TailwindCSS", "ChakraUI", "Framer Motion"],
+    title: "MARKETING & PERFORMANCE",
+    skills: [
+      "Meta for Business",
+      "Google Ads",
+      "Campaign Optimization",
+      "Audience Targeting",
+      "Content Strategy",
+      "Analytics & Reporting",
+    ],
   },
   {
-    title: "SISTEM & DATABASE",
-    skills: ["NestJS", "Express.js", "Prisma", "PostgreSQL", "MySQL", "Docker", "Redis"],
+    title: "CREATIVE & COMMUNICATION",
+    skills: [
+      "Canva",
+      "Adobe Creative Suite",
+      "Figma",
+      "Copywriting",
+      "Corporate Communication",
+      "Media Relations",
+    ],
   },
 ];
 
 export const tools: Tool[] = [
-  { name: "Git" },
-  { name: "GitHub Actions" },
-  { name: "Docker" },
-  { name: "Redis" },
-  { name: "Vercel" },
-  { name: "Fly.io" },
+  { name: "Meta Business Suite" },
+  { name: "Instagram Insights" },
+  { name: "Google Ads" },
+  { name: "Canva" },
+  { name: "Adobe Photoshop" },
+  { name: "Adobe Illustrator" },
+  { name: "Adobe Premiere Pro" },
   { name: "Figma" },
-  { name: "Postman" },
+  { name: "Content Calendar" },
 ];
 
-export const projects: Project[] = [
+/** Delapan peran dari halaman "My Performance" — enam di antaranya punya studi kasus di bawah. */
+export const capabilities: Capability[] = [
   {
-    title: "E-HRM Kementerian PUPR",
-    description:
-      "Membangun dan memelihara sistem kepegawaian digital berskala nasional memakai NestJS, Vue.js, Docker, dan Redis untuk caching data pegawai.",
-    tags: ["NestJS", "Vue.js", "Docker", "Redis"],
-    year: "2025",
-    link: "https://ehrm.abhipraya.co/authentication/signin/cover",
-    cover: images.projects.pupr,
-    problem: "Sistem kepegawaian manual, data tersebar di banyak spreadsheet yang menyebabkan inkonsistensi dan lambatnya proses audit internal.",
-    uiSolution: "Membangun Vue.js micro-frontend yang responsif dan sangat dioptimasi untuk admin dashboard dengan complex data grids yang intuitif.",
-    systemSolution: "Merancang NestJS REST API dengan Docker container dan Redis caching, yang mampu menurunkan query latency hingga 75% saat load tinggi.",
+    title: "Performance Marketing Analyst",
+    description: "Menganalisis data marketing, algoritma iklan, dan tren konsumen.",
   },
   {
-    title: "Lakoe Store",
-    description:
-      "Aplikasi e-commerce modern dengan React + Chakra UI di front-end, Express + Prisma untuk API, serta Midtrans/Biteship.",
-    tags: ["React", "Express", "PostgreSQL"],
-    year: "2024",
-    link: "https://lakoe-frontend-beta.vercel.app/",
-    cover: images.projects.lakoe,
-    problem: "Banyak UMKM kesulitan menerima sistem pembayaran digital dan melakukan tracking pengiriman otomatis lewat logistik lokal.",
-    uiSolution: "Checkout flow instan dari sisi klien dengan state management berbasis Redux, mengurangi cart abandon rate.",
-    systemSolution: "Implementasi Express backend webhook untuk mendengar callback sukses dari Midtrans, lalu memanggil Biteship untuk mencetak resi.",
+    title: "Digital Advertising Specialist",
+    description: "Mengelola dan mengoptimasi paid ads lewat Meta for Business.",
   },
   {
-    title: "Circle App",
-    description:
-      "Platform komunitas mini dengan autentikasi, posting, dan interaksi real-time berbasis TypeScript, React, Express, dan PostgreSQL/Prisma.",
-    tags: ["React", "Express", "Chakra UI"],
-    year: "2024",
-    link: "https://cirle-app-type-script.vercel.app/",
-    cover: images.projects.circleApp,
-    problem: "Forum komunitas konvensional kurang engaging karena membutuhkan refresh manual untuk melihat komentar/balasan baru.",
-    uiSolution: "Tampilan timeline endless-scroll layaknya X/Twitter yang memfokuskan user pada konten secara instan dengan Dark Mode default.",
-    systemSolution: "Integrasi Socket.IO namespace pada Express API + Prisma untuk siaran notifikasi komentar baru ke klien secara real-time.",
+    title: "Social Media Strategist",
+    description: "Menyusun strategi konten dan iklan untuk mendorong brand awareness.",
   },
   {
-    title: "SkyBook Admin",
-    description:
-      "CMS untuk mengatur data pemesanan tiket maskapai menggunakan Laravel, Filament, dan autentikasi Sanctum dengan antarmuka yang mudah dipakai admin.",
-    tags: ["Laravel", "Filament", "MySQL"],
-    year: "2023",
-    link: "https://github.com/Adik-soleh/SkyBook-App",
-    cover: images.projects.airlane,
-    problem: "Tingginya kesalahan input jadwal maskapai saat dilakukan secara manual atau tanpa validasi form yang kuat dari sisi panel.",
-    uiSolution: "Menggunakan Laravel Filament untuk menghasilkan form TALL Stack (Tailwind, Alpine, Livewire) yang dinamis, auto-validasi, dan mudah dipahami staf.",
-    systemSolution: "Membatasi endpoint API dengan middleware Sanctum JWT Auth. Penanganan role-base access (Admin vs Agen).",
+    title: "Media Relations",
+    description: "Mengelola komunikasi media untuk memperkuat reputasi brand.",
   },
   {
-    title: "Notion Mini",
-    description:
-      "Platform workspace dan manajemen catatan terstruktur bergaya Notion untuk pengelolaan blok konten secara dinamis dan real-time.",
-    tags: ["Vue.js", "Express.js", "Prisma", "Tailwind CSS", "PostgreSQL"],
-    year: "2024",
-    link: "https://notion-mini.vercel.app",
-    cover: images.projects.notion,
-    problem: "Aplikasi pencatatan konvensional yang terlalu hierarkis dan statis, sehingga membatasi fleksibilitas penambahan berbagai media (teks, kode, gambar, checklist) secara seragam.",
-    uiSolution: "Membangun antarmuka SPA interaktif menggunakan Vue.js dan Tiptap editor dengan fitur drag-and-drop, memberikan pengalaman memformat catatan yang seamless bagi user.",
-    systemSolution: "Merancang REST API terukur dengan arsitektur penyimpanan otomatis berbasis block (node-tree) menggunakan Node.js/Express, Prisma ORM, dan Vercel Serverless Functions.",
+    title: "Corporate Communication",
+    description: "Membuat company profile — booklet, PPT, looping video, dan profile video.",
   },
   {
-    title: "Company Profile",
-    description:
-      "Website company profile interaktif untuk agensi digital (Lunatic Foundry) yang berfokus pada konversi, menampilkan portofolio karya, serta layanan UI/UX dan Web/Mobile Development.",
-    tags: ["Next.js", "Tailwind CSS", "Docker",],
-    year: "2026",
-    link: "https://anywareagency.vercel.app/",
-    cover: images.projects.compro,
-    problem: "Kebutuhan agensi digital modern untuk memiliki identitas online yang solid dan responsif, mampu meyakinkan calon klien melalui presentasi portofolio yang bersih tanpa membingungkan alur navigasi.",
-    uiSolution: "Merancang desain antarmuka dengan prinsip 'conversion-first design'. Menerapkan tata letak minimalis, tipografi yang tegas, serta kemudahan navigasi agar user mudah menjelajahi alur layanan dari tahap Discovery, Build, hingga Launch.",
-    systemSolution: "Membangun arsitektur frontend dengan fokus pada 'speed-obsessed engineering' menggunakan optimasi aset dan Lazy Loading, kemudian di-deploy melalui otomatisasi Vercel agar memastikan performa website yang cepat dan SEO-friendly.",
+    title: "Corporate Content Creator",
+    description: "Memproduksi feed post dan reels Instagram untuk menggaet audiens.",
   },
   {
-    title: "Gading New Town Dashboard",
-    description:
-      "Sistem informasi manajemen perumahan berbasis web untuk memudahkan interaksi antara Pengurus RT dan Warga dalam mengelola data warga, pembayaran IPL bulanan, pengaduan, hingga perizinan.",
-    tags: ["React", "NestJS", "PostgreSQL", "Prisma"],
-    year: "2024",
-    link: "https://github.com/Adik-soleh/Gading_New_Town",
-    cover: images.projects.dashboard,
-    problem: "Proses administrasi tingkat RT yang masih manual, yang seringkali menyulitkan pelacakan pembayaran bukti IPL yang valid, penanganan keluhan warga, serta pendataan mutasi warga.",
-    uiSolution: "Membangun antarmuka dashboard Single Page Application (SPA) yang responsif menggunakan React (Vite) dan Tailwind CSS, dengan pemisahan tampilan spesifik antara hak akses pengurus RT dan warga.",
-    systemSolution: "Menerapkan arsitektur decoupled menggunakan framework NestJS dan database PostgreSQL dengan Prisma ORM, serta menerapkan Role-Based Access Control (RBAC) dan keamanan Better-Auth.",
+    title: "Graphic Designer",
+    description: "Mendesain banner, brosur, poster, dan sertifikat.",
   },
   {
-    title: "Sistem Absensi Sekolah Dashboard",
-    description:
-      "Platform manajemen absensi digital berbasis web dengan arsitektur multi-tenant, QR Code scanner, dan Role-Based Access Control (RBAC) untuk efisiensi pengelolaan kehadiran di berbagai sekolah.",
-    tags: ["React", "NestJS", "PostgreSQL", "Prisma"],
-    year: "2026",
-    link: "https://absensi-app-xeoc.vercel.app",
-    cover: images.projects.absensi,
-    problem: "Pencatatan kehadiran manual yang tidak efisien, sulitnya monitoring data secara real-time, serta kebutuhan akan sistem yang mampu mengelola banyak sekolah dalam satu platform dengan data yang terisolasi.",
-    uiSolution: "Membangun dashboard Single Page Application (SPA) yang responsif menggunakan React (Vite) dan Tailwind CSS, menghadirkan fitur QR Code Scanner untuk presensi instan serta visualisasi statistik kehadiran yang informatif.",
-    systemSolution: "Mengimplementasikan arsitektur Multi-Tenant dengan framework NestJS dan Prisma ORM pada database PostgreSQL, yang memastikan isolasi data antar sekolah serta keamanan akses menggunakan sistem autentikasi JWT.",
-  }
+    title: "Business Development",
+    description: "Mendukung kemitraan strategis untuk mendorong pertumbuhan bisnis.",
+  },
+];
 
+export const works: Work[] = [
+  {
+    title: "Performance Marketing Analyst",
+    description:
+      "Membaca data kampanye digital untuk mengukur performa, menemukan peluang optimasi, lalu mendorong reach, engagement, dan konversi.",
+    tags: ["Meta Business Suite", "Instagram Insights", "Reporting"],
+    year: "2024 — 2026",
+    cover: images.work.performance,
+    challenge:
+      "Aktivitas konten dan iklan berjalan tanpa pembacaan data yang konsisten, sehingga sulit menilai kanal mana yang benar-benar menghasilkan.",
+    approach:
+      "Menyusun pelacakan rutin di Meta Business Suite dan Instagram Insights — memisahkan performa organik dan berbayar, lalu membandingkan tren views, reach, dan interaksi antar periode.",
+    impact:
+      "Total 110.736 views dalam satu periode pelaporan: 72.460 dari organik dan 38.276 dari ads, dengan reach 94.595 (naik 2,4x) dan 2.026 content interactions.",
+  },
+  {
+    title: "Digital Advertising Specialist (Meta Ads)",
+    description:
+      "Mengelola dan mengoptimasi kampanye berbayar di Meta for Business dengan strategi berbasis data agar setiap rupiah budget bekerja maksimal.",
+    tags: ["Meta Ads", "Budget Optimization", "A/B Testing"],
+    year: "2024 — 2026",
+    cover: images.work.metaAds,
+    challenge:
+      "Budget iklan terbatas, sementara target audiens untuk layanan sertifikasi ISO sangat spesifik dan tidak bisa disasar secara umum.",
+    approach:
+      "Menjalankan boosted post dan campaign terjadwal dengan pengujian materi kreatif, lalu memangkas iklan berperforma rendah dan menambah budget ke set iklan dengan biaya per hasil terbaik.",
+    impact:
+      "Impressions 110.9K (naik 421,7%), reach 69.402 (naik 379,7%), 1.608 link clicks, dengan biaya per kampanye terjaga di kisaran Rp130 ribu – Rp330 ribu.",
+  },
+  {
+    title: "Social Media Strategist",
+    description:
+      "Merancang dan mengelola strategi konten lintas platform: content calendar terstruktur, perencanaan berbasis tren, serta optimasi waktu dan format posting.",
+    tags: ["Content Calendar", "Instagram", "Facebook"],
+    year: "2024 — 2026",
+    cover: images.work.social,
+    challenge:
+      "Posting berjalan sporadis tanpa kalender, sehingga frekuensi tidak stabil dan momentum audiens gampang hilang.",
+    approach:
+      "Membangun content calendar bulanan yang memetakan tema, format, dan jam tayang per platform — lalu menyesuaikan slot posting berdasarkan jam aktif audiens dan tren yang sedang berjalan.",
+    impact:
+      "Ritme publikasi konsisten setiap minggu di Instagram dan Facebook, dengan content interactions naik 100% dibanding periode sebelumnya.",
+  },
+  {
+    title: "Corporate Communication Materials",
+    description:
+      "Mengelola dan mengembangkan materi komunikasi korporat: annual report, company profile, dan presentasi perusahaan dengan konsistensi brand yang terjaga.",
+    tags: ["Annual Report", "Company Profile", "Presentation"],
+    year: "2024 — 2026",
+    cover: images.work.corporateComm,
+    challenge:
+      "Materi korporat tersebar dalam berbagai gaya visual, membuat identitas perusahaan terbaca tidak konsisten di mata stakeholder.",
+    approach:
+      "Menyusun ulang company profile (booklet, PPT, looping video, dan profile video) serta annual report dengan sistem visual dan tata pesan yang seragam.",
+    impact:
+      "Satu set materi korporat yang siap pakai untuk kebutuhan klien, mitra, dan presentasi internal — dengan brand consistency yang terjaga di setiap format.",
+  },
+  {
+    title: "Corporate Content Creator",
+    description:
+      "Merancang, mengelola, dan mempublikasikan konten digital perusahaan — dari feed post edukatif hingga reels yang mengangkat momen dan isu terkini.",
+    tags: ["Feed Post", "Reels", "Copywriting"],
+    year: "2024 — 2026",
+    cover: images.work.content,
+    challenge:
+      "Topik sertifikasi dan standar mutu terasa teknis dan berat, sehingga sulit menarik perhatian audiens di feed sosial media.",
+    approach:
+      "Menerjemahkan topik teknis menjadi konten yang mudah dicerna — carousel edukatif, reels bertema momen nasional, dan caption dengan hook yang memancing diskusi.",
+    impact:
+      "Satu unggahan menembus 33.128 views dengan 16.446 reach dan 268 interaksi, jauh di atas rata-rata post reguler.",
+  },
+  {
+    title: "Graphic Designer",
+    description:
+      "Membuat beragam materi desain: sertifikat, brosur, banner, poster promosi, dan aset visual untuk kebutuhan korporat maupun acara resmi.",
+    tags: ["Canva", "Adobe Creative Suite", "Print & Digital"],
+    year: "2023 — 2026",
+    cover: images.work.graphic,
+    challenge:
+      "Kebutuhan desain datang dari banyak divisi sekaligus, dengan format yang berbeda-beda antara cetak dan digital.",
+    approach:
+      "Menyiapkan template dan sistem desain yang bisa dipakai ulang untuk sertifikat, roll banner, brosur, dan voucher promosi, sehingga produksi cepat tanpa mengorbankan konsistensi.",
+    impact:
+      "Materi visual untuk sertifikasi, pelatihan, dan event resmi diproduksi dengan identitas brand yang seragam di seluruh kanal.",
+  },
 ];
 
 export const experiences: Experience[] = [
   {
-    title: "Fullstack Developer",
-    company: "PT. Eka Abhipraya Semesta",
-    period: "Jul 2024 — Now",
+    title: "Corporate Communications & Brand Management",
+    company: "—",
+    period: "Jan 2026 — Jun 2026",
     description:
-      "Mengembangkan E-HRM Kementerian PUPR dengan NestJS (backend) dan Vue.js (frontend), mengelola Docker, Redis, dan integrasi API agar performa dan keamanan terpenuhi.",
-    skills: ["NestJS", "Vue.js", "Docker", "Redis"],
+      "Mengelola komunikasi korporat dan brand management: menjaga konsistensi pesan, memproduksi materi komunikasi, dan mendukung hubungan dengan media.",
+    skills: ["Brand Management", "Corporate Communication", "Media Relations"],
   },
   {
-    title: "Fullstack Developer",
-    company: "PT. Rimba Ananta Vikasa",
-    period: "Jan 2024 — Apr 2024",
+    title: "Digital Marketing — Social Media Management",
+    company: "PT MSA Certification",
+    period: "Nov 2024 — Mar 2026",
     description:
-      "Membangun berbagai aplikasi web memakai JavaScript/TypeScript, Nuxt, NestJS, Vue, dan Laravel; terbiasa kolaborasi lintas tim untuk solusi yang scalable.",
-    skills: ["Nuxt", "NestJS", "Vue.js", "Laravel"],
+      "Mengelola seluruh kanal sosial media perusahaan: strategi konten, produksi feed dan reels, kampanye Meta Ads, hingga pelaporan performa bulanan.",
+    skills: ["Meta Ads", "Content Strategy", "Analytics", "Copywriting"],
   },
   {
-    title: "Full Stack Developer Trainee",
-    company: "PT DumbWays Indonesia Teknologi",
-    period: "2023",
+    title: "Digital Marketing — Social Media Management",
+    company: "PT Mutu International Tbk.",
+    period: "May 2024 — Feb 2025",
     description:
-      "Bootcamp intensif membangun aplikasi end-to-end menggunakan React, Node.js, Express, NestJS, dan UI libraries seperti Chakra UI serta Tailwind.",
-    skills: ["React", "Express.js", "Tailwind", "Team project"],
+      "Menjalankan pengelolaan sosial media dan produksi konten digital untuk mendukung brand awareness perusahaan.",
+    skills: ["Social Media", "Content Production", "Design"],
+  },
+  {
+    title: "Scriptwriter — Cinematography Podcast",
+    company: "Podcast CCIT FTUI, Universitas Indonesia",
+    period: "Nov 2023 — Jan 2024",
+    description:
+      "Menulis naskah dan menyusun alur episode podcast bertema sinematografi untuk kanal resmi CCIT FTUI.",
+    skills: ["Scriptwriting", "Storytelling", "Podcast"],
+  },
+  {
+    title: "Event Division",
+    company: "Convocation CCIT FTUI, Universitas Indonesia",
+    period: "Oct 2023 — Nov 2023",
+    description:
+      "Bagian dari divisi acara untuk penyelenggaraan wisuda CCIT FTUI, menangani perencanaan dan eksekusi di hari pelaksanaan.",
+    skills: ["Event Management", "Koordinasi Tim"],
+  },
+  {
+    title: "Design and Documentation",
+    company: "Induction Days CCIT FTUI, Universitas Indonesia",
+    period: "Jul 2023 — Sep 2023",
+    description:
+      "Menangani kebutuhan desain dan dokumentasi visual untuk rangkaian acara induction days mahasiswa baru.",
+    skills: ["Graphic Design", "Dokumentasi"],
+  },
+];
+
+export const educations: Education[] = [
+  {
+    school: "Asia e University Malaysia",
+    degree: "Bachelor of Information and Communication Technology",
+    period: "2022 — Present",
+  },
+  {
+    school: "CCIT — Faculty of Engineering, University of Indonesia",
+    degree: "Professional Diploma in Information Technology / DNIIT Digital Marketing",
+    period: "2022 — 2024",
   },
 ];
 
 export const newsEntries: NewsEntry[] = [
   {
-    slug: "modern-framework-2026-meta-framework-era",
-    title: "Framework 2026: Era Meta-Framework, Fullstack Gak Pake Ribet!",
+    slug: "membaca-angka-sebelum-menambah-budget",
+    title: "Membaca Angka Dulu, Baru Tambah Budget",
     excerpt:
-      "Framework jaman sekarang udah bukan cuma tools doang — udah kayak ekosistem lengkap yang nyatuin frontend, backend, sampe deployment dalam satu stack. Gila sih.",
+      "Kenaikan impressions 421% bukan datang dari budget yang dibesarkan, tapi dari memutuskan iklan mana yang layak dilanjutkan.",
     content: [
-      "Tahun 2026 ini, dunia framework berubah drastis banget. Developer udah gak perlu lagi rakit stack dari nol. Sekarang tinggal pake meta-framework yang udah nyediain semuanya: routing, data fetching, API, sampe deployment — semua dalam satu paket. Enak banget kan?",
-      "Next.js sama Nuxt sekarang udah jadi standar baru buat bikin web modern. Dua-duanya support hybrid rendering (SSR, SSG, CSR) sekaligus, jadi kita bisa pilih strategi rendering sesuka hati tanpa harus ganti-ganti tools.",
-      "Terus muncul juga framework baru kayak SvelteKit sama Qwik yang fokusnya di performa ekstrem. Pake pendekatan compile-time dan lazy loading granular, aplikasi jadi super ringan dan ngebut bahkan di jaringan yang lemot sekalipun.",
-      "Di sisi backend, NestJS makin nge-hype karena arsitekturnya modular dan full TypeScript. Jadinya developer bisa bangun sistem yang scalable dengan struktur yang rapi dan gampang di-maintain.",
-      "Tren gede lainnya itu edge runtime. Banyak framework sekarang by default jalan di edge (kayak Vercel Edge atau Cloudflare Workers), jadi latency bisa ditekan abis dan performa naik drastis.",
-      "Intinya, framework modern itu udah bukan sekadar library UI lagi — udah jadi semacam 'operating system' buat web app. Kita tinggal fokus ke logic bisnis aja, urusan infra biar framework yang handle. Auto chill."
+      "Godaan paling umum saat sebuah kampanye mulai menunjukkan hasil adalah langsung menaikkan budget. Padahal yang perlu dilihat lebih dulu adalah dari mana hasil itu datang: set iklan mana yang biayanya paling efisien per hasil, dan mana yang sebenarnya hanya menghabiskan anggaran.",
+      "Dalam satu periode pengelolaan, saya memisahkan performa organik dan berbayar sejak awal. Dari total 110.736 views, 72.460 datang dari organik dan 38.276 dari ads. Pemisahan sederhana ini penting: tanpa itu, kita gampang mengira iklan bekerja padahal yang naik adalah konten organik, atau sebaliknya.",
+      "Setelah pola terbaca, langkahnya jadi lebih jelas — hentikan materi yang biaya per klik-nya jauh di atas rata-rata, lalu alihkan anggarannya ke kreatif yang sudah terbukti. Hasilnya impressions naik 421,7% dan reach naik 379,7%, dengan struktur biaya yang tetap terkendali.",
+      "Intinya: data bukan laporan yang dibuat di akhir bulan untuk formalitas. Data adalah dasar keputusan mingguan.",
     ],
-    date: "07 Apr 2026",
-    category: "Tech Stack",
-    readingTime: "4 menit",
-  },
-  {
-    slug: "web3-beyond-crypto-infrastructure",
-    title: "Web3 Itu Bukan Cuma Crypto Doang, Bro",
-    excerpt:
-      "Web3 udah berkembang jauh banget dari sekadar crypto. Sekarang fokusnya ke desentralisasi data, identitas digital, dan arsitektur app tanpa bos tunggal.",
-    content: [
-      "Selama ini Web3 sering banget dikaitinnya cuma sama cryptocurrency dan trading aset digital. Padahal inti dari Web3 itu desentralisasi — ngilangin ketergantungan sama satu pihak yang pegang semua data dan sistem.",
-      "Teknologi kayak blockchain, smart contract, dan decentralized storage bikin developer bisa bangun aplikasi yang transparan, trustless, dan lebih tahan banting dari single point of failure. Contohnya pake IPFS buat nyimpen file dan smart contract buat ngatur logic bisnis otomatis tanpa backend tradisional. Keren sih konsepnya.",
-      "Buat developer, Web3 ini bawa paradigma baru. Kalo biasanya kita pake REST API, di sini kita langsung interaksi sama blockchain lewat RPC atau SDK tertentu. Butuh pemahaman ekstra soal wallet integration, gas fee, dan keamanan smart contract.",
-      "Tapi tantangan paling gede Web3 sekarang itu bukan di teknologinya — lebih ke user experience-nya. Proses kayak wallet connection, signing transaction, handling network itu masih ribet banget buat user awam. Nah di sinilah peran kita sebagai developer penting banget buat nyederhain semua itu.",
-      "Ke depannya, Web3 punya potensi jadi fondasi buat banyak hal — digital identity, ownership data, sampe sistem voting yang transparan. Emang adopsinya masih pelan-pelan, tapi developer yang udah paham dari sekarang bakal punya advantage gede buat bikin produk generasi selanjutnya."
-    ],
-    date: "06 Apr 2026",
-    category: "Tech & Opinion",
-    readingTime: "4 menit",
-  },
-  {
-    slug: "ai-driven-development",
-    title: "AI Sekarang Jadi Temen Ngoding, Bukan Cuma Auto-Complete",
-    excerpt:
-      "Gimana AI kayak Cursor, Copilot, dan Agentic Workflow literally ngubah kecepatan shipping produk ke production. Spoiler: hemat waktu gila-gilaan.",
-    content: [
-      "Beberapa bulan terakhir ini, peran AI di dunia software engineering bergeser masif banget. AI udah bukan sekadar nebak-nebak sintaks auto-complete lagi — sekarang udah jadi partner pair-programming alias AI Agent yang beneran pinter.",
-      "Di beberapa project freelance, gue coba masukin pendekatan 'AI-Driven Development' pake berbagai tools canggih. Mulai dari boilerplating backend NestJS yang jauh lebih cepet, deteksi bug lintas file yang akurasinya ngeri, sampe refactoring legacy code jadi lebih clean dan scalable. Literally game changer.",
-      "Peran developer sekarang mulai bergeser dari 'ngetik kode' ke arah 'system designer/director'. Skill prompting dan review logic yang solid justru jadi jauh lebih penting. Kombinasi insting kita sebagai engineer plus kecepatan AI bikin delivery time bisa hemat sampe 40%. Gokil sih."
-    ],
-    date: "02 Apr 2026",
-    category: "Tech & Opinion",
+    date: "12 Mar 2026",
+    category: "Paid Ads",
     readingTime: "3 menit",
   },
   {
-    slug: "ehrm-docker-rollout",
-    title: "Akhirnya E-HRM PUPR Naik Docker, Auto Stabil!",
+    slug: "content-calendar-yang-benar-benar-dipakai",
+    title: "Content Calendar yang Benar-Benar Dipakai",
     excerpt:
-      "Service NestJS sama Vue udah di-wrap ke Docker + Redis. Dashboard pegawai kementerian jadi jauh lebih stabil dan gak drama lagi pas deploy.",
+      "Kalender konten gagal bukan karena kurang rapi, tapi karena dibuat tanpa memikirkan siapa yang mengeksekusinya.",
     content: [
-      "Minggu ini kita berhasil deploy versi containerized dari E-HRM. NestJS API, worker queue, sama front-end Vue sekarang jalan di cluster Docker yang sama — proses rilis jadi jauh lebih predictable dan gak bikin deg-degan lagi.",
-      "Redis dipake buat caching data pegawai yang sering diakses. Latency pencarian turun dari 1.2 detik jadi 320 ms — lumayan signifikan buat pengguna internal yang buka ratusan record per jam. Mereka happy, kita juga happy.",
-      "Sekarang lagi nyusun playbook scaling biar tim infra PUPR bisa handle sendiri kalo traffic lagi peak pas periode audit tahunan. Biar gak harus standby 24/7 terus haha."
+      "Banyak brand punya content calendar, tapi berhenti dipakai di minggu ketiga. Penyebabnya jarang soal template — biasanya karena kalender itu disusun terlalu ambisius untuk kapasitas tim yang ada.",
+      "Pendekatan yang saya pakai: tentukan dulu jumlah slot realistis per minggu, baru isi temanya. Bukan sebaliknya. Setiap slot punya tiga informasi minimum — format (feed, carousel, atau reels), tema, dan jam tayang. Sisanya menyusul saat produksi.",
+      "Jam tayang tidak ditebak. Diambil dari jam aktif audiens di Insights, lalu diuji beberapa minggu. Kalau satu slot konsisten berperforma rendah, slot itu dipindah, bukan kontennya yang disalahkan.",
+      "Dengan ritme yang bisa dijaga, frekuensi posting jadi stabil dan interaksi konten naik 100% dibanding periode sebelumnya — tanpa menambah orang di tim.",
     ],
-    date: "18 Nov 2024",
-    category: "Build log",
-    readingTime: "4 menit",
-  },
-  {
-    slug: "lakoe-midtrans-checkout",
-    title: "Lakoe Store Akhirnya Bisa Terima Pembayaran Beneran!",
-    excerpt:
-      "Integrasi Midtrans sama Biteship kelar — checkout di React + Express udah jalan end-to-end. Gak pake dummy lagi!",
-    content: [
-      "Lakoe Store awalnya cuma support pembayaran dummy doang. Setelah nambahin Midtrans Snap API, order sekarang bisa langsung diverifikasi lewat webhook Express. Finally, pembayaran beneran!",
-      "Gue pasangin juga Prisma buat nge-record status pembayaran per transaksi, plus sinkron sama Biteship biar label pengiriman otomatis muncul di dashboard admin. Satu flow, semua ke-handle.",
-      "Testing regresi pake Vitest + Thunder Client collection, jadi setiap rilis tetap aman walaupun timnya kecil. Quality tetap nomor satu lah."
-    ],
-    date: "05 Nov 2024",
-    category: "Release",
+    date: "28 Feb 2026",
+    category: "Content Strategy",
     readingTime: "3 menit",
   },
   {
-    slug: "circle-realtime-update",
-    title: "Circle App Sekarang Bisa Komentar Realtime, Cuy!",
+    slug: "menjual-topik-teknis-di-media-sosial",
+    title: "Cara Menjual Topik Teknis di Media Sosial",
     excerpt:
-      "Nambahin channel komentar live pake Socket.IO biar komunitas mini-nya kerasa lebih hidup dan responsif.",
+      "Sertifikasi ISO bukan topik yang menghentikan scroll. Kecuali cara menyampaikannya diubah.",
     content: [
-      "Circle App sekarang udah support komentar real-time! Socket.IO jalan di Express server dan pake namespace berbeda buat feed publik. Jadi semua komentar langsung muncul tanpa harus refresh.",
-      "Buat keamanan, setiap koneksi di-validasi pake JWT yang dikeluarin API. Payload-nya disimpen di PostgreSQL lewat Prisma biar data tetep konsisten. Aman terkendali.",
-      "Hasilnya? Durasi percakapan di cohort privat naik karena notifikasi dateng detik itu juga — bukan lagi polling tiap 30 detik. User-nya langsung kerasa bedanya, mantap."
+      "Standar mutu, audit, dan sertifikasi adalah topik yang penting bagi bisnis tapi terdengar berat di feed sosial media. Konten yang menjelaskan klausul apa adanya hampir pasti dilewati.",
+      "Yang berhasil justru konten yang berangkat dari pertanyaan yang sudah ada di kepala audiens — kekhawatiran soal reputasi, biaya, atau proses yang dianggap ribet. Standar teknisnya tetap disampaikan, tapi masuk sebagai jawaban, bukan sebagai pembuka.",
+      "Format juga menentukan. Carousel cocok untuk penjelasan bertahap, sementara reels lebih kuat untuk mengangkat momen dan isu yang sedang ramai. Satu unggahan dengan pendekatan ini menembus 33.128 views, 16.446 reach, dan 268 interaksi — jauh di atas rata-rata post reguler.",
+      "Topik teknis tidak perlu disederhanakan sampai kehilangan isi. Yang perlu diubah adalah urutan penyampaiannya.",
     ],
-    date: "24 Okt 2024",
-    category: "Feature",
+    date: "14 Feb 2026",
+    category: "Social Media",
     readingTime: "3 menit",
   },
-  {
-    slug: "skybook-filament-handover",
-    title: "SkyBook Admin Siap Diserahin ke Tim Ops!",
-    excerpt:
-      "CMS Laravel + Filament udah dilengkapin dokumentasi deployment biar tim ops bisa jalan sendiri tanpa harus nanya-nanya lagi.",
-    content: [
-      "SkyBook Admin sekarang punya modul pelacakan booking baru. Filament bikin pembuatan form dinamis buat jadwal penerbangan jadi gampang banget — drag, config, done.",
-      "Gue tambahin juga Sanctum guard khusus admin biar akses antar role bisa dipisah tanpa harus nulis ulang middleware. Clean dan efisien.",
-      "Dokumentasi deployment di XAMPP + MySQL udah beres, termasuk skrip seed biar tim ops bisa isi data awal cukup satu kali jalan. Tinggal serahin, auto jalan. Bye-bye hand-holding!"
-    ],
-    date: "10 Okt 2024",
-    category: "Ops note",
-    readingTime: "4 menit",
-  },
-  {
-    slug: "absen-app-barcode-feature",
-    title: "Implementasi Multi-Tenant & Barcode-Based Attendance System",
-    excerpt:
-      "Absensi berbasis barcode dengan arsitektur multi-tenant, optimized schema, dan siap production di environment scalable.",
-    content: [
-      "Arsitektur multi-tenant sudah fully implemented menggunakan pendekatan shared database dengan isolasi berbasis sekolahId. Setiap query ter-scoped secara ketat untuk memastikan data antar tenant tidak tercampur, dengan kontrol akses di level backend.",
-      "Fitur barcode scanning di-handle secara real-time untuk proses check-in dan check-out. Sistem menerima input dari scanner (kamera/device), memvalidasi identitas siswa, lalu langsung menulis data ke database tanpa proses manual.",
-      "Database menggunakan PostgreSQL dengan ORM Prisma, dilengkapi constraint unik pada kombinasi (siswaId, tanggal) untuk mencegah duplikasi absensi. Deployment menggunakan Supabase dengan connection pooling untuk menjaga performa saat concurrent request tinggi.",
-    ],
-    date: "15 Apr 2026",
-    category: "Dev Update",
-    readingTime: "5 menit",
-  }
 ];
 
 export function getNewsEntry(slug: string) {

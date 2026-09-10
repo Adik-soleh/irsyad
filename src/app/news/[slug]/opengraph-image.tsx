@@ -110,7 +110,7 @@ export default async function Image({
                 width: "44px",
                 height: "44px",
                 borderRadius: "50%",
-                background: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+                background: "linear-gradient(135deg, #8a8a8a, #d4d4d4)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -119,14 +119,14 @@ export default async function Image({
                 color: "#ffffff",
               }}
             >
-              A
+              I
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
               <span style={{ fontSize: "18px", fontWeight: 700, color: "#e2e8f0" }}>
-                Adik Soleh
+                Irsyad Rafly Wahyudi
               </span>
               <span style={{ fontSize: "14px", color: "#64748b" }}>
-                adiportofolio.fun
+                Digital Marketing Specialist
               </span>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default async function Image({
             style={{
               fontSize: "14px",
               fontWeight: 600,
-              color: "#6366f1",
+              color: "#cbd5e1",
               letterSpacing: "2px",
               textTransform: "uppercase",
             }}

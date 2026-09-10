@@ -10,7 +10,7 @@ interface PageProps {
   }>;
 }
 
-const siteUrl = "https://adiportofolio.fun";
+const siteUrl = "https://irsyadportfolio.vercel.app";
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
@@ -18,12 +18,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (!entry) {
     return {
-      title: "Adi News",
-      description: "Catatan harian Adi tentang eksperimen produk dan proses shipping.",
+      title: "Insight",
+      description: "Catatan Irsyad Rafly tentang kampanye digital, konten, dan performa iklan.",
     };
   }
 
-  const pageTitle = `${entry.title} — Adi News`;
+  const pageTitle = `${entry.title} — Insight`;
   const pageUrl = `${siteUrl}/news/${entry.slug}`;
 
   return {
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: pageTitle,
       description: entry.excerpt,
       url: pageUrl,
-      siteName: "Adik Soleh Portfolio",
+      siteName: "Irsyad Rafly Portfolio",
       type: "article",
       locale: "id_ID",
     },
@@ -50,48 +50,48 @@ export default async function NewsDetailPage({ params }: PageProps) {
   const entry = getNewsEntry(slug);
 
   if (!entry) {
-    redirect("/#news");
+    redirect("/#insights");
   }
 
   return (
     <div className="min-h-screen px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-4xl flex-col gap-10">
         <Link
-          href="/#news"
-          className="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-white/70 transition hover:text-black dark:hover:text-white font-medium"
+          href="/#insights"
+          className="inline-flex items-center gap-2 text-sm text-slate-500 transition hover:text-black font-medium"
         >
-          <span aria-hidden>←</span> Kembali ke news
+          <span aria-hidden>←</span> Kembali ke insight
         </Link>
 
-        <article className="rounded-[32px] border border-slate-200 dark:border-white/10 bg-white dark:bg-[#060606] p-8 sm:p-10 shadow-xl dark:shadow-[0_20px_60px_rgba(255,255,255,0.02)]">
+        <article className="rounded-[32px] border border-slate-200 bg-white p-8 sm:p-10 shadow-xl">
           <div className="space-y-4">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400 opacity-90">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 opacity-90">
               {entry.category} · {entry.date}
             </p>
-            <h1 className="text-3xl sm:text-4xl font-bold leading-tight text-slate-900 dark:text-white">
+            <h1 className="font-display text-4xl leading-tight text-slate-900 sm:text-5xl">
               {entry.title}
             </h1>
-            <p className="text-lg text-slate-600 dark:text-white/80">{entry.excerpt}</p>
+            <p className="text-lg text-slate-600">{entry.excerpt}</p>
           </div>
 
-          <div className="mt-10 space-y-6 text-base text-slate-700 dark:text-slate-100">
+          <div className="mt-10 space-y-6 text-base text-slate-700">
             {entry.content.map((paragraph, i) => (
-              <p key={i} className="leading-relaxed text-slate-700 dark:text-white/80">
+              <p key={i} className="leading-relaxed text-slate-700">
                 {paragraph}
               </p>
             ))}
           </div>
 
-          <div className="mt-12 flex flex-wrap items-center justify-between gap-6 border-t border-slate-200 dark:border-white/10 pt-8 sm:flex-row flex-col items-start sm:items-center">
-            <p className="font-medium text-slate-800 dark:text-white/80">Butuh bantuan membangun sistem serupa?</p>
+          <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-slate-200 pt-8 sm:flex-row sm:items-center">
+            <p className="font-medium text-slate-800">Punya kebutuhan kampanye serupa?</p>
             <Button href="/#contact" variant="primary">
-              Diskusikan Project
+              Diskusikan Kebutuhan
             </Button>
           </div>
         </article>
 
         <div className="space-y-6 mt-8">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-400 dark:text-white/50">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-400">
             Artikel lainnya
           </p>
           <div className="grid gap-6 md:grid-cols-2">
@@ -102,14 +102,14 @@ export default async function NewsDetailPage({ params }: PageProps) {
                 <Link
                   key={item.slug}
                   href={`/news/${item.slug}`}
-                  className="group rounded-[24px] border border-slate-200 dark:border-white/10 bg-white dark:bg-black/40 p-6 transition hover:-translate-y-1 hover:shadow-lg"
+                  className="group rounded-[24px] border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg"
                 >
-                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400 opacity-90">
+                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 opacity-90">
                     {item.category}
                   </p>
-                  <h3 className="mt-3 text-lg font-bold text-slate-900 dark:text-white group-hover:underline transition-colors">{item.title}</h3>
-                  <p className="mt-3 text-sm text-slate-600 dark:text-white/70 line-clamp-2">{item.excerpt}</p>
-                  {/* <p className="mt-6 text-xs font-medium text-slate-400 dark:text-white/50">
+                  <h3 className="mt-3 text-lg font-bold text-slate-900 group-hover:underline transition-colors">{item.title}</h3>
+                  <p className="mt-3 text-sm text-slate-600 line-clamp-2">{item.excerpt}</p>
+                  {/* <p className="mt-6 text-xs font-medium text-slate-400">
                     {item.date} · {item.readingTime}
                   </p> */}
                 </Link>

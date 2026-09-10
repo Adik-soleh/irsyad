@@ -1,21 +1,17 @@
-import PUPR from "@/assets/projects/pupr.png";
-import circle_app from "@/assets/projects/circleApp.png";
-import lakoe from "@/assets/projects/lakoe.png";
-import airlane from "@/assets/projects/airLane.png";
-import notion from "@/assets/projects/notion.png";
-import compro from "@/assets/projects/compro.png";
-import dashboard from "@/assets/projects/dashboard.png";
-import absensi from "@/assets/projects/absensi.png"
+import performance from "@/assets/work/performance.png";
+import metaAds from "@/assets/work/meta-ads.png";
+import social from "@/assets/work/social.png";
+import corporateComm from "@/assets/work/corporate-comm.png";
+import content from "@/assets/work/content.png";
+import graphic from "@/assets/work/graphic.png";
 
 export const images = {
-  projects: {
-    pupr: PUPR,
-    circleApp: circle_app,
-    lakoe: lakoe,
-    airlane: airlane,
-    notion: notion,
-    compro: compro,
-    dashboard: dashboard,
-    absensi
+  work: {
+    performance,
+    metaAds,
+    social,
+    corporateComm,
+    content,
+    graphic,
   },
 };

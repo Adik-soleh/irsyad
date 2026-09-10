@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Anton, Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import InitialLoader from "@/components/molecules/InitialLoader";
 
 const inter = Inter({
@@ -9,105 +8,93 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://adiportofolio.fun";
+const anton = Anton({
+  variable: "--font-display",
+  weight: "400",
+  subsets: ["latin"],
+});
+
+const siteUrl = "https://irsyadportfolio.vercel.app";
+const ogImage = `${siteUrl}/irsyad_photo.jpg`;
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Adik Soleh",
+  name: "Irsyad Rafly Wahyudi",
   url: siteUrl,
-  jobTitle: "Full Stack Developer",
-  image: "https://adiportofolio.fun/me_photo.jpeg",
+  jobTitle: "Digital Marketing Specialist",
+  image: ogImage,
   sameAs: [
-    "https://linkedin.com/in/adik-soleh",
-    "https://github.com/adik-soleh",
-    "mailto:adiksoleh4@gmail.com",
-    "https://wa.me/62895360103563",
+    "https://www.linkedin.com/in/irsyad-rafly-1509932b5",
+    "mailto:irsyad.rafly.wahyudi@gmail.com",
+    "https://wa.me/628111118355",
   ],
-  worksFor: {
-    "@type": "Organization",
-    name: "Freelance / Remote",
-  },
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "PT DumbWays Indonesia Teknologi",
-  },
+  alumniOf: [
+    {
+      "@type": "CollegeOrUniversity",
+      name: "Asia e University Malaysia",
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      name: "CCIT — Faculty of Engineering, University of Indonesia",
+    },
+  ],
   knowsAbout: [
-    "NestJS",
-    "Vue.js",
-    "React",
-    "Express.js",
-    "PostgreSQL",
-    "Prisma",
-    "Next.js",
-    "Nuxt.js",
+    "Digital Marketing",
+    "Social Media Management",
+    "Meta Ads",
+    "Google Ads",
+    "Content Strategy",
+    "Corporate Communication",
+    "Graphic Design",
   ],
   contactPoint: {
     "@type": "ContactPoint",
-    contactType: "customer service",
-    email: "adiksoleh4@gmail.com",
+    contactType: "business",
+    email: "irsyad.rafly.wahyudi@gmail.com",
     availableLanguage: ["id", "en"],
   },
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Adik Soleh — Full Stack Developer",
+  title: "Irsyad Rafly Wahyudi — Digital Marketing Specialist",
   description:
-    "Portofolio resmi Adik Soleh, full stack developer fokus NestJS, Vue, React, dan Express untuk produk performa tinggi.",
+    "Portofolio Irsyad Rafly Wahyudi — Digital Marketing Specialist dengan fokus social media management, paid advertising (Meta Ads), content strategy, dan corporate communication.",
   keywords: [
-    "Adik Soleh",
-    "Full Stack Developer",
-    "NestJS developer",
-    "Vue.js developer Indonesia",
-    "React engineer",
-    "Express developer",
-    "Portfolio developer Indonesia",
-    "Javascript engineer",
-    "TypeScript engineer",
-    "PostgreSQL developer",
-    "Prisma ORM",
-    "Next.js portfolio",
-    "Software engineer Tangerang",
-    "Freelance developer Indonesia",
-    "Developer Indonesia",
-    "Engineer Tangerang Selatan",
-    "Backend NestJS",
-    "Frontend Vue",
-    "React TypeScript",
-    "Full stack JavaScript",
-    "Engineer Jakarta",
-    "Web developer Indonesia",
-    "Pengembang aplikasi web",
-    "Konsultan IT Indonesia",
-    "Jasa pembuatan website",
+    "Irsyad Rafly Wahyudi",
+    "Digital Marketing Specialist",
+    "Social Media Specialist Indonesia",
+    "Meta Ads Specialist",
+    "Google Ads",
+    "Content Strategist",
+    "Social Media Management",
+    "Corporate Communication",
+    "Graphic Designer Indonesia",
+    "Performance Marketing",
+    "Portfolio digital marketing",
+    "Digital marketing Jakarta",
   ],
-  authors: [{ name: "Adik Soleh", url: siteUrl }],
-  creator: "Adik Soleh",
-  publisher: "Adik Soleh",
-  applicationName: "Adik Soleh Portfolio",
-  category: "technology",
+  authors: [{ name: "Irsyad Rafly Wahyudi", url: siteUrl }],
+  creator: "Irsyad Rafly Wahyudi",
+  publisher: "Irsyad Rafly Wahyudi",
+  applicationName: "Irsyad Rafly Portfolio",
+  category: "marketing",
   alternates: {
     canonical: "/",
-    types: {
-      "application/json": `${siteUrl}/api/cv`,
-    },
-    languages: {
-      "id-ID": siteUrl,
-      "en-US": `${siteUrl}/en`,
-    },
   },
   openGraph: {
-    title: "Adik Soleh · Full Stack Developer",
+    title: "Irsyad Rafly Wahyudi · Digital Marketing Specialist",
     description:
-      "Menangani proyek HR enterprise, e-commerce, dan platform komunitas dengan stack JavaScript/TypeScript modern.",
+      "Social media management, paid advertising, dan content strategy untuk brand awareness dan pertumbuhan bisnis yang terukur.",
     url: siteUrl,
-    siteName: "Adik Soleh Portfolio",
+    siteName: "Irsyad Rafly Portfolio",
     images: [
       {
-        url: "https://adiportofolio.fun/me_photo.jpeg",
+        url: ogImage,
         width: 1200,
-        height: 1600,
-        alt: "Adik Soleh headshot",
+        height: 1800,
+        alt: "Irsyad Rafly Wahyudi",
       },
     ],
     locale: "id_ID",
@@ -115,12 +102,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Adik Soleh — Full Stack Developer",
+    title: "Irsyad Rafly Wahyudi — Digital Marketing Specialist",
     description:
-      "Portofolio proyek Adik Soleh: NestJS, Vue.js, React, Express, PostgreSQL, dan Prisma.",
-    images: [
-      "https://adiportofolio.fun/me_photo.jpeg",
-    ],
+      "Portofolio digital marketing: Meta Ads, social media strategy, content creation, dan corporate communication.",
+    images: [ogImage],
   },
   robots: {
     index: true,
@@ -133,10 +118,6 @@ export const metadata: Metadata = {
       "max-video-preview": -1,
     },
   },
-  other: {
-    "google-site-verification": "replace-with-google-code",
-    "bingbot": "index, follow",
-  },
   formatDetection: {
     email: false,
     telephone: false,
@@ -148,13 +129,6 @@ export const metadata: Metadata = {
     apple: "/testing.png",
   },
   manifest: "/manifest.json",
-  verification: {
-    google: "nUJSObGv_-CmURG9EHWu__BADlyxPxHcvZUihFACegM",
-    other: {
-      "pinterest": "pinterest-verification-code",
-      "msvalidate.01": "FD3B3973E1E1A715B214DEB094638F63",
-    },
-  },
 };
 
 export default function RootLayout({
@@ -163,10 +137,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="dark">
-      <body className={`${inter.variable} font-sans antialiased`}>
+    <html lang="id">
+      <body className={`${inter.variable} ${anton.variable} font-sans antialiased`}>
         <InitialLoader />
-        <ThemeProvider>{children}</ThemeProvider>
+        {children}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

@@ -1,11 +1,11 @@
 {
-  "name": "Adik Soleh Portfolio",
-  "short_name": "AdikSoleh",
+  "name": "Irsyad Rafly Portfolio",
+  "short_name": "IrsyadRafly",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#030b17",
-  "theme_color": "#0b1f3a",
-  "description": "Portfolio resmi Adik Soleh, full stack developer yang membangun produk NestJS, Vue, React, dan Express.",
+  "background_color": "#09090b",
+  "theme_color": "#6e6e6e",
+  "description": "Portofolio Irsyad Rafly Wahyudi, Digital Marketing Specialist: social media management, paid advertising, dan content strategy.",
   "icons": [
     {
       "src": "/web_icon.png",

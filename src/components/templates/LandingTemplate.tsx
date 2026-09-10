@@ -6,17 +6,19 @@ import { NewsShowcase } from "@/components/organisms/NewsShowcase";
 import { ContactSection } from "@/components/organisms/ContactSection";
 import { Footer } from "@/components/organisms/Footer";
 import { AboutTechStack } from "@/components/organisms/AboutTechStack";
-import { LiveChat } from "@/components/organisms/LiveChat";
 import {
+  capabilities,
+  contactChannels,
+  educations,
   experiences,
   heroContent,
   navItems,
   newsEntries,
-  projects,
   skillCategories,
-  tools,
   socialLinks,
   stats,
+  tools,
+  works,
 } from "@/data/content";
 
 export function LandingTemplate() {
@@ -26,24 +28,22 @@ export function LandingTemplate() {
         <NavigationBar items={navItems} socialLinks={socialLinks} />
 
         <main className="flex flex-col">
-          <HeroSection content={heroContent} socialLinks={socialLinks} />
+          <HeroSection content={heroContent} socialLinks={socialLinks} stats={stats} />
 
           {/* Overlapping Content Container */}
-          <div className="relative z-10 flex flex-col gap-24 sm:gap-32 lg:gap-40 pt-16 sm:pt-24 mt-16 sm:mt-24
-            before:absolute before:inset-0 before:-z-10 before:w-screen before:left-1/2 before:-translate-x-1/2 before:bg-[#fafafa] dark:before:bg-[#09090b] 
-            before:border-t before:border-zinc-200 dark:before:border-white/10 
-            before:shadow-[0_-30px_60px_rgba(0,0,0,0.04)] dark:before:shadow-[0_-30px_60px_rgba(255,255,255,0.02)]">
-            <AboutTechStack categories={skillCategories} tools={tools} />
-            <ProjectsShowcase projects={projects} />
-            <ExperienceTimeline experiences={experiences} />
+          <div className="relative z-10 mt-8 flex flex-col gap-24 pt-16 sm:mt-12 sm:gap-32 sm:pt-20 lg:gap-40
+            before:absolute before:inset-0 before:-z-10 before:left-1/2 before:w-screen before:-translate-x-1/2 before:bg-white
+            before:border-t before:border-zinc-200">
+            <AboutTechStack categories={skillCategories} capabilities={capabilities} tools={tools} />
+            <ProjectsShowcase works={works} />
+            <ExperienceTimeline experiences={experiences} educations={educations} />
             <NewsShowcase entries={newsEntries} />
-            <ContactSection />
+            <ContactSection channels={contactChannels} />
           </div>
         </main>
 
         <Footer />
       </div>
-      <LiveChat />
     </div>
   );
 }

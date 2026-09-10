@@ -41,7 +41,7 @@ export default function InitialLoader() {
     >
       <div className="flex flex-col items-center gap-8">
         <div className="flex items-baseline gap-1 overflow-hidden">
-          {"ADIK SOLEH".split("").map((ch, i) => (
+          {"IRSYAD RAFLY".split("").map((ch, i) => (
             <span
               key={i}
               className="inline-block text-2xl md:text-3xl font-light tracking-[0.4em] opacity-0"

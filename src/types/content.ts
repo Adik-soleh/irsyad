@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export type NavItem = {
   label: string;
   href: string;
@@ -9,16 +11,18 @@ export type Stat = {
   helper?: string;
 };
 
-export type Project = {
+export type Work = {
   title: string;
   description: string;
   tags: string[];
   year: string;
-  link: string;
-  cover: any;
-  problem?: string;
-  uiSolution?: string;
-  systemSolution?: string;
+  cover: StaticImageData;
+  /** What the brand was up against before the work started. */
+  challenge?: string;
+  /** The approach taken — strategy, creative, or process. */
+  approach?: string;
+  /** What it produced, in numbers where numbers exist. */
+  impact?: string;
 };
 
 export type Experience = {
@@ -27,6 +31,12 @@ export type Experience = {
   period: string;
   description: string;
   skills: string[];
+};
+
+export type Education = {
+  school: string;
+  degree: string;
+  period: string;
 };
 
 export type NewsEntry = {
@@ -44,10 +54,18 @@ export type SocialLink = {
   href: string;
 };
 
+export type ContactChannel = {
+  label: string;
+  value: string;
+  href: string;
+  icon: string;
+};
+
 export type HeroContent = {
   greeting: string;
   name: string;
   tagline: string;
+  headline: string;
   summary: string;
   skills: string[];
   photo: string;
@@ -72,4 +90,9 @@ export type SkillCategory = {
 
 export type Tool = {
   name: string;
+};
+
+export type Capability = {
+  title: string;
+  description: string;
 };
