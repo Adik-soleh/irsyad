@@ -1,7 +1,7 @@
 "use client";
 
-import { ReactNode } from "react";
-import { motion } from "framer-motion";
+import { ReactNode, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -13,13 +13,14 @@ type Props = {
 
 export function RevealText({ children, className, delay = 0, as = "span" }: Props) {
   const Tag = motion[as];
+  const wrapperRef = useRef<HTMLSpanElement>(null);
+  const inView = useInView(wrapperRef, { once: true, amount: 0.2 });
 
   return (
-    <span className={cn("block overflow-hidden", className)}>
+    <span ref={wrapperRef} className={cn("block overflow-hidden", className)}>
       <Tag
         initial={{ y: "110%" }}
-        whileInView={{ y: "0%" }}
-        viewport={{ once: true, margin: "-10%" }}
+        animate={inView ? { y: "0%" } : { y: "110%" }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay }}
         className="block"
       >
