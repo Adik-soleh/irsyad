@@ -17,7 +17,6 @@ export async function POST(request: Request) {
     console.log(`Message: \n${message}`);
     console.log("===========================");
 
-    // Simulate network delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     return NextResponse.json({ success: true, message: "Pesan berhasil dikirim!" }, { status: 200 });

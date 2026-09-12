@@ -16,7 +16,7 @@ export function useScrollSpy(sectionIds: string[], offset: number = 0) {
       },
       {
         root: null,
-        rootMargin: `-${offset}px 0px -50% 0px`, // triggers when section is half way up
+        rootMargin: `-${offset}px 0px -50% 0px`,
         threshold: 0,
       }
     );

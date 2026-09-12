@@ -30,8 +30,7 @@ export function DesignShell() {
     try {
       const stored = window.localStorage.getItem(STORAGE_KEY);
       if (isVariant(stored)) setVariant(stored);
-    } catch {
-    }
+    } catch {}
   }, []);
 
   const handleChange = (next: DesignVariant) => {
@@ -40,8 +39,7 @@ export function DesignShell() {
 
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
-    } catch {
-    }
+    } catch {}
 
     const url = new URL(window.location.href);
     url.searchParams.set("design", next);

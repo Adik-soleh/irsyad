@@ -42,7 +42,6 @@ export const contactChannels: ContactChannel[] = [
   { label: "LinkedIn", value: "Irsyad Rafly", href: LINKEDIN, icon: "/linkedin.svg" },
 ];
 
-/** Angka diambil dari laporan Meta Business Suite & Instagram Insights (Nov 2024 – Aug 2025). */
 export const stats: Stat[] = [
   {
     value: "110.7K",
@@ -147,7 +146,6 @@ export const tools: Tool[] = [
   { name: "Content Calendar" },
 ];
 
-/** Delapan peran dari halaman "My Performance" — enam di antaranya punya studi kasus di bawah. */
 export const capabilities: Capability[] = [
   {
     title: "Performance Marketing Analyst",

@@ -36,7 +36,7 @@ const itemVariants: Variants = {
 export function HeroSection({ content, socialLinks, stats }: Props) {
   return (
     <section id="home" className="relative pt-6 pb-20">
-            <div className="relative overflow-hidden rounded-[36px] bg-brand bg-gradient-to-br from-[var(--brand-ink)] via-[var(--brand-ink)] to-[var(--brand-ink-soft)] px-6 py-14 text-white sm:px-10 sm:py-16 lg:px-14">
+      <div className="relative overflow-hidden rounded-[36px] bg-brand bg-gradient-to-br from-[var(--brand-ink)] via-[var(--brand-ink)] to-[var(--brand-ink-soft)] px-6 py-14 text-white sm:px-10 sm:py-16 lg:px-14">
         <div className="hero-grid pointer-events-none absolute inset-0" />
 
         <motion.div

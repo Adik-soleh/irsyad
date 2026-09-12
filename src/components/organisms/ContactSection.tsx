@@ -37,8 +37,6 @@ const buildMailto = (name: string, email: string, message: string) => {
 export function ContactSection({ channels, variant = "mediaKit" }: Props) {
   const [draftUrl, setDraftUrl] = useState("");
 
-  // No server hop: the form composes a draft and hands it to the visitor's mail
-  // client, so the message is sent from their own address.
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
