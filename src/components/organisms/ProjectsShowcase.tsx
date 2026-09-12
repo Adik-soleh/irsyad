@@ -29,7 +29,6 @@ export function ProjectsShowcase({ works }: { works: Work[] }) {
       </div>
 
       <div className="grid gap-10 lg:grid-cols-[minmax(0,200px)_minmax(0,1fr)] lg:gap-14">
-        {/* Sticky index — the running order, as on a contents page */}
         <nav aria-label="Daftar karya" className="hidden lg:block">
           <ol className="sticky top-28 space-y-1 border-l border-slate-200">
             {works.map((work, index) => (
@@ -57,7 +56,6 @@ export function ProjectsShowcase({ works }: { works: Work[] }) {
         <div className="space-y-8">
           <CaseSheet work={lead} index={0} lead />
 
-          {/* Asymmetric mosaic: alternating wide/narrow pairs keep the rhythm off-grid */}
           <div className="grid gap-8 sm:grid-cols-2">
             {rest.map((work, i) => (
               <div

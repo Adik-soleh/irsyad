@@ -11,7 +11,6 @@ import { ArrowRight, Download } from "lucide-react";
 type Props = {
   content: HeroContent;
   socialLinks: SocialLink[];
-  /** Classic layout shows the numbers here; the editorial one gives them their own board. */
   stats?: Stat[];
 };
 
@@ -37,10 +36,8 @@ const itemVariants: Variants = {
 export function HeroSection({ content, socialLinks, stats }: Props) {
   return (
     <section id="home" className="relative pt-6 pb-20">
-      {/* Grey field with the cube lattice ornament — the print portfolio's cover treatment */}
-      <div className="relative overflow-hidden rounded-[36px] bg-brand px-6 py-14 text-white sm:px-10 sm:py-16 lg:px-14">
-        <div className="pointer-events-none absolute -left-16 -top-20 h-[440px] w-[560px] cube-lattice cube-lattice-light [mask-image:radial-gradient(circle_at_top_left,black,transparent_70%)]" />
-        <div className="pointer-events-none absolute -right-24 bottom-[-120px] h-[380px] w-[420px] cube-lattice cube-lattice-light [mask-image:radial-gradient(circle_at_bottom_right,black,transparent_68%)]" />
+            <div className="relative overflow-hidden rounded-[36px] bg-brand bg-gradient-to-br from-[var(--brand-ink)] via-[var(--brand-ink)] to-[var(--brand-ink-soft)] px-6 py-14 text-white sm:px-10 sm:py-16 lg:px-14">
+        <div className="hero-grid pointer-events-none absolute inset-0" />
 
         <motion.div
           variants={containerVariants}
@@ -147,7 +144,6 @@ export function HeroSection({ content, socialLinks, stats }: Props) {
             variants={itemVariants}
             className="relative mx-auto order-first mb-4 flex w-full max-w-md items-center justify-center lg:order-last lg:mb-0 lg:max-w-full"
           >
-            {/* Offset backing card, as on the printed cover */}
             <div className="absolute right-2 top-4 hidden h-full w-[88%] rounded-[36px] bg-white/15 lg:block" />
             <div className="group relative aspect-[3/4] w-[260px] overflow-hidden rounded-[36px] bg-slate-100 shadow-2xl sm:w-[320px] lg:w-[380px]">
               <Image

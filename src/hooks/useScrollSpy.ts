@@ -6,10 +6,8 @@ export function useScrollSpy(sectionIds: string[], offset: number = 0) {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Optional: add a tiny debounced scroll listener if needed, but IntersectionObserver is usually better
     const observer = new IntersectionObserver(
       (entries) => {
-        // Find the one that's intersecting optimally
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveId(entry.target.id);

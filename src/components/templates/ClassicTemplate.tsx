@@ -21,10 +21,6 @@ import {
   works,
 } from "@/data/content";
 
-/**
- * The first pass: stats in the hero, alternating full-width case studies with a
- * narrative trio, and a plain scope panel beside the contact form.
- */
 export function ClassicTemplate() {
   return (
     <div className="relative min-h-screen overflow-x-clip">

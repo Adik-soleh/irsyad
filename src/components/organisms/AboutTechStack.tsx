@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Capability, SkillCategory, Tool } from "@/types/content";
 import { SectionHeading } from "@/components/atoms/SectionHeading";
+import { ToolsGrid } from "@/components/molecules/ToolsGrid";
 
 type Props = {
   categories: SkillCategory[];
@@ -21,7 +22,7 @@ export function AboutTechStack({ categories, capabilities, tools }: Props) {
 
       <div className="grid gap-8 md:grid-cols-2">
         {categories.map((category, idx) => (
-          <motion.div
+      <motion.div
             key={category.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -46,14 +47,13 @@ export function AboutTechStack({ categories, capabilities, tools }: Props) {
         ))}
       </div>
 
-      {/* The eight roles carried over from the printed "My Performance" spread */}
       <div className="space-y-6 pt-4">
         <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">
           Peran yang Saya Pegang
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {capabilities.map((capability, idx) => (
-            <motion.div
+      <motion.div
               key={capability.title}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -75,29 +75,16 @@ export function AboutTechStack({ categories, capabilities, tools }: Props) {
         </div>
       </div>
 
-      {/* Tools Marquee */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        className="rounded-[32px] border border-slate-200 bg-slate-50 p-8 mt-12 overflow-hidden"
+        className="rounded-[32px] border border-slate-200 bg-slate-50 py-8 mt-12 overflow-hidden"
       >
-        <p className="mb-6 text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500">
+        <p className="mb-6 px-6 text-center text-xs font-bold uppercase tracking-[0.3em] text-slate-500">
           Tools & Workflow
         </p>
-        <div className="marquee">
-          <div className="marquee-track">
-            {/* Tripled so the loop reads as seamless at any viewport width */}
-            {[...tools, ...tools, ...tools].map((tool, i) => (
-              <span
-                key={`${tool.name}-${i}`}
-                className="whitespace-nowrap rounded-xl bg-white px-6 py-3 text-sm font-semibold text-slate-700 border border-slate-200 shadow-sm"
-              >
-                {tool.name}
-              </span>
-            ))}
-          </div>
-        </div>
+        <ToolsGrid tools={tools} />
       </motion.div>
     </section>
   );

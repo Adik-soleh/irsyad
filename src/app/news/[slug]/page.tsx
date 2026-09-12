@@ -109,10 +109,7 @@ export default async function NewsDetailPage({ params }: PageProps) {
                   </p>
                   <h3 className="mt-3 text-lg font-bold text-slate-900 group-hover:underline transition-colors">{item.title}</h3>
                   <p className="mt-3 text-sm text-slate-600 line-clamp-2">{item.excerpt}</p>
-                  {/* <p className="mt-6 text-xs font-medium text-slate-400">
-                    {item.date} · {item.readingTime}
-                  </p> */}
-                </Link>
+                                  </Link>
               ))}
           </div>
         </div>

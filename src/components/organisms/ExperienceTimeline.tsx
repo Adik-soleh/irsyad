@@ -17,7 +17,6 @@ export function ExperienceTimeline({ experiences, educations }: Props) {
       />
 
       <div className="relative max-w-4xl mx-auto">
-        {/* Background Vertical Line */}
         <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-0.5 bg-slate-200 transform md:-translate-x-1/2 z-0" />
 
         <div className="space-y-12">

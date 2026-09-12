@@ -11,11 +11,9 @@ import { motion } from "framer-motion";
 
 type Props = {
   channels: ContactChannel[];
-  /** "classic" keeps the plain scope panel; "mediaKit" uses the grey media-kit block. */
   variant?: "classic" | "mediaKit";
 };
 
-/** Plain-text draft so the mail lands readable in any client. */
 const buildMailto = (name: string, email: string, message: string) => {
   const subject = `Kerja sama dari ${name}`;
   const body = [
@@ -146,7 +144,6 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
           </form>
         </motion.div>
 
-        {/* Right Info Column */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -187,7 +184,6 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
             </div>
           </div>
 
-          {/* Classic keeps a plain scope panel; the editorial layout swaps in a media kit. */}
           {variant === "classic" ? (
             <div className="min-w-0 flex-1 rounded-[32px] border border-slate-200 bg-[#fafafa] p-6 shadow-xl sm:p-8">
               <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.2em] text-slate-500">

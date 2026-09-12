@@ -18,8 +18,6 @@ const isVariant = (value: string | null): value is DesignVariant =>
 export function DesignShell() {
   const [variant, setVariant] = useState<DesignVariant>(DEFAULT_VARIANT);
 
-  // Resolved after mount so the server render stays deterministic.
-  // A `?design=` param wins over the stored preference, so links are shareable.
   useEffect(() => {
     const fromQuery = new URLSearchParams(window.location.search).get("design");
     if (isVariant(fromQuery)) {
@@ -33,7 +31,6 @@ export function DesignShell() {
       const stored = window.localStorage.getItem(STORAGE_KEY);
       if (isVariant(stored)) setVariant(stored);
     } catch {
-      // Private mode or blocked storage — the default is fine.
     }
   }, []);
 
@@ -44,7 +41,6 @@ export function DesignShell() {
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      // Ignore: the switch still works for this session.
     }
 
     const url = new URL(window.location.href);
@@ -58,4 +54,4 @@ export function DesignShell() {
       {SHOW_SWITCHER && <DesignSwitcher value={variant} onChange={handleChange} />}
     </>
   );
-}
+    }

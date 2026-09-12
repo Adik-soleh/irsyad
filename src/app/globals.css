@@ -1,26 +1,21 @@
 @import "tailwindcss";
 
-/*
- * Palette lifted from the printed portfolio: a mid-grey field, crisp white
- * panels, near-black type. Light-only by design — no dark variant.
- */
 :root {
   color-scheme: light;
   --background: #f4f4f5;
   --foreground: #18181b;
-  --brand-grey: #737373;
-  --brand-grey-dark: #5f5f5f;
+  --brand-ink: #0b1220;
+  --brand-ink-soft: #141e33;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand: var(--brand-grey);
+  --color-brand: var(--brand-ink);
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
 }
 
-/* Ultra-condensed display type — matches the headline treatment in the print portfolio. */
 .font-display {
   font-family: var(--font-display), "Arial Narrow", Impact, sans-serif;
   font-weight: 400;
@@ -29,11 +24,6 @@
   line-height: 0.92;
 }
 
-/*
- * These must live in @layer base. Unlayered rules outrank every Tailwind
- * utility (utilities sit in @layer utilities), so an unlayered `a { color }`
- * would silently override `text-white` on every link-styled button.
- */
 @layer base {
   * {
     box-sizing: border-box;
@@ -60,11 +50,6 @@
   }
 }
 
-/*
- * Isometric cube lattice — the corner ornament used throughout the print
- * portfolio. `--cube-line` is overridden per surface (dark lines on white,
- * white lines on the grey field).
- */
 .cube-lattice {
   --cube-line: rgba(0, 0, 0, 0.08);
   background-image: linear-gradient(30deg, transparent 47%, var(--cube-line) 47%, var(--cube-line) 48.5%, transparent 48.5%),
@@ -77,34 +62,36 @@
   --cube-line: rgba(255, 255, 255, 0.28);
 }
 
-.marquee {
-  overflow: hidden;
-  width: 100%;
+.hero-grid {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.075) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.075) 1px, transparent 1px);
+  background-size: 68px 68px;
+  -webkit-mask-image: radial-gradient(115% 95% at 50% 50%, transparent 28%, black 78%);
+  mask-image: radial-gradient(115% 95% at 50% 50%, transparent 28%, black 78%);
 }
 
-.marquee-track {
-  display: flex;
-  gap: 1.5rem;
-  width: max-content;
-  animation: marquee 32s linear infinite;
+.spotlight-field {
+  --spot-x: 50%;
+  --spot-y: 50%;
+  --spot-opacity: 0;
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
+@media (hover: hover) and (pointer: fine) {
+  .spotlight-field::before {
+    content: "";
+    position: absolute;
+    inset: -2rem;
+    z-index: 0;
+    opacity: var(--spot-opacity);
+    transition: opacity 400ms ease;
+    background: radial-gradient(
+      18rem 18rem at calc(var(--spot-x) + 2rem) calc(var(--spot-y) + 2rem),
+      rgba(15, 23, 42, 0.09),
+      transparent 70%
+    );
   }
-  to {
-    transform: translateX(-50%);
-  }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .marquee-track {
-    animation-play-state: paused;
-  }
-}
-
-/* Section rule using the cube motif — a divider drawn from the same brand system. */
 .lattice-divider {
   height: 62px;
   background-image: linear-gradient(30deg, transparent 47%, rgba(0, 0, 0, 0.09) 47%, rgba(0, 0, 0, 0.09) 48.5%, transparent 48.5%),

@@ -11,10 +11,6 @@ type Props = {
   as?: "h1" | "h2" | "h3" | "p" | "span";
 };
 
-/**
- * Wipes a line of type into view from below a clipping mask — the reveal used
- * on brand films and title cards, rather than the generic fade-up.
- */
 export function RevealText({ children, className, delay = 0, as = "span" }: Props) {
   const Tag = motion[as];
 

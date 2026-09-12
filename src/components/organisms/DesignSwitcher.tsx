@@ -14,10 +14,6 @@ const OPTIONS: { id: DesignVariant; label: string; hint: string }[] = [
   { id: "editorial", label: "Versi 2", hint: "Editorial" },
 ];
 
-/**
- * Floating switch so the client can compare both layouts in one sitting.
- * The choice is mirrored into `?design=` so a specific version can be linked.
- */
 export function DesignSwitcher({ value, onChange }: Props) {
   return (
     <div className="fixed inset-x-0 bottom-4 z-[60] flex justify-center px-4 print:hidden">

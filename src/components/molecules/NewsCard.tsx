@@ -35,10 +35,7 @@ export function NewsCard({ entry, index = 0 }: { entry: NewsEntry; index?: numbe
         </div>
 
         <div className="mt-8 flex items-center justify-between border-t border-zinc-200 pt-4">
-          {/* <span className="text-xs font-semibold text-zinc-500">
-            {entry.readingTime}
-          </span> */}
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-100 text-zinc-900 transition-transform group-hover:scale-110 group-hover:bg-black group-hover:text-white">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-zinc-100 text-zinc-900 transition-transform group-hover:scale-110 group-hover:bg-black group-hover:text-white">
             <ArrowRight size={14} />
           </span>
         </div>

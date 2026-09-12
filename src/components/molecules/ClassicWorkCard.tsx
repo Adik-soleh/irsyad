@@ -23,7 +23,6 @@ export function ClassicWorkCard({ work, index }: Props) {
         isEven ? "" : "lg:flex-row-reverse"
       }`}
     >
-      {/* Cover */}
       <div className="relative w-full lg:w-1/2 rounded-[32px] overflow-hidden group border border-slate-200 shadow-xl bg-slate-50">
         <div className="relative aspect-[4/3] overflow-hidden">
           <Image
@@ -41,7 +40,6 @@ export function ClassicWorkCard({ work, index }: Props) {
         </div>
       </div>
 
-      {/* Detail */}
       <div className="w-full lg:w-1/2 space-y-8">
         <div>
           <h3 className="font-display text-3xl text-slate-900 sm:text-4xl">

@@ -17,7 +17,6 @@ interface Props {
 export function NavigationBar({ items, socialLinks }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Extract IDs from hrefs (e.g. '#about' -> 'about')
   const sectionIds = useMemo(() => {
     return items.map((item) => item.href.replace("#", ""));
   }, [items]);
@@ -28,12 +27,10 @@ export function NavigationBar({ items, socialLinks }: Props) {
     e.preventDefault();
     setIsOpen(false);
 
-    // Smooth scroll
     const id = href.replace("#", "");
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      // Update URL hash without jumping
       window.history.pushState({}, "", href);
     }
   };
@@ -44,9 +41,9 @@ export function NavigationBar({ items, socialLinks }: Props) {
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() || 0;
     if (latest > previous && latest > 150) {
-      if (!isOpen && !isHidden) setIsHidden(true); // only hide if mobile menu is closed and not already hidden
+      if (!isOpen && !isHidden) setIsHidden(true);
     } else if (latest < previous) {
-      if (isHidden) setIsHidden(false); // show when scrolling up
+      if (isHidden) setIsHidden(false);
     }
   });
 
@@ -101,33 +98,7 @@ export function NavigationBar({ items, socialLinks }: Props) {
           </nav>
 
           <div className="flex-1 flex items-center justify-end gap-4 text-sm z-10">
-            {/* <div className="hidden items-center gap-4 text-slate-500 lg:flex">
-              {socialLinks.map((link) => {
-                const iconPath = 
-                  link.label === "Email" ? "/email.svg" : 
-                  link.label === "WhatsApp" ? "/wa.svg" : 
-                  link.label === "LinkedIn" ? "/linkedin.svg" : 
-                  link.label === "GitHub" ? "/github.svg" : null;
-
-                return (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="transition-colors hover:text-black flex items-center justify-center hover:scale-110 transform duration-200"
-                    title={link.label}
-                  >
-                    {iconPath ? (
-                      <Image src={iconPath} alt={link.label} width={18} height={18} className="opacity-70 hover:opacity-100 transition-opacity" />
-                    ) : (
-                      link.label
-                    )}
-                  </a>
-                );
-              })}
-            </div> */}
-
+            
             <div className="lg:hidden flex items-center gap-3">
               <button
                 type="button"
@@ -141,7 +112,6 @@ export function NavigationBar({ items, socialLinks }: Props) {
           </div>
         </div>
 
-        {/* Mobile menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div

@@ -7,9 +7,7 @@ type ButtonVariant =
   | "secondary"
   | "ghost"
   | "outline"
-  /** Solid white — for use on the grey hero field. */
   | "inverse"
-  /** White outline — for use on the grey hero field. */
   | "outlineLight";
 
 type ButtonProps = {

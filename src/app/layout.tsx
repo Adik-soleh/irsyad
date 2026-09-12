@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anton, Inter } from "next/font/google";
 import "./globals.css";
 import InitialLoader from "@/components/molecules/InitialLoader";
+import { CursorFollower } from "@/components/atoms/CursorFollower";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -140,6 +141,7 @@ export default function RootLayout({
     <html lang="id">
       <body className={`${inter.variable} ${anton.variable} font-sans antialiased`}>
         <InitialLoader />
+        <CursorFollower />
         {children}
         <script
           type="application/ld+json"

@@ -3,16 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 type Options = {
-  /** Value to count to. */
   to: number;
   decimals?: number;
   durationMs?: number;
 };
 
-/**
- * Counts from zero to `to` the first time the returned ref enters the viewport.
- * Respects prefers-reduced-motion by jumping straight to the final value.
- */
 export function useCountUp<T extends HTMLElement>({ to, decimals = 0, durationMs = 1400 }: Options) {
   const ref = useRef<T>(null);
   const [value, setValue] = useState(0);
@@ -38,7 +33,6 @@ export function useCountUp<T extends HTMLElement>({ to, decimals = 0, durationMs
         const start = performance.now();
         const tick = (now: number) => {
           const progress = Math.min((now - start) / durationMs, 1);
-          // Ease-out cubic, so the number settles rather than stopping dead.
           const eased = 1 - Math.pow(1 - progress, 3);
           setValue(to * eased);
           if (progress < 1) {

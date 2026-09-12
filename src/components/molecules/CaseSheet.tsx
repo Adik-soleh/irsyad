@@ -9,7 +9,6 @@ import { cn } from "@/lib/utils";
 type Props = {
   work: Work;
   index: number;
-  /** The first case runs full width; the rest sit in the mosaic. */
   lead?: boolean;
 };
 
@@ -60,7 +59,6 @@ export function CaseSheet({ work, index, lead = false }: Props) {
           </p>
         </div>
 
-        {/* Campaign sheet — reads like the spec block on an agency one-pager */}
         <dl className="divide-y divide-slate-200 border-y border-slate-200">
           {SPEC_ROWS.map(({ key, label }) => (
             <div
