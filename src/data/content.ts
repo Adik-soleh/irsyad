@@ -18,7 +18,7 @@ const WHATSAPP_NUMBER = "628111118355";
 const WHATSAPP_MESSAGE =
   "Halo Irsyad, saya tertarik untuk diskusi mengenai kerja sama digital marketing.";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
-const EMAIL = "irsyad.rafly.wahyudi@gmail.com";
+export const EMAIL = "irsyad.rafly.wahyudi@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/irsyad-rafly-1509932b5";
 
 export const navItems: NavItem[] = [
