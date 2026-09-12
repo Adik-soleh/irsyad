@@ -8,7 +8,9 @@ import { DesignSwitcher } from "@/components/organisms/DesignSwitcher";
 export type DesignVariant = "classic" | "editorial";
 
 const STORAGE_KEY = "irsyad-design-variant";
-const DEFAULT_VARIANT: DesignVariant = "editorial";
+const DEFAULT_VARIANT: DesignVariant = "classic";
+
+const SHOW_SWITCHER = false;
 
 const isVariant = (value: string | null): value is DesignVariant =>
   value === "classic" || value === "editorial";
@@ -24,6 +26,8 @@ export function DesignShell() {
       setVariant(fromQuery);
       return;
     }
+
+    if (!SHOW_SWITCHER) return;
 
     try {
       const stored = window.localStorage.getItem(STORAGE_KEY);
@@ -51,7 +55,7 @@ export function DesignShell() {
   return (
     <>
       {variant === "classic" ? <ClassicTemplate /> : <EditorialTemplate />}
-      <DesignSwitcher value={variant} onChange={handleChange} />
+      {SHOW_SWITCHER && <DesignSwitcher value={variant} onChange={handleChange} />}
     </>
   );
 }

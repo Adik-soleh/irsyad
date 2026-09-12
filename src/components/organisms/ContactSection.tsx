@@ -5,7 +5,8 @@ import Image from "next/image";
 import { Button } from "@/components/atoms/Button";
 import { SectionHeading } from "@/components/atoms/SectionHeading";
 import { ContactChannel } from "@/types/content";
-import { Send, Loader2, Megaphone, PenTool } from "lucide-react";
+import { EMAIL } from "@/data/content";
+import { Send, Megaphone, PenTool } from "lucide-react";
 import { motion } from "framer-motion";
 
 type Props = {
@@ -14,44 +15,44 @@ type Props = {
   variant?: "classic" | "mediaKit";
 };
 
+/** Plain-text draft so the mail lands readable in any client. */
+const buildMailto = (name: string, email: string, message: string) => {
+  const subject = `Kerja sama dari ${name}`;
+  const body = [
+    "Halo Irsyad,",
+    "",
+    `Nama    : ${name}`,
+    `Email   : ${email}`,
+    "",
+    "Kebutuhan / ide kampanye:",
+    message,
+    "",
+    "Terima kasih,",
+    name,
+    "",
+    "— Dikirim lewat form kontak di portofolio.",
+  ].join("\r\n");
+
+  return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
+
 export function ContactSection({ channels, variant = "mediaKit" }: Props) {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+  const [draftUrl, setDraftUrl] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  // No server hop: the form composes a draft and hands it to the visitor's mail
+  // client, so the message is sent from their own address.
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("loading");
-    setErrorMessage("");
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    };
+    const formData = new FormData(e.currentTarget);
+    const url = buildMailto(
+      String(formData.get("name") ?? "").trim(),
+      String(formData.get("email") ?? "").trim(),
+      String(formData.get("message") ?? "").trim(),
+    );
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-
-      if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.error || "Gagal mengirim pesan");
-      }
-
-      setStatus("success");
-      form.reset();
-
-      // Reset toast after 5 seconds
-      setTimeout(() => setStatus("idle"), 5000);
-    } catch (error) {
-      setStatus("error");
-      setErrorMessage(error instanceof Error ? error.message : "Gagal mengirim pesan");
-    }
+    setDraftUrl(url);
+    window.location.href = url;
   };
 
   return (
@@ -72,7 +73,8 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
           <div className="mb-8 overflow-hidden break-words">
             <h3 className="text-xl font-bold text-slate-900 mb-2">Kirim Pesan</h3>
             <p className="text-sm text-slate-600">
-              Ceritakan kebutuhan brand-mu, saya balas dalam 1x24 jam.
+              Ceritakan kebutuhan brand-mu — isian di bawah langsung tersusun jadi draft
+              email. Saya balas dalam 1x24 jam.
             </p>
           </div>
 
@@ -118,36 +120,27 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
               />
             </div>
 
-            <div className="pt-2 flex flex-wrap items-center gap-4">
+            <div className="pt-2 space-y-3">
               <button
                 type="submit"
-                disabled={status === "loading" || status === "success"}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-8 py-3 text-sm font-semibold text-white shadow-md transition-transform hover:-translate-y-0.5 disabled:pointer-events-none disabled:opacity-70"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-8 py-3 text-sm font-semibold text-white shadow-md transition-transform hover:-translate-y-0.5"
               >
-                {status === "loading" ? (
-                  <>
-                    <Loader2 size={18} className="animate-spin" />
-                    Mengirim...
-                  </>
-                ) : status === "success" ? (
-                  "Terkirim!"
-                ) : (
-                  <>
-                    Kirim Pesan
-                    <Send size={18} />
-                  </>
-                )}
+                Kirim Pesan
+                <Send size={18} />
               </button>
 
-              {status === "error" && (
-                <span className="text-sm font-medium text-red-500">
-                  {errorMessage}
-                </span>
-              )}
-              {status === "success" && (
-                <span className="text-sm font-medium text-emerald-600">
-                  Terima kasih! Pesan telah masuk.
-                </span>
+              {draftUrl && (
+                <p className="text-sm text-slate-600">
+                  Aplikasi email kamu terbuka dengan draft yang sudah terisi.{" "}
+                  <a href={draftUrl} className="font-semibold text-slate-900 underline">
+                    Tidak terbuka? Klik di sini
+                  </a>{" "}
+                  atau kirim manual ke{" "}
+                  <a href={`mailto:${EMAIL}`} className="font-semibold text-slate-900 underline">
+                    {EMAIL}
+                  </a>
+                  .
+                </p>
               )}
             </div>
           </form>
@@ -158,9 +151,9 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col gap-6"
+          className="flex min-w-0 flex-col gap-6"
         >
-          <div className="rounded-[32px] border border-slate-200 bg-[#fafafa] p-8 shadow-xl">
+          <div className="min-w-0 rounded-[32px] border border-slate-200 bg-[#fafafa] p-6 shadow-xl sm:p-8">
             <h3 className="mb-6 text-sm font-bold uppercase tracking-wider text-slate-900">
               Info Kontak
             </h3>
@@ -172,9 +165,9 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
                   href={channel.href}
                   target={channel.href.startsWith("http") ? "_blank" : undefined}
                   rel="noreferrer"
-                  className="flex items-center gap-4 text-slate-700 hover:text-black transition-colors group"
+                  className="flex min-w-0 items-center gap-3 text-slate-700 hover:text-black transition-colors group sm:gap-4"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-slate-200/50 group-hover:bg-slate-200 transition-colors">
+                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-slate-200/50 group-hover:bg-slate-200 transition-colors sm:h-12 sm:w-12">
                     <Image
                       src={channel.icon}
                       alt={channel.label}
@@ -196,7 +189,7 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
 
           {/* Classic keeps a plain scope panel; the editorial layout swaps in a media kit. */}
           {variant === "classic" ? (
-            <div className="flex-1 rounded-[32px] border border-slate-200 bg-[#fafafa] p-8 shadow-xl">
+            <div className="min-w-0 flex-1 rounded-[32px] border border-slate-200 bg-[#fafafa] p-6 shadow-xl sm:p-8">
               <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.2em] text-slate-500">
                 Ruang Lingkup Kerja
               </h3>
@@ -229,7 +222,7 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
               </div>
             </div>
           ) : (
-            <div className="flex-1 rounded-[32px] bg-brand p-8 text-white shadow-xl">
+            <div className="min-w-0 flex-1 rounded-[32px] bg-brand p-6 text-white shadow-xl sm:p-8">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70" />
@@ -263,7 +256,7 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
                 </li>
               </ul>
 
-              <dl className="mt-6 grid grid-cols-2 gap-4 border-t border-white/25 pt-6 text-sm">
+              <dl className="mt-6 grid grid-cols-1 gap-4 border-t border-white/25 pt-6 text-sm sm:grid-cols-2">
                 <div>
                   <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">
                     Respon

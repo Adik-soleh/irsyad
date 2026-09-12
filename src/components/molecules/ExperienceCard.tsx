@@ -12,13 +12,13 @@ export function ExperienceCard({ experience, index }: Props) {
   const isEven = index % 2 === 0;
 
   return (
-    <div className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group`}>
+    <div className={`relative flex items-center justify-between md:odd:flex-row-reverse group`}>
       <motion.div
         initial={{ scale: 0 }}
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2, type: "spring", stiffness: 300 }}
-        className="absolute left-[11px] md:left-1/2 w-3.5 h-3.5 rounded-full bg-slate-400 border-2 border-white transform -translate-x-1/2 z-10"
+        className="absolute left-[17px] md:left-1/2 w-3.5 h-3.5 rounded-full bg-slate-400 border-2 border-white transform -translate-x-1/2 z-10"
       />
 
       <div className="hidden md:block w-[calc(50%-2rem)] p-10" />
