@@ -8,7 +8,8 @@ type ButtonVariant =
   | "ghost"
   | "outline"
   | "inverse"
-  | "outlineLight";
+  | "outlineLight"
+  | "link";
 
 type ButtonProps = {
   children: ReactNode;
@@ -20,21 +21,23 @@ type ButtonProps = {
 };
 
 const baseStyles =
-  "inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5";
+  "inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-base font-normal transition-colors duration-200";
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "border-transparent bg-black text-white shadow-md hover:bg-neutral-800",
+    "border-ink bg-ink text-paper hover:bg-ink/85",
   secondary:
-    "border-zinc-200 bg-zinc-50 text-zinc-900 backdrop-blur hover:border-zinc-300 hover:bg-zinc-100",
+    "border-transparent bg-mist text-ink hover:bg-line",
   ghost:
-    "border-zinc-200 text-zinc-800 hover:bg-zinc-100 hover:text-zinc-900",
+    "border-ink bg-transparent text-ink hover:bg-mist",
   outline:
-    "border-zinc-300 bg-transparent text-zinc-800 hover:bg-zinc-100 hover:text-zinc-900",
+    "border-ink bg-transparent text-ink hover:bg-mist",
   inverse:
-    "border-transparent bg-white text-slate-900 shadow-md hover:bg-slate-100",
+    "border-paper bg-paper text-ink hover:bg-mist",
   outlineLight:
-    "border-white/50 bg-transparent text-white hover:bg-white/10",
+    "border-paper/60 bg-transparent text-paper hover:bg-paper/10",
+  link:
+    "rounded-none border-transparent px-0 text-ink underline-offset-4 hover:underline",
 };
 
 export function Button({
@@ -47,18 +50,18 @@ export function Button({
 }: ButtonProps) {
   const content = (
     <span className="flex items-center gap-2">
-      <span>{children}</span>
+      <span className="inline-flex items-center gap-2 whitespace-nowrap">{children}</span>
       {icon && <span className="text-lg">{icon}</span>}
     </span>
   );
 
   if (href) {
-    if (download) {
+    if (download || href.startsWith("#")) {
       return (
         <a
           href={href}
           className={cn(baseStyles, variantStyles[variant], className)}
-          download
+          download={download || undefined}
         >
           {content}
         </a>
@@ -75,7 +78,7 @@ export function Button({
   }
 
   return (
-    <button className={cn(baseStyles, variantStyles[variant], className)}>
+    <button type="button" className={cn(baseStyles, variantStyles[variant], className)}>
       {content}
     </button>
   );

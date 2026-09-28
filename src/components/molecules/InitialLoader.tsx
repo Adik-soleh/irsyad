@@ -40,11 +40,11 @@ export default function InitialLoader() {
       aria-hidden="true"
     >
       <div className="flex flex-col items-center gap-8">
-        <div className="flex items-baseline gap-1 overflow-hidden">
-          {"IRSYAD RAFLY".split("").map((ch, i) => (
+        <div className="flex items-baseline overflow-hidden pb-1">
+          {"Irsyad Rafly".split("").map((ch, i) => (
             <span
               key={i}
-              className="inline-block text-2xl md:text-3xl font-light tracking-[0.4em] opacity-0"
+              className="font-display inline-block text-4xl italic opacity-0 md:text-5xl"
               style={{
                 animation: `letterIn 0.6s ease-out ${i * 0.05}s forwards`,
               }}
@@ -54,14 +54,14 @@ export default function InitialLoader() {
           ))}
         </div>
 
-        <div className="relative h-px w-64 bg-current/10 overflow-hidden">
+        <div className="relative h-px w-64 overflow-hidden bg-line">
           <div
             className="absolute inset-y-0 left-0 bg-current origin-left"
             style={{ animation: "loaderBar 1.8s cubic-bezier(0.4,0,0.2,1) forwards" }}
           />
         </div>
 
-        <span className="text-[10px] uppercase tracking-[0.5em] opacity-50">
+        <span className="text-sm text-ash">
           Portfolio
         </span>
       </div>

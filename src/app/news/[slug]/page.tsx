@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!entry) {
     return {
       title: "Insight",
-      description: "Catatan Irsyad Rafly tentang kampanye digital, konten, dan performa iklan.",
+      description: "Irsyad Rafly’s notes on digital campaigns, content, and ad performance.",
     };
   }
 
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: pageUrl,
       siteName: "Irsyad Rafly Portfolio",
       type: "article",
-      locale: "id_ID",
+      locale: "en_US",
     },
     twitter: {
       card: "summary_large_image",
@@ -50,50 +50,50 @@ export default async function NewsDetailPage({ params }: PageProps) {
   const entry = getNewsEntry(slug);
 
   if (!entry) {
-    redirect("/#insights");
+    redirect("/");
   }
 
   return (
     <div className="min-h-screen px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mx-auto flex max-w-4xl flex-col gap-10">
+      <div className="mx-auto flex max-w-3xl flex-col gap-16">
         <Link
-          href="/#insights"
-          className="inline-flex items-center gap-2 text-sm text-slate-500 transition hover:text-black font-medium"
+          href="/"
+          className="inline-flex items-center gap-2 text-base text-muted underline-offset-4 transition-colors hover:text-ink hover:underline"
         >
-          <span aria-hidden>←</span> Kembali ke insight
+          <span aria-hidden>←</span> Back to home
         </Link>
 
-        <article className="rounded-[32px] border border-slate-200 bg-white p-8 sm:p-10 shadow-xl">
-          <div className="space-y-4">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 opacity-90">
+        <article>
+          <div className="space-y-6">
+            <p className="text-sm text-ash">
               {entry.category} · {entry.date}
             </p>
-            <h1 className="font-display text-4xl leading-tight text-slate-900 sm:text-5xl">
+            <h1 className="font-display text-[44px] text-ink sm:text-[64px]">
               {entry.title}
             </h1>
-            <p className="text-lg text-slate-600">{entry.excerpt}</p>
+            <p className="text-xl font-[430] leading-[1.35] text-muted">{entry.excerpt}</p>
           </div>
 
-          <div className="mt-10 space-y-6 text-base text-slate-700">
+          <div className="mt-12 space-y-6 border-t border-line pt-12">
             {entry.content.map((paragraph, i) => (
-              <p key={i} className="leading-relaxed text-slate-700">
+              <p key={i} className="text-lg leading-[1.6] text-ink">
                 {paragraph}
               </p>
             ))}
           </div>
 
-          <div className="mt-12 flex flex-col items-start justify-between gap-6 border-t border-slate-200 pt-8 sm:flex-row sm:items-center">
-            <p className="font-medium text-slate-800">Punya kebutuhan kampanye serupa?</p>
+          <div className="mt-16 flex flex-col items-start justify-between gap-6 rounded-card bg-peach p-8 text-sienna sm:flex-row sm:items-center sm:p-10">
+            <p className="text-[26px] font-[450] leading-[1.18] tracking-[-0.009em]">
+              Have a similar campaign in mind?
+            </p>
             <Button href="/#contact" variant="primary">
-              Diskusikan Kebutuhan
+              Discuss Your Needs
             </Button>
           </div>
         </article>
 
-        <div className="space-y-6 mt-8">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-400">
-            Artikel lainnya
-          </p>
+        <div className="space-y-6">
+          <p className="text-sm text-ash">More articles</p>
           <div className="grid gap-6 md:grid-cols-2">
             {newsEntries
               .filter((item) => item.slug !== entry.slug)
@@ -102,14 +102,14 @@ export default async function NewsDetailPage({ params }: PageProps) {
                 <Link
                   key={item.slug}
                   href={`/news/${item.slug}`}
-                  className="group rounded-[24px] border border-slate-200 bg-white p-6 transition hover:-translate-y-1 hover:shadow-lg"
+                  className="group rounded-card bg-mist p-6 transition-colors hover:bg-line/60"
                 >
-                  <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500 opacity-90">
-                    {item.category}
-                  </p>
-                  <h3 className="mt-3 text-lg font-bold text-slate-900 group-hover:underline transition-colors">{item.title}</h3>
-                  <p className="mt-3 text-sm text-slate-600 line-clamp-2">{item.excerpt}</p>
-                                  </Link>
+                  <p className="text-sm text-ash">{item.category}</p>
+                  <h3 className="mt-3 text-xl font-[450] leading-[1.25] text-ink underline-offset-4 group-hover:underline">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 line-clamp-2 text-[15px] leading-[1.5] text-muted">{item.excerpt}</p>
+                </Link>
               ))}
           </div>
         </div>

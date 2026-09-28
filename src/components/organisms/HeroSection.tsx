@@ -4,14 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import { Button } from "@/components/atoms/Button";
-import { HeroContent, SocialLink, Stat } from "@/types/content";
+import { HeroContent, SocialLink } from "@/types/content";
 import { RevealText } from "@/components/atoms/RevealText";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 type Props = {
   content: HeroContent;
   socialLinks: SocialLink[];
-  stats?: Stat[];
 };
 
 const iconMap: Record<string, string> = {
@@ -33,150 +32,140 @@ const itemVariants: Variants = {
   visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
 };
 
-export function HeroSection({ content, socialLinks, stats }: Props) {
+function splitName(name: string) {
+  const match = name.trim().match(/^(.*?\bI['’]m)\s+(.+)$/i);
+  const intro = match ? match[1] : "";
+  const fullName = match ? match[2] : name.trim();
+  const [first, ...rest] = fullName.split(" ");
+  const firstLine = [intro, first].filter(Boolean).join(" ");
+  const accent = rest.length > 0 ? rest[rest.length - 1] : "";
+  const secondLine = rest.slice(0, -1).join(" ");
+  return { fullName, firstLine, secondLine, accent };
+}
+
+export function HeroSection({ content, socialLinks }: Props) {
+  const { fullName, firstLine, secondLine, accent } = splitName(content.name);
+
   return (
-    <section id="home" className="relative pt-6 pb-20">
-      <div className="relative overflow-hidden rounded-[36px] bg-brand bg-gradient-to-br from-[var(--brand-ink)] via-[var(--brand-ink)] to-[var(--brand-ink-soft)] px-6 py-14 text-white sm:px-10 sm:py-16 lg:px-14">
-        <div className="hero-grid pointer-events-none absolute inset-0" />
-
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="relative grid items-center gap-12 lg:grid-cols-[1.15fr,0.85fr]"
-        >
-          <div className="space-y-8">
-            <motion.div variants={itemVariants} className="space-y-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.5em] text-white/70">
-                {content.greeting}
-              </p>
-              <div>
-                <RevealText as="h1" className="font-display text-5xl text-white sm:text-6xl lg:text-7xl">
-                  {content.name}
-                </RevealText>
-                <p className="mt-4 text-sm font-semibold uppercase tracking-[0.35em] text-white/75">
-                  {content.tagline}
-                </p>
-                <RevealText
-                  as="p"
-                  delay={0.1}
-                  className="mt-6 max-w-2xl text-xl font-medium leading-snug text-white"
-                >
-                  {content.headline}
-                </RevealText>
-                <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/85">
-                  {content.summary}
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div variants={itemVariants} className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-              <Button
-                href={content.primaryCta.href}
-                variant="inverse"
-                className="group flex items-center gap-2"
-              >
-                {content.primaryCta.label}
-                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button
-                href={content.secondaryCta.href}
-                variant="outlineLight"
-                className="flex items-center gap-2"
-              >
-                {content.secondaryCta.label}
-              </Button>
-              {content.cvCta && (
-                <Button
-                  href={content.cvCta.href}
-                  variant="outlineLight"
-                  className="flex items-center gap-2"
-                  download
-                >
-                  <Download size={18} />
-                  {content.cvCta.label}
-                </Button>
+    <section id="home" className="relative pt-10 sm:pt-16">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="relative grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20"
+      >
+        <div className="space-y-10">
+          <motion.div variants={itemVariants} className="space-y-6">
+            <p className="text-[15px] text-ash">
+              {content.greeting} · {content.tagline}
+              {content.roles?.map((role) => (
+                <span key={role} className="block">
+                  {role}
+                </span>
+              ))}
+            </p>
+            <RevealText
+              as="h1"
+              className="font-display font-display-xl pb-2 text-[length:14vw] text-ink sm:text-[length:min(14vw,90px)] lg:text-[length:min(7vw,90px)]"
+            >
+              <span className="block whitespace-nowrap">{firstLine}</span>
+              {accent && (
+                <span className="block whitespace-nowrap">
+                  {secondLine} <em className="italic">{accent}</em>
+                </span>
               )}
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
-              <div className="flex flex-wrap gap-4">
-                {socialLinks.map((link) => {
-                  const iconPath = iconMap[link.label];
-                  const isInternal = link.href.startsWith("/");
-                  const classes =
-                    "group inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/40 bg-white/10 text-white transition-all hover:scale-110 hover:bg-white hover:text-slate-900";
-
-                  const iconContent = iconPath ? (
-                    <Image
-                      src={iconPath}
-                      alt={link.label}
-                      width={20}
-                      height={20}
-                      className="opacity-90 transition-all invert group-hover:invert-0"
-                    />
-                  ) : (
-                    <span>{link.label}</span>
-                  );
-
-                  return isInternal ? (
-                    <Link key={link.label} href={link.href} className={classes} aria-label={link.label}>
-                      {iconContent}
-                    </Link>
-                  ) : (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      className={classes}
-                      aria-label={link.label}
-                      target={link.href.startsWith("http") ? "_blank" : undefined}
-                      rel="noreferrer"
-                    >
-                      {iconContent}
-                    </a>
-                  );
-                })}
-              </div>
-            </motion.div>
-          </div>
+            </RevealText>
+            {content.headline && (
+              <RevealText
+                as="p"
+                delay={0.1}
+                className="max-w-xl text-[22px] font-[430] leading-[1.35] tracking-[-0.009em] text-ink sm:text-[26px]"
+              >
+                {content.headline}
+              </RevealText>
+            )}
+            <p className="max-w-xl text-[17px] leading-[1.5] text-muted">
+              {content.summary}
+            </p>
+          </motion.div>
 
           <motion.div
             variants={itemVariants}
-            className="relative mx-auto order-first mb-4 flex w-full max-w-md items-center justify-center lg:order-last lg:mb-0 lg:max-w-full"
+            className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
           >
-            <div className="absolute right-2 top-4 hidden h-full w-[88%] rounded-[36px] bg-white/15 lg:block" />
-            <div className="group relative aspect-[3/4] w-[260px] overflow-hidden rounded-[36px] bg-slate-100 shadow-2xl sm:w-[320px] lg:w-[380px]">
+            <Button href={content.primaryCta.href} variant="primary" className="group justify-center">
+              {content.primaryCta.label}
+              <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button href={content.secondaryCta.href} variant="ghost" className="justify-center">
+              {content.secondaryCta.label}
+            </Button>
+            {content.cvCta && (
+              <Button href={content.cvCta.href} variant="link" className="justify-center sm:ml-2" download>
+                {content.cvCta.label} →
+              </Button>
+            )}
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <div className="flex flex-wrap gap-3">
+              {socialLinks.map((link) => {
+                const iconPath = iconMap[link.label];
+                const isInternal = link.href.startsWith("/");
+                const classes =
+                  "group inline-flex h-10 w-10 items-center justify-center rounded-full bg-mist text-ink transition-colors hover:bg-line";
+
+                const iconContent = iconPath ? (
+                  <Image
+                    src={iconPath}
+                    alt={link.label}
+                    width={18}
+                    height={18}
+                    className="opacity-80 transition-opacity group-hover:opacity-100"
+                  />
+                ) : (
+                  <span>{link.label}</span>
+                );
+
+                return isInternal ? (
+                  <Link key={link.label} href={link.href} className={classes} aria-label={link.label}>
+                    {iconContent}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className={classes}
+                    aria-label={link.label}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noreferrer"
+                  >
+                    {iconContent}
+                  </a>
+                );
+              })}
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div
+          variants={itemVariants}
+          className="relative order-first mx-auto flex w-full max-w-md items-center justify-center lg:order-last lg:max-w-full"
+        >
+          <div className="group relative rounded-float bg-paper p-2 shadow-float">
+            <div className="relative aspect-[3/4] w-[260px] overflow-hidden rounded-image bg-mist sm:w-[320px] lg:w-[360px]">
               <Image
                 src={content.photo}
-                alt={content.name}
+                alt={fullName}
                 fill
                 priority
                 className="object-cover object-top grayscale transition-all duration-700 ease-in-out group-hover:grayscale-0"
-                sizes="(max-width: 640px) 260px, (max-width: 1024px) 320px, 380px"
+                sizes="(max-width: 640px) 260px, (max-width: 1024px) 320px, 360px"
               />
             </div>
-          </motion.div>
+          </div>
         </motion.div>
-      </div>
-
-      {stats && (
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mt-8 grid gap-4 sm:grid-cols-3"
-        >
-          {stats.slice(0, 3).map((stat) => (
-            <div key={stat.label} className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <p className="font-display text-4xl text-slate-900 sm:text-5xl">{stat.value}</p>
-              <p className="mt-3 text-xs font-bold uppercase tracking-[0.25em] text-slate-500">
-                {stat.label}
-              </p>
-              {stat.helper && <p className="mt-2 text-sm text-slate-600">{stat.helper}</p>}
-            </div>
-          ))}
-        </motion.div>
-      )}
+      </motion.div>
     </section>
   );
 }

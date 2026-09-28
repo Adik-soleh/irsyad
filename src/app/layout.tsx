@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Anton, Inter } from "next/font/google";
+import { Inter, Source_Serif_4 } from "next/font/google";
 import "./globals.css";
 import InitialLoader from "@/components/molecules/InitialLoader";
 import { CursorFollower } from "@/components/atoms/CursorFollower";
@@ -9,9 +9,9 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const anton = Anton({
-  variable: "--font-display",
-  weight: "400",
+const sourceSerif = Source_Serif_4({
+  variable: "--font-serif",
+  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "Irsyad Rafly Wahyudi — Digital Marketing Specialist",
   description:
-    "Portofolio Irsyad Rafly Wahyudi — Digital Marketing Specialist dengan fokus social media management, paid advertising (Meta Ads), content strategy, dan corporate communication.",
+    "Portfolio of Irsyad Rafly Wahyudi — Digital Marketing Specialist focused on social media management, paid advertising (Meta Ads), content strategy, and corporate communication.",
   keywords: [
     "Irsyad Rafly Wahyudi",
     "Digital Marketing Specialist",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     "Corporate Communication",
     "Graphic Designer Indonesia",
     "Performance Marketing",
-    "Portfolio digital marketing",
+    "Digital marketing portfolio",
     "Digital marketing Jakarta",
   ],
   authors: [{ name: "Irsyad Rafly Wahyudi", url: siteUrl }],
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Irsyad Rafly Wahyudi · Digital Marketing Specialist",
     description:
-      "Social media management, paid advertising, dan content strategy untuk brand awareness dan pertumbuhan bisnis yang terukur.",
+      "Social media management, paid advertising, and content strategy for brand awareness and measurable business growth.",
     url: siteUrl,
     siteName: "Irsyad Rafly Portfolio",
     images: [
@@ -98,14 +98,14 @@ export const metadata: Metadata = {
         alt: "Irsyad Rafly Wahyudi",
       },
     ],
-    locale: "id_ID",
+    locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Irsyad Rafly Wahyudi — Digital Marketing Specialist",
     description:
-      "Portofolio digital marketing: Meta Ads, social media strategy, content creation, dan corporate communication.",
+      "Digital marketing portfolio: Meta Ads, social media strategy, content creation, and corporate communication.",
     images: [ogImage],
   },
   robots: {
@@ -138,8 +138,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id">
-      <body className={`${inter.variable} ${anton.variable} font-sans antialiased`}>
+    <html lang="en">
+      <body className={`${inter.variable} ${sourceSerif.variable} font-sans antialiased`}>
         <InitialLoader />
         <CursorFollower />
         {children}

@@ -39,7 +39,7 @@ export function ResultsBoard({ stats }: { stats: Stat[] }) {
               Results Board
             </p>
             <p className="max-w-md text-sm leading-relaxed text-white/70">
-              Meta Business Suite &amp; Instagram Insights, periode Nov 2024 – Aug 2025.
+              Meta Business Suite &amp; Instagram Insights, Nov 2024 – Aug 2025 period.
             </p>
           </div>
 

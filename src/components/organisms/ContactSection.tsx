@@ -8,6 +8,7 @@ import { ContactChannel } from "@/types/content";
 import { EMAIL } from "@/data/content";
 import { Send, Megaphone, PenTool } from "lucide-react";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 type Props = {
   channels: ContactChannel[];
@@ -15,20 +16,20 @@ type Props = {
 };
 
 const buildMailto = (name: string, email: string, message: string) => {
-  const subject = `Kerja sama dari ${name}`;
+  const subject = `Collaboration inquiry from ${name}`;
   const body = [
-    "Halo Irsyad,",
+    "Hi Irsyad,",
     "",
-    `Nama    : ${name}`,
+    `Name    : ${name}`,
     `Email   : ${email}`,
     "",
-    "Kebutuhan / ide kampanye:",
+    "Needs / campaign idea:",
     message,
     "",
-    "Terima kasih,",
+    "Thank you,",
     name,
     "",
-    "— Dikirim lewat form kontak di portofolio.",
+    "— Sent via the portfolio contact form.",
   ].join("\r\n");
 
   return `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -52,87 +53,87 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
   };
 
   return (
-    <section id="contact" className="space-y-12 pt-10">
+    <section id="contact" className="space-y-12">
       <SectionHeading
         eyebrow="Let's Work Together"
-        title="Punya Brand yang Perlu Didengar?"
-        description="Terbuka untuk kolaborasi social media management, kampanye iklan berbayar, content strategy, dan kebutuhan materi komunikasi korporat."
+        title="Have a Brand That Needs to Be Heard?"
+        description="Open to collaborations in social media management, paid advertising campaigns, content strategy, and corporate communication materials."
       />
 
-      <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
+      <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="flex flex-col min-w-0 rounded-[32px] border border-slate-200 bg-white p-6 sm:p-10 shadow-xl backdrop-blur max-w-full"
+          className="flex min-w-0 max-w-full flex-col rounded-card bg-mist p-6 sm:p-10"
         >
           <div className="mb-8 overflow-hidden break-words">
-            <h3 className="text-xl font-bold text-slate-900 mb-2">Kirim Pesan</h3>
-            <p className="text-sm text-slate-600">
-              Ceritakan kebutuhan brand-mu — isian di bawah langsung tersusun jadi draft
-              email. Saya balas dalam 1x24 jam.
+            <h3 className="mb-2 text-[26px] font-[450] leading-[1.18] tracking-[-0.009em] text-ink">Send a Message</h3>
+            <p className="text-[15px] leading-[1.5] text-muted">
+              Tell me what your brand needs — the form below turns into a ready-to-send
+              email draft. I reply within 24 hours.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
-              <label htmlFor="name" className="text-sm font-semibold text-slate-700">
-                Nama Lengkap
+              <label htmlFor="name" className="text-[15px] font-[450] text-ink">
+                Full Name
               </label>
               <input
                 id="name"
                 name="name"
                 required
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition-colors"
-                placeholder="Nama atau nama brand"
+                className="w-full rounded-input border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-smoke transition-colors focus:border-ink focus:outline-none"
+                placeholder="Your name or brand name"
               />
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="email" className="text-sm font-semibold text-slate-700">
-                Email Aktif
+              <label htmlFor="email" className="text-[15px] font-[450] text-ink">
+                Email Address
               </label>
               <input
                 id="email"
                 name="email"
                 type="email"
                 required
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition-colors"
+                className="w-full rounded-input border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-smoke transition-colors focus:border-ink focus:outline-none"
                 placeholder="example@example.com"
               />
             </div>
 
             <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-semibold text-slate-700">
-                Kebutuhan atau Ide Kampanye
+              <label htmlFor="message" className="text-[15px] font-[450] text-ink">
+                Needs or Campaign Idea
               </label>
               <textarea
                 id="message"
                 name="message"
                 required
                 rows={4}
-                className="w-full rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 focus:border-slate-800 focus:outline-none focus:ring-1 focus:ring-slate-800 transition-colors resize-none"
-                placeholder="Ceritakan singkat soal brand, target audiens, dan hasil yang ingin dicapai..."
+                className="w-full rounded-input border border-line bg-paper px-4 py-3 text-base text-ink placeholder:text-smoke transition-colors focus:border-ink focus:outline-none resize-none"
+                placeholder="Briefly describe your brand, target audience, and the results you want to achieve..."
               />
             </div>
 
             <div className="pt-2 space-y-3">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 px-8 py-3 text-sm font-semibold text-white shadow-md transition-transform hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-2.5 text-base text-paper transition-colors hover:bg-ink/85"
               >
-                Kirim Pesan
+                Send Message
                 <Send size={18} />
               </button>
 
               {draftUrl && (
-                <p className="text-sm text-slate-600">
-                  Aplikasi email kamu terbuka dengan draft yang sudah terisi.{" "}
-                  <a href={draftUrl} className="font-semibold text-slate-900 underline">
-                    Tidak terbuka? Klik di sini
+                <p className="text-[15px] text-muted">
+                  Your email app has opened with a pre-filled draft.{" "}
+                  <a href={draftUrl} className="text-ink underline underline-offset-4">
+                    Didn’t open? Click here
                   </a>{" "}
-                  atau kirim manual ke{" "}
-                  <a href={`mailto:${EMAIL}`} className="font-semibold text-slate-900 underline">
+                  or send it manually to{" "}
+                  <a href={`mailto:${EMAIL}`} className="text-ink underline underline-offset-4">
                     {EMAIL}
                   </a>
                   .
@@ -148,9 +149,9 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
           viewport={{ once: true }}
           className="flex min-w-0 flex-col gap-6"
         >
-          <div className="min-w-0 rounded-[32px] border border-slate-200 bg-[#fafafa] p-6 shadow-xl sm:p-8">
-            <h3 className="mb-6 text-sm font-bold uppercase tracking-wider text-slate-900">
-              Info Kontak
+          <div className={cn("min-w-0 rounded-card bg-mist p-6 sm:p-8", variant === "classic" && "flex-1")}>
+            <h3 className="mb-6 text-sm text-ash">
+              Contact Info
             </h3>
 
             <div className="space-y-5">
@@ -160,9 +161,9 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
                   href={channel.href}
                   target={channel.href.startsWith("http") ? "_blank" : undefined}
                   rel="noreferrer"
-                  className="flex min-w-0 items-center gap-3 text-slate-700 hover:text-black transition-colors group sm:gap-4"
+                  className="group flex min-w-0 items-center gap-3 text-ink sm:gap-4"
                 >
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-slate-200/50 group-hover:bg-slate-200 transition-colors sm:h-12 sm:w-12">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-paper transition-colors group-hover:bg-line">
                     <Image
                       src={channel.icon}
                       alt={channel.label}
@@ -172,58 +173,25 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
                     />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs uppercase tracking-wider text-slate-500 mb-0.5">
+                    <p className="mb-0.5 text-sm text-ash">
                       {channel.label}
                     </p>
-                    <p className="truncate font-medium text-slate-900">{channel.value}</p>
+                    <p className="truncate text-base text-ink underline-offset-4 group-hover:underline">{channel.value}</p>
                   </div>
                 </a>
               ))}
             </div>
           </div>
 
-          {variant === "classic" ? (
-            <div className="min-w-0 flex-1 rounded-[32px] border border-slate-200 bg-[#fafafa] p-6 shadow-xl sm:p-8">
-              <h3 className="mb-6 text-sm font-bold uppercase tracking-[0.2em] text-slate-500">
-                Ruang Lingkup Kerja
-              </h3>
-
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <Megaphone size={20} className="mt-0.5 shrink-0 text-slate-900" />
-                  <div>
-                    <strong className="block font-medium text-slate-900">Marketing &amp; Ads</strong>
-                    <span className="text-sm text-slate-600">
-                      Meta for Business · Google Ads · Social Media Management · Content Strategy
-                    </span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <PenTool size={20} className="mt-0.5 shrink-0 text-slate-900" />
-                  <div>
-                    <strong className="block font-medium text-slate-900">Creative &amp; Communication</strong>
-                    <span className="text-sm text-slate-600">
-                      Company profile · Annual report · Feed &amp; reels · Banner, brosur, sertifikat
-                    </span>
-                  </div>
-                </li>
-              </ul>
-
-              <div className="mt-8">
-                <Button href="#work" variant="outline" className="w-full justify-center">
-                  Lihat Karya
-                </Button>
-              </div>
-            </div>
-          ) : (
-            <div className="min-w-0 flex-1 rounded-[32px] bg-brand p-6 text-white shadow-xl sm:p-8">
+          {variant === "mediaKit" && (
+            <div className="min-w-0 flex-1 rounded-card bg-ink p-6 text-paper sm:p-8">
               <div className="flex items-center gap-2">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white/70" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
                 </span>
                 <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/85">
-                  Terbuka untuk kolaborasi
+                  Open to collaboration
                 </p>
               </div>
 
@@ -244,7 +212,7 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
                   <div>
                     <strong className="block text-sm font-semibold">Creative &amp; Communication</strong>
                     <span className="text-sm text-white/75">
-                      Company profile · Annual report · Feed &amp; reels · Banner, brosur, sertifikat
+                      Company profile · Annual report · Feed &amp; reels · Banners, brochures, certificates
                     </span>
                   </div>
                 </li>
@@ -253,13 +221,13 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
               <dl className="mt-6 grid grid-cols-1 gap-4 border-t border-white/25 pt-6 text-sm sm:grid-cols-2">
                 <div>
                   <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">
-                    Respon
+                    Response
                   </dt>
-                  <dd className="mt-1 font-semibold">1×24 jam</dd>
+                  <dd className="mt-1 font-semibold">Within 24 hours</dd>
                 </div>
                 <div>
                   <dt className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">
-                    Basis
+                    Based in
                   </dt>
                   <dd className="mt-1 font-semibold">Jakarta · Remote</dd>
                 </div>
@@ -270,7 +238,7 @@ export function ContactSection({ channels, variant = "mediaKit" }: Props) {
                   Download Portfolio (PDF)
                 </Button>
                 <Button href="#work" variant="outlineLight" className="w-full justify-center">
-                  Lihat Karya
+                  View My Work
                 </Button>
               </div>
             </div>

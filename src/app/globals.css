@@ -2,10 +2,10 @@
 
 :root {
   color-scheme: light;
-  --background: #f4f4f5;
-  --foreground: #18181b;
-  --brand-ink: #0b1220;
-  --brand-ink-soft: #141e33;
+  --background: #ffffff;
+  --foreground: #17191c;
+  --brand-ink: #17191c;
+  --brand-ink-soft: #2a2d33;
 }
 
 @theme inline {
@@ -13,20 +13,60 @@
   --color-foreground: var(--foreground);
   --color-brand: var(--brand-ink);
   --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
+  --font-serif: var(--font-serif);
+}
+
+@theme {
+  --color-ink: #17191c;
+  --color-paper: #ffffff;
+  --color-mist: #f2f2f3;
+  --color-fog: #fafafb;
+  --color-muted: #777b86;
+  --color-ash: #979799;
+  --color-smoke: #a3a6af;
+  --color-line: #ececec;
+  --color-peach: #fbe1d1;
+  --color-sienna: #5d2a1a;
+
+  --radius-card: 24px;
+  --radius-float: 20px;
+  --radius-input: 16px;
+  --radius-image: 12px;
+
+  --shadow-float: 0 0 0 1px rgba(4, 23, 43, 0.05), 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-pop: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 4px 24px 0 rgba(0, 0, 0, 0.08);
 }
 
 .font-display {
-  font-family: var(--font-display), "Arial Narrow", Impact, sans-serif;
+  font-family: var(--font-serif), "Source Serif 4", Georgia, ui-serif, serif;
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.01em;
-  line-height: 0.92;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+.font-display-xl {
+  letter-spacing: -0.025em;
+  line-height: 1.05;
 }
 
 @layer base {
   * {
     box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  section[id] {
+    scroll-margin-top: 96px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   body {
@@ -36,6 +76,8 @@
     color: var(--foreground);
     font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
       "Segoe UI", sans-serif;
+    font-size: 17px;
+    line-height: 1.35;
     position: relative;
     overflow-x: hidden;
   }
@@ -45,9 +87,25 @@
   }
 
   ::selection {
-    background: rgba(0, 0, 0, 0.12);
-    color: inherit;
+    background: #fbe1d1;
+    color: #5d2a1a;
   }
+}
+
+.band {
+  position: relative;
+  isolation: isolate;
+}
+
+.band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--color-fog);
+  z-index: -1;
 }
 
 .cube-lattice {
@@ -62,41 +120,7 @@
   --cube-line: rgba(255, 255, 255, 0.28);
 }
 
-.hero-grid {
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.075) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.075) 1px, transparent 1px);
-  background-size: 68px 68px;
-  -webkit-mask-image: radial-gradient(115% 95% at 50% 50%, transparent 28%, black 78%);
-  mask-image: radial-gradient(115% 95% at 50% 50%, transparent 28%, black 78%);
-}
-
-.spotlight-field {
-  --spot-x: 50%;
-  --spot-y: 50%;
-  --spot-opacity: 0;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .spotlight-field::before {
-    content: "";
-    position: absolute;
-    inset: -2rem;
-    z-index: 0;
-    opacity: var(--spot-opacity);
-    transition: opacity 400ms ease;
-    background: radial-gradient(
-      18rem 18rem at calc(var(--spot-x) + 2rem) calc(var(--spot-y) + 2rem),
-      rgba(15, 23, 42, 0.09),
-      transparent 70%
-    );
-  }
-}
-
 .lattice-divider {
-  height: 62px;
-  background-image: linear-gradient(30deg, transparent 47%, rgba(0, 0, 0, 0.09) 47%, rgba(0, 0, 0, 0.09) 48.5%, transparent 48.5%),
-    linear-gradient(150deg, transparent 47%, rgba(0, 0, 0, 0.09) 47%, rgba(0, 0, 0, 0.09) 48.5%, transparent 48.5%);
-  background-size: 72px 124px;
-  -webkit-mask-image: linear-gradient(90deg, transparent, black 25%, black 75%, transparent);
-  mask-image: linear-gradient(90deg, transparent, black 25%, black 75%, transparent);
+  height: 1px;
+  background: var(--color-line);
 }

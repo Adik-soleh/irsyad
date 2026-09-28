@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { NavItem, SocialLink } from "@/types/content";
@@ -36,9 +35,11 @@ export function NavigationBar({ items, socialLinks }: Props) {
   };
 
   const [isHidden, setIsHidden] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 24);
     const previous = scrollY.getPrevious() || 0;
     if (latest > previous && latest > 150) {
       if (!isOpen && !isHidden) setIsHidden(true);
@@ -59,12 +60,22 @@ export function NavigationBar({ items, socialLinks }: Props) {
       className="sticky top-2 z-50 sm:top-6"
     >
       <div className="relative">
-        <div className="flex items-center justify-between rounded-3xl border border-slate-200/50 bg-white/70 px-4 sm:px-6 py-3 sm:py-4 shadow-sm backdrop-blur-xl transition-colors duration-500">
+        <div
+          className={cn(
+            "flex items-center justify-between rounded-full px-4 py-3 transition-[background-color,box-shadow] duration-500 sm:px-6",
+            isScrolled ? "bg-paper/85 shadow-pop backdrop-blur-xl" : "bg-transparent",
+          )}
+        >
 
-          <div className="flex-1 flex items-center text-sm font-medium z-10">
-            <span className="font-display whitespace-nowrap text-xl tracking-wide text-slate-900">
-              Irsyad
-            </span>
+          <div className="flex-1 flex items-center z-10">
+            <Link
+              href="#home"
+              onClick={(e) => handleNavigate(e, "#home")}
+              aria-label="Back to top"
+              className="font-display whitespace-nowrap text-2xl text-ink"
+            >
+              Irsyad<span className="italic text-muted">.</span>
+            </Link>
           </div>
 
           <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-2 z-10">
@@ -77,19 +88,19 @@ export function NavigationBar({ items, socialLinks }: Props) {
                   href={item.href}
                   onClick={(e) => handleNavigate(e, item.href)}
                   className={cn(
-                    "relative rounded-full px-4 py-2 transition-colors duration-300",
-                    isActive ? "font-semibold" : "text-slate-600 hover:text-black"
+                    "relative px-3 py-0.5 text-base transition-colors duration-300",
+                    isActive ? "text-ink" : "text-muted hover:text-ink"
                   )}
                 >
                   {isActive && (
                     <motion.span
                       layoutId="nav-pill"
-                      className="absolute inset-0 z-0 rounded-full bg-slate-900 shadow-sm"
+                      className="absolute inset-x-3 -bottom-1 z-0 h-px bg-ink"
                       initial={false}
                       transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
-                  <span className={cn("relative z-10", isActive && "text-white")}>
+                  <span className="relative z-10">
                     {item.label}
                   </span>
                 </Link>
@@ -97,14 +108,21 @@ export function NavigationBar({ items, socialLinks }: Props) {
             })}
           </nav>
 
-          <div className="flex-1 flex items-center justify-end gap-4 text-sm z-10">
-            
+          <div className="flex-1 flex items-center justify-end gap-4 z-10">
+            <Link
+              href="#contact"
+              onClick={(e) => handleNavigate(e, "#contact")}
+              className="hidden rounded-full bg-ink px-5 py-2 text-base text-paper transition-colors hover:bg-ink/85 lg:inline-flex"
+            >
+              Contact Me
+            </Link>
+
             <div className="lg:hidden flex items-center gap-3">
               <button
                 type="button"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-800 transition-colors hover:bg-slate-100"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-ink text-ink transition-colors hover:bg-mist"
               >
                 {isOpen ? <X size={18} /> : <Menu size={18} />}
               </button>
@@ -119,7 +137,7 @@ export function NavigationBar({ items, socialLinks }: Props) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="absolute left-0 right-0 mt-4 rounded-3xl border border-slate-200/50 bg-white/95 p-6 shadow-2xl backdrop-blur-xl lg:hidden"
+              className="absolute left-0 right-0 mt-3 rounded-card bg-paper p-6 shadow-float lg:hidden"
             >
               <nav className="flex flex-col gap-2">
                 {items.map((item) => {
@@ -131,10 +149,10 @@ export function NavigationBar({ items, socialLinks }: Props) {
                       href={item.href}
                       onClick={(e) => handleNavigate(e, item.href)}
                       className={cn(
-                        "p-4 rounded-2xl text-lg font-medium transition-colors",
+                        "rounded-input px-4 py-3 text-lg transition-colors",
                         isActive
-                          ? "bg-slate-100 text-slate-900"
-                          : "text-slate-700 hover:bg-slate-50"
+                          ? "bg-mist text-ink"
+                          : "text-muted hover:bg-fog hover:text-ink"
                       )}
                     >
                       {item.label}
@@ -150,7 +168,7 @@ export function NavigationBar({ items, socialLinks }: Props) {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-full border border-slate-200 px-4 py-2 text-sm text-slate-600 transition-colors hover:bg-slate-50"
+                    className="rounded-full border border-ink px-4 py-2 text-[15px] text-ink transition-colors hover:bg-mist"
                   >
                     {link.label}
                   </a>

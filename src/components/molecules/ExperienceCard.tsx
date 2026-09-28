@@ -18,7 +18,7 @@ export function ExperienceCard({ experience, index }: Props) {
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2, type: "spring", stiffness: 300 }}
-        className="absolute left-[17px] md:left-1/2 w-3.5 h-3.5 rounded-full bg-slate-400 border-2 border-white transform -translate-x-1/2 z-10"
+        className="absolute left-[17px] md:left-1/2 w-3.5 h-3.5 rounded-full bg-ink border-2 border-paper transform -translate-x-1/2 z-10"
       />
 
       <div className="hidden md:block w-[calc(50%-2rem)] p-10" />
@@ -28,25 +28,25 @@ export function ExperienceCard({ experience, index }: Props) {
         whileInView={{ opacity: 1, x: 0, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.5 }}
-        className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] ml-auto md:ml-0 rounded-3xl border border-slate-200 bg-white/50 p-6 shadow-sm backdrop-blur hover:shadow-md transition-shadow"
+        className="w-[calc(100%-3rem)] md:w-[calc(50%-2rem)] ml-auto md:ml-0 rounded-card bg-mist p-6"
       >
         <div className="flex flex-col gap-1 mb-4">
-          <span className="text-xs font-bold text-slate-500">
+          <span className="text-sm text-ash">
             {experience.period}
           </span>
-          <h3 className="text-xl font-bold text-slate-900">{experience.title}</h3>
-          <p className="text-sm font-semibold uppercase tracking-wider text-slate-500">
+          <h3 className="text-xl font-medium text-ink">{experience.title}</h3>
+          <p className="text-[15px] text-muted">
             {experience.company}
           </p>
         </div>
 
-        <p className="mt-4 text-sm text-slate-600 leading-relaxed">{experience.description}</p>
+        <p className="mt-4 text-[15px] leading-[1.5] text-ink">{experience.description}</p>
 
-        <div className="mt-6 flex flex-wrap gap-2 text-xs">
+        <div className="mt-6 flex flex-wrap gap-2 text-sm">
           {experience.skills.map((skill) => (
             <span
               key={skill}
-              className="rounded-full bg-slate-100 px-3 py-1 font-medium text-slate-700"
+              className="rounded-full bg-paper px-3 py-1 text-ink"
             >
               {skill}
             </span>
