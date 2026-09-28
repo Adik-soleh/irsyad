@@ -63,7 +63,7 @@ export function NavigationBar({ items, socialLinks }: Props) {
 
           <div className="flex-1 flex items-center text-sm font-medium z-10">
             <span className="font-display whitespace-nowrap text-xl tracking-wide text-slate-900">
-              Irsyad Rafly
+              Irsyad
             </span>
           </div>
 
