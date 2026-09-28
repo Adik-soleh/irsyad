@@ -101,7 +101,7 @@ export function CursorFollower() {
             ref={(node) => {
               dotRefs.current[i] = node;
             }}
-            className="absolute left-0 top-0 rounded-full bg-slate-900 opacity-0 will-change-transform"
+            className="absolute left-0 top-0 rounded-full bg-ink opacity-0 will-change-transform"
             style={{ width: size, height: size }}
           />
         );

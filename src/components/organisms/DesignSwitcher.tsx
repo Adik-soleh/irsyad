@@ -10,8 +10,8 @@ type Props = {
 };
 
 const OPTIONS: { id: DesignVariant; label: string; hint: string }[] = [
-  { id: "classic", label: "Versi 1", hint: "Klasik" },
-  { id: "editorial", label: "Versi 2", hint: "Editorial" },
+  { id: "classic", label: "Version 1", hint: "Classic" },
+  { id: "editorial", label: "Version 2", hint: "Editorial" },
 ];
 
 export function DesignSwitcher({ value, onChange }: Props) {
@@ -19,7 +19,7 @@ export function DesignSwitcher({ value, onChange }: Props) {
     <div className="fixed inset-x-0 bottom-4 z-[60] flex justify-center px-4 print:hidden">
       <div className="flex items-center gap-1 rounded-full border border-slate-200 bg-white/90 p-1 shadow-lg backdrop-blur-xl">
         <span className="hidden pl-3 pr-1 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 sm:block">
-          Tampilan
+          Layout
         </span>
         {OPTIONS.map((option) => {
           const isActive = option.id === value;

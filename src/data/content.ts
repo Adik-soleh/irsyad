@@ -9,14 +9,14 @@ import {
   SkillCategory,
   SocialLink,
   Stat,
-  Tool,
+  Credential,
   Work,
 } from "@/types/content";
 import { images } from "@/constants/images";
 
 const WHATSAPP_NUMBER = "628111118355";
 const WHATSAPP_MESSAGE =
-  "Halo Irsyad, saya tertarik untuk diskusi mengenai kerja sama digital marketing.";
+  "Hi Irsyad, I’m interested in discussing a digital marketing collaboration.";
 const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
 export const EMAIL = "irsyad.rafly.wahyudi@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/irsyad-rafly-1509932b5";
@@ -24,10 +24,9 @@ const LINKEDIN = "https://www.linkedin.com/in/irsyad-rafly-1509932b5";
 export const navItems: NavItem[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Karya", href: "#work" },
-  { label: "Karier", href: "#experience" },
-  { label: "Insight", href: "#insights" },
-  { label: "Kontak", href: "#contact" },
+  { label: "Capabilities", href: "#work" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export const socialLinks: SocialLink[] = [
@@ -46,7 +45,7 @@ export const stats: Stat[] = [
   {
     value: "110.7K",
     label: "Total views",
-    helper: "72.4K organik · 38.2K ads",
+    helper: "72.4K organic · 38.2K ads",
     countTo: 110.7,
     suffix: "K",
     decimals: 1,
@@ -54,7 +53,7 @@ export const stats: Stat[] = [
   {
     value: "94.6K",
     label: "Accounts reached",
-    helper: "naik 2.4x dari periode sebelumnya",
+    helper: "up 2.4x from the previous period",
     countTo: 94.6,
     suffix: "K",
     decimals: 1,
@@ -70,7 +69,7 @@ export const stats: Stat[] = [
   {
     value: "1.6K",
     label: "Link clicks",
-    helper: "1.608 klik dari kampanye berbayar",
+    helper: "1,608 clicks from paid campaigns",
     countTo: 1.6,
     suffix: "K",
     decimals: 1,
@@ -79,11 +78,11 @@ export const stats: Stat[] = [
 
 export const heroContent: HeroContent = {
   greeting: "Portfolio",
-  name: "Irsyad Rafly Wahyudi",
+  name: "Hi, I'm Irsyad Rafly Wahyudi",
   tagline: "Digital Marketing Specialist",
-  headline: "Kampanye yang Dibaca Data, Bukan Tebakan",
+  roles: ["Corporate Communication", "Brand Management"],
   summary:
-    "Digital Marketing Specialist dengan pengalaman kuat di social media management, paid advertising, dan content strategy. Merancang kampanye kreatif untuk mendorong brand awareness, engagement audiens, dan pertumbuhan bisnis yang terukur.",
+    "I’m a results-driven and versatile Digital Marketing & Corporate Communications Specialist with proven experience in end-to-end brand management, performance marketing, and media relations across Indonesia and Malaysia.",
   skills: [
     "Meta for Business",
     "Google Ads",
@@ -96,11 +95,11 @@ export const heroContent: HeroContent = {
   ],
   photo: "/irsyad_photo.jpg",
   primaryCta: {
-    label: "Lihat Karya",
+    label: "View My Work",
     href: "#work",
   },
   secondaryCta: {
-    label: "Hubungi Saya",
+    label: "Contact Me",
     href: "#contact",
   },
   cvCta: {
@@ -111,73 +110,73 @@ export const heroContent: HeroContent = {
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "MARKETING & PERFORMANCE",
+    title: "Tools & Platforms",
     skills: [
-      "Meta for Business",
+      "Meta Business Suite",
       "Google Ads",
-      "Campaign Optimization",
-      "Audience Targeting",
-      "Content Strategy",
-      "Analytics & Reporting",
-    ],
-  },
-  {
-    title: "CREATIVE & COMMUNICATION",
-    skills: [
+      "Google Analytics",
+      "Instagram Insights",
+      "Brandwatch",
+      "Social Media Advertising",
       "Canva",
-      "Adobe Creative Suite",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "Adobe Premiere Pro",
+      "After Effects",
       "Figma",
-      "Copywriting",
-      "Corporate Communication",
-      "Media Relations",
+      "CapCut",
+      "Microsoft Word",
+      "Microsoft Excel",
+      "Microsoft PowerPoint",
+      "Microsoft Outlook",
+      "Microsoft Teams",
+      "SharePoint / OneDrive",
     ],
   },
 ];
 
-export const tools: Tool[] = [
-  { name: "Meta Business Suite" },
-  { name: "Instagram Insights" },
-  { name: "Google Ads" },
-  { name: "Canva" },
-  { name: "Adobe Photoshop" },
-  { name: "Adobe Illustrator" },
-  { name: "Adobe Premiere Pro" },
-  { name: "Figma" },
-  { name: "Content Calendar" },
+export const credentials: Credential[] = [
+  { issuer: "Robert Bosch Malaysia", title: "Internship Completion Certificate" },
+  { issuer: "HRD Corp Malaysia", title: "Media Training" },
+  { issuer: "BNSP", title: "Digital Marketing Professional Certification" },
+  { title: "Professional Diploma in Information Technology (DNIIT)" },
+  { title: "Malaysian University English Test (MUET)" },
+  { issuer: "PT Mutu International Tbk", title: "Certificate of Recommendation" },
+  { issuer: "KOPASSUS", title: "Leadership Training Certificate" },
 ];
 
 export const capabilities: Capability[] = [
   {
     title: "Performance Marketing Analyst",
-    description: "Menganalisis data marketing, algoritma iklan, dan tren konsumen.",
+    description: "Analysing marketing data, ad algorithms, and consumer trends.",
   },
   {
     title: "Digital Advertising Specialist",
-    description: "Mengelola dan mengoptimasi paid ads lewat Meta for Business.",
+    description: "Managing and optimising paid ads through Meta for Business.",
   },
   {
     title: "Social Media Strategist",
-    description: "Menyusun strategi konten dan iklan untuk mendorong brand awareness.",
+    description: "Building content and ad strategies that drive brand awareness.",
   },
   {
     title: "Media Relations",
-    description: "Mengelola komunikasi media untuk memperkuat reputasi brand.",
+    description: "Managing media communications to strengthen brand reputation.",
   },
   {
     title: "Corporate Communication",
-    description: "Membuat company profile — booklet, PPT, looping video, dan profile video.",
+    description: "Creating company profiles — booklets, presentations, looping videos, and profile videos.",
   },
   {
     title: "Corporate Content Creator",
-    description: "Memproduksi feed post dan reels Instagram untuk menggaet audiens.",
+    description: "Producing Instagram feed posts and reels that attract audiences.",
   },
   {
     title: "Graphic Designer",
-    description: "Mendesain banner, brosur, poster, dan sertifikat.",
+    description: "Designing banners, brochures, posters, and certificates.",
   },
   {
     title: "Business Development",
-    description: "Mendukung kemitraan strategis untuk mendorong pertumbuhan bisnis.",
+    description: "Supporting strategic partnerships that drive business growth.",
   },
 ];
 
@@ -186,155 +185,131 @@ export const works: Work[] = [
     title: "Performance Marketing Analyst",
     shortTitle: "Performance Analyst",
     description:
-      "Membaca data kampanye digital untuk mengukur performa, menemukan peluang optimasi, lalu mendorong reach, engagement, dan konversi.",
+      "Reading digital campaign data to measure performance, uncover optimisation opportunities, and drive reach, engagement, and conversions.",
     tags: ["Meta Business Suite", "Instagram Insights", "Reporting"],
     year: "2024 — 2026",
     cover: images.work.performance,
-    challenge:
-      "Aktivitas konten dan iklan berjalan tanpa pembacaan data yang konsisten, sehingga sulit menilai kanal mana yang benar-benar menghasilkan.",
-    approach:
-      "Menyusun pelacakan rutin di Meta Business Suite dan Instagram Insights — memisahkan performa organik dan berbayar, lalu membandingkan tren views, reach, dan interaksi antar periode.",
-    impact:
-      "Total 110.736 views dalam satu periode pelaporan: 72.460 dari organik dan 38.276 dari ads, dengan reach 94.595 (naik 2,4x) dan 2.026 content interactions.",
+    objective:
+      "To evaluate digital marketing performance through data and identify opportunities to improve campaign effectiveness, audience reach, engagement, and conversions.",
+    execution:
+      "Analyse campaign data across organic and paid channels, monitor key performance indicators, compare results across reporting periods, and identify trends and optimisation opportunities.",
+    performance:
+      "Translate campaign data into actionable insights that support more informed marketing decisions, improve content and campaign performance, and maximise digital impact.",
     spec: {
-      objective: "Ukur performa kampanye dan temukan peluang optimasi",
-      audience: "Manajemen dan stakeholder internal",
+      objective: "Measure campaign performance and find optimisation opportunities",
+      audience: "Management and internal stakeholders",
       channel: "Meta Business Suite · Instagram Insights",
-      format: "Laporan performa berkala",
-      result: "110.736 views · reach 94.595 · 2.026 interaksi",
+      format: "Periodic performance reports",
+      result: "110,736 views · 94,595 reach · 2,026 interactions",
     },
     note:
-      "Dengan memisahkan performa organik dan berbayar sejak awal, terlihat bahwa dari total 110.736 views, 72.460 datang dari organik dan 38.276 dari ads — dasar yang dipakai untuk memutuskan alokasi berikutnya.",
+      "Separating organic and paid performance from the start showed that of 110,736 total views, 72,460 came from organic and 38,276 from ads — the basis for deciding the next budget allocation.",
   },
   {
     title: "Digital Advertising Specialist (Meta Ads)",
     shortTitle: "Meta Ads",
     description:
-      "Mengelola dan mengoptimasi kampanye berbayar di Meta for Business dengan strategi berbasis data agar setiap rupiah budget bekerja maksimal.",
+      "Managing and optimising paid campaigns on Meta for Business with a data-driven strategy so every rupiah of budget works as hard as possible.",
     tags: ["Meta Ads", "Budget Optimization", "A/B Testing"],
     year: "2024 — 2026",
     cover: images.work.metaAds,
-    challenge:
-      "Budget iklan terbatas, sementara target audiens untuk layanan sertifikasi ISO sangat spesifik dan tidak bisa disasar secara umum.",
-    approach:
-      "Menjalankan boosted post dan campaign terjadwal dengan pengujian materi kreatif, lalu memangkas iklan berperforma rendah dan menambah budget ke set iklan dengan biaya per hasil terbaik.",
-    impact:
-      "Impressions 110.9K (naik 421,7%), reach 69.402 (naik 379,7%), 1.608 link clicks, dengan biaya per kampanye terjaga di kisaran Rp130 ribu – Rp330 ribu.",
+    objective:
+      "To maximise the effectiveness of paid digital campaigns by reaching the right audience and achieving campaign objectives efficiently.",
+    execution:
+      "Set up and manage Meta Ads campaigns, define audience targeting, monitor campaign performance, analyse key metrics, and optimise campaigns based on data and audience response.",
+    performance:
+      "Improve campaign efficiency and audience reach through continuous optimisation, while using performance insights to support stronger engagement, conversions, and return on advertising spend.",
     spec: {
-      objective: "Naikkan reach dan link clicks dengan budget terbatas",
-      audience: "Pelaku bisnis yang mencari sertifikasi ISO",
+      objective: "Increase reach and link clicks on a limited budget",
+      audience: "Businesses seeking ISO certification",
       channel: "Meta Ads — Instagram & Facebook",
-      format: "Boosted post · campaign terjadwal",
-      result: "Impressions 110.9K (+421,7%) · 1.608 link clicks",
+      format: "Boosted posts · scheduled campaigns",
+      result: "Impressions 110.9K (+421.7%) · 1,608 link clicks",
     },
     note:
-      "Materi kreatif diuji berpasangan, lalu iklan dengan biaya per hasil tertinggi dihentikan dan anggarannya dialihkan ke set yang sudah terbukti.",
+      "Creatives were tested in pairs, then the ads with the highest cost per result were paused and their budget shifted to proven ad sets.",
   },
   {
     title: "Social Media Strategist",
     shortTitle: "Social Strategy",
     description:
-      "Merancang dan mengelola strategi konten lintas platform: content calendar terstruktur, perencanaan berbasis tren, serta optimasi waktu dan format posting.",
+      "Designing and managing cross-platform content strategy: structured content calendars, trend-based planning, and optimised posting times and formats.",
     tags: ["Content Calendar", "Instagram", "Facebook"],
     year: "2024 — 2026",
     cover: images.work.social,
-    challenge:
-      "Posting berjalan sporadis tanpa kalender, sehingga frekuensi tidak stabil dan momentum audiens gampang hilang.",
-    approach:
-      "Membangun content calendar bulanan yang memetakan tema, format, dan jam tayang per platform — lalu menyesuaikan slot posting berdasarkan jam aktif audiens dan tren yang sedang berjalan.",
-    impact:
-      "Ritme publikasi konsisten setiap minggu di Instagram dan Facebook, dengan content interactions naik 100% dibanding periode sebelumnya.",
+    objective:
+      "To build a consistent and engaging social media presence that strengthens brand visibility, audience engagement, and communication across digital platforms.",
+    execution:
+      "Develop content strategies and structured content calendars, plan content around relevant trends and audience behaviour, and optimise posting formats, timing, and messaging across social media channels.",
+    performance:
+      "Strengthen content consistency and audience engagement while using social media insights to refine content strategies and improve reach and overall platform performance.",
     spec: {
-      objective: "Jaga konsistensi publikasi dan naikkan engagement",
-      audience: "Followers Instagram dan Facebook brand",
+      objective: "Keep publishing consistent and increase engagement",
+      audience: "The brand’s Instagram and Facebook followers",
       channel: "Instagram · Facebook",
-      format: "Content calendar bulanan",
-      result: "Content interactions naik 100%",
+      format: "Monthly content calendar",
+      result: "Content interactions up 100%",
     },
     note:
-      "Jumlah slot per minggu ditentukan lebih dulu dari kapasitas tim, baru temanya diisi. Jam tayang diambil dari jam aktif audiens di Insights, bukan ditebak.",
+      "The number of weekly slots was set first based on team capacity, then filled with themes. Posting times came from audience activity in Insights, not guesswork.",
   },
   {
-    title: "Corporate Communication Materials",
+    title: "Corporate Communication",
     shortTitle: "Corporate Comms",
     description:
-      "Mengelola dan mengembangkan materi komunikasi korporat: annual report, company profile, dan presentasi perusahaan dengan konsistensi brand yang terjaga.",
+      "Managing and developing corporate communication materials — annual reports, company profiles, and corporate presentations — with consistent branding.",
     tags: ["Annual Report", "Company Profile", "Presentation"],
     year: "2024 — 2026",
     cover: images.work.corporateComm,
-    challenge:
-      "Materi korporat tersebar dalam berbagai gaya visual, membuat identitas perusahaan terbaca tidak konsisten di mata stakeholder.",
-    approach:
-      "Menyusun ulang company profile (booklet, PPT, looping video, dan profile video) serta annual report dengan sistem visual dan tata pesan yang seragam.",
-    impact:
-      "Satu set materi korporat yang siap pakai untuk kebutuhan klien, mitra, dan presentasi internal — dengan brand consistency yang terjaga di setiap format.",
+    objective:
+      "To communicate corporate messages clearly and consistently while maintaining a professional brand identity across internal and external communication materials.",
+    execution:
+      "Develop corporate communication materials including company profiles, corporate presentations, reports, and official communication assets, ensuring alignment with brand guidelines, messaging, and stakeholder requirements.",
+    performance:
+      "Deliver clear, consistent, and professional communication materials that strengthen corporate identity, support stakeholder communication, and enhance the overall presentation of the organisation.",
     spec: {
-      objective: "Samakan identitas visual seluruh materi korporat",
-      audience: "Klien, mitra, dan stakeholder internal",
-      channel: "Cetak dan presentasi",
+      objective: "Unify the visual identity of all corporate materials",
+      audience: "Clients, partners, and internal stakeholders",
+      channel: "Print and presentation",
       format: "Company profile · annual report · profile video",
-      result: "Satu set materi korporat siap pakai",
+      result: "A ready-to-use set of corporate materials",
     },
     note:
-      "Company profile disusun ulang sebagai satu paket — booklet, PPT, looping video, dan profile video — dengan sistem visual dan tata pesan yang seragam.",
+      "The company profile was rebuilt as a single package — booklet, presentation, looping video, and profile video — with a unified visual system and messaging.",
   },
   {
     title: "Corporate Content Creator",
     shortTitle: "Content Creator",
     description:
-      "Merancang, mengelola, dan mempublikasikan konten digital perusahaan — dari feed post edukatif hingga reels yang mengangkat momen dan isu terkini.",
+      "Designing, managing, and publishing the company’s digital content — from educational feed posts to reels that highlight current moments and issues.",
     tags: ["Feed Post", "Reels", "Copywriting"],
     year: "2024 — 2026",
     cover: images.work.content,
-    challenge:
-      "Topik sertifikasi dan standar mutu terasa teknis dan berat, sehingga sulit menarik perhatian audiens di feed sosial media.",
-    approach:
-      "Menerjemahkan topik teknis menjadi konten yang mudah dicerna — carousel edukatif, reels bertema momen nasional, dan caption dengan hook yang memancing diskusi.",
-    impact:
-      "Satu unggahan menembus 33.128 views dengan 16.446 reach dan 268 interaksi, jauh di atas rata-rata post reguler.",
+    objective:
+      "To create engaging corporate content that strengthens brand visibility, communicates key messages effectively, and maintains a consistent brand identity across digital channels.",
+    execution:
+      "Develop, design, manage, and publish corporate content across social media and digital platforms, while applying brand guidelines, visual identity, tone of voice, and messaging to ensure consistency across communications.",
+    performance:
+      "Strengthen brand consistency and audience engagement through relevant and visually compelling content, while supporting broader corporate communication and brand management objectives.",
     spec: {
-      objective: "Bikin topik teknis mudah dicerna di feed",
-      audience: "Audiens umum dan calon klien",
+      objective: "Make technical topics easy to digest in the feed",
+      audience: "General audience and prospective clients",
       channel: "Instagram feed & reels",
       format: "Carousel · reels · caption",
-      result: "33.128 views · 16.446 reach · 268 interaksi",
+      result: "33,128 views · 16,446 reach · 268 interactions",
     },
     note:
-      "Konten dibuka dari kekhawatiran yang sudah ada di kepala audiens — reputasi, biaya, proses — dan standar teknisnya masuk sebagai jawaban, bukan sebagai pembuka.",
-  },
-  {
-    title: "Graphic Designer",
-    shortTitle: "Graphic Design",
-    description:
-      "Membuat beragam materi desain: sertifikat, brosur, banner, poster promosi, dan aset visual untuk kebutuhan korporat maupun acara resmi.",
-    tags: ["Canva", "Adobe Creative Suite", "Print & Digital"],
-    year: "2023 — 2026",
-    cover: images.work.graphic,
-    challenge:
-      "Kebutuhan desain datang dari banyak divisi sekaligus, dengan format yang berbeda-beda antara cetak dan digital.",
-    approach:
-      "Menyiapkan template dan sistem desain yang bisa dipakai ulang untuk sertifikat, roll banner, brosur, dan voucher promosi, sehingga produksi cepat tanpa mengorbankan konsistensi.",
-    impact:
-      "Materi visual untuk sertifikasi, pelatihan, dan event resmi diproduksi dengan identitas brand yang seragam di seluruh kanal.",
-    spec: {
-      objective: "Penuhi kebutuhan desain lintas divisi tanpa antre",
-      audience: "Peserta pelatihan, klien, dan tamu event",
-      channel: "Cetak dan digital",
-      format: "Sertifikat · roll banner · brosur · voucher",
-      result: "Identitas brand seragam di seluruh materi",
-    },
-    note:
-      "Permintaan datang dari banyak divisi dengan format berbeda-beda. Template yang bisa dipakai ulang disiapkan lebih dulu, sehingga produksi cepat tanpa mengorbankan konsistensi.",
+      "Content opens with concerns already on the audience’s mind — reputation, cost, process — and the technical standards come in as the answer, not the opener.",
   },
 ];
 
 export const experiences: Experience[] = [
   {
     title: "Corporate Communications & Brand Management",
-    company: "—",
+    company: "Robert Bosch Malaysia",
     period: "Jan 2026 — Jun 2026",
     description:
-      "Mengelola komunikasi korporat dan brand management: menjaga konsistensi pesan, memproduksi materi komunikasi, dan mendukung hubungan dengan media.",
+      "Managed corporate communications and brand management activities across Bosch Malaysia, including social media, internal and external communications, and cross-business alignment. Supported the Bosch Malaysia × Bosch Rexroth × MIDA collaboration during Semiconductor Southeast Asia by developing the concept, script, and production plan and coordinating with senior stakeholders.",
     skills: ["Brand Management", "Corporate Communication", "Media Relations"],
   },
   {
@@ -342,7 +317,7 @@ export const experiences: Experience[] = [
     company: "PT MSA Certification",
     period: "Nov 2024 — Mar 2026",
     description:
-      "Mengelola seluruh kanal sosial media perusahaan: strategi konten, produksi feed dan reels, kampanye Meta Ads, hingga pelaporan performa bulanan.",
+      "Managed social media and Meta Ads campaigns to strengthen brand visibility and engagement. Produced corporate profiles and branded event content from concept to final production, ensuring consistent brand execution.",
     skills: ["Meta Ads", "Content Strategy", "Analytics", "Copywriting"],
   },
   {
@@ -350,7 +325,7 @@ export const experiences: Experience[] = [
     company: "PT Mutu International Tbk.",
     period: "May 2024 — Feb 2025",
     description:
-      "Menjalankan pengelolaan sosial media dan produksi konten digital untuk mendukung brand awareness perusahaan.",
+      "Developed and managed end-to-end social media strategies, from content planning and creation to publishing and scheduling, aligned with audience behaviour and brand objectives. Managed monthly Meta Ads campaigns, using performance analytics and audience insights to optimise targeting, improve campaign efficiency, and strengthen brand awareness.",
     skills: ["Social Media", "Content Production", "Design"],
   },
   {
@@ -358,7 +333,7 @@ export const experiences: Experience[] = [
     company: "Podcast CCIT FTUI, Universitas Indonesia",
     period: "Nov 2023 — Jan 2024",
     description:
-      "Menulis naskah dan menyusun alur episode podcast bertema sinematografi untuk kanal resmi CCIT FTUI.",
+      "Wrote scripts and structured episode flows for a cinematography-themed podcast on CCIT FTUI’s official channel.",
     skills: ["Scriptwriting", "Storytelling", "Podcast"],
   },
   {
@@ -366,16 +341,16 @@ export const experiences: Experience[] = [
     company: "Convocation CCIT FTUI, Universitas Indonesia",
     period: "Oct 2023 — Nov 2023",
     description:
-      "Bagian dari divisi acara untuk penyelenggaraan wisuda CCIT FTUI, menangani perencanaan dan eksekusi di hari pelaksanaan.",
-    skills: ["Event Management", "Koordinasi Tim"],
+      "Managed event equipment, venue decorations, and photography/videography documentation to ensure smooth event operations, a professional presentation, and comprehensive coverage of key moments throughout the graduation ceremony.",
+    skills: ["Event Management", "Team Coordination"],
   },
   {
     title: "Design and Documentation",
     company: "Induction Days CCIT FTUI, Universitas Indonesia",
     period: "Jul 2023 — Sep 2023",
     description:
-      "Menangani kebutuhan desain dan dokumentasi visual untuk rangkaian acara induction days mahasiswa baru.",
-    skills: ["Graphic Design", "Dokumentasi"],
+      "Developed and designed branding materials, including the event logo, social media content, posters, banners, apparel, and event accessories, while editing and producing documentary videos covering the entire event lifecycle, from pre-event preparation to post-event execution, to maintain a cohesive visual identity and capture the event comprehensively.",
+    skills: ["Graphic Design", "Documentation"],
   },
 ];
 
@@ -395,48 +370,48 @@ export const educations: Education[] = [
 export const newsEntries: NewsEntry[] = [
   {
     slug: "membaca-angka-sebelum-menambah-budget",
-    title: "Membaca Angka Dulu, Baru Tambah Budget",
+    title: "Read the Numbers Before Adding Budget",
     excerpt:
-      "Kenaikan impressions 421% bukan datang dari budget yang dibesarkan, tapi dari memutuskan iklan mana yang layak dilanjutkan.",
+      "A 421% jump in impressions didn’t come from a bigger budget — it came from deciding which ads deserved to keep running.",
     content: [
-      "Godaan paling umum saat sebuah kampanye mulai menunjukkan hasil adalah langsung menaikkan budget. Padahal yang perlu dilihat lebih dulu adalah dari mana hasil itu datang: set iklan mana yang biayanya paling efisien per hasil, dan mana yang sebenarnya hanya menghabiskan anggaran.",
-      "Dalam satu periode pengelolaan, saya memisahkan performa organik dan berbayar sejak awal. Dari total 110.736 views, 72.460 datang dari organik dan 38.276 dari ads. Pemisahan sederhana ini penting: tanpa itu, kita gampang mengira iklan bekerja padahal yang naik adalah konten organik, atau sebaliknya.",
-      "Setelah pola terbaca, langkahnya jadi lebih jelas — hentikan materi yang biaya per klik-nya jauh di atas rata-rata, lalu alihkan anggarannya ke kreatif yang sudah terbukti. Hasilnya impressions naik 421,7% dan reach naik 379,7%, dengan struktur biaya yang tetap terkendali.",
-      "Intinya: data bukan laporan yang dibuat di akhir bulan untuk formalitas. Data adalah dasar keputusan mingguan.",
+      "The most common temptation when a campaign starts showing results is to raise the budget straight away. What needs to be checked first is where those results are coming from: which ad sets deliver the most efficient cost per result, and which ones are simply burning through the budget.",
+      "In one management period, I separated organic and paid performance from the very beginning. Of 110,736 total views, 72,460 came from organic and 38,276 from ads. That simple split matters: without it, it is easy to assume the ads are working when organic content is doing the lifting, or the other way around.",
+      "Once the pattern was clear, the next steps became obvious — pause creatives whose cost per click sat far above average, then shift that budget to creatives that had already proven themselves. Impressions rose 421.7% and reach rose 379.7%, while the cost structure stayed under control.",
+      "The point: data isn’t a report produced at the end of the month for formality’s sake. Data is the basis for weekly decisions.",
     ],
     date: "12 Mar 2026",
     category: "Paid Ads",
-    readingTime: "3 menit",
+    readingTime: "3 min read",
   },
   {
     slug: "content-calendar-yang-benar-benar-dipakai",
-    title: "Content Calendar yang Benar-Benar Dipakai",
+    title: "A Content Calendar That Actually Gets Used",
     excerpt:
-      "Kalender konten gagal bukan karena kurang rapi, tapi karena dibuat tanpa memikirkan siapa yang mengeksekusinya.",
+      "Content calendars fail not because they aren’t tidy enough, but because they are built without thinking about who has to execute them.",
     content: [
-      "Banyak brand punya content calendar, tapi berhenti dipakai di minggu ketiga. Penyebabnya jarang soal template — biasanya karena kalender itu disusun terlalu ambisius untuk kapasitas tim yang ada.",
-      "Pendekatan yang saya pakai: tentukan dulu jumlah slot realistis per minggu, baru isi temanya. Bukan sebaliknya. Setiap slot punya tiga informasi minimum — format (feed, carousel, atau reels), tema, dan jam tayang. Sisanya menyusul saat produksi.",
-      "Jam tayang tidak ditebak. Diambil dari jam aktif audiens di Insights, lalu diuji beberapa minggu. Kalau satu slot konsisten berperforma rendah, slot itu dipindah, bukan kontennya yang disalahkan.",
-      "Dengan ritme yang bisa dijaga, frekuensi posting jadi stabil dan interaksi konten naik 100% dibanding periode sebelumnya — tanpa menambah orang di tim.",
+      "Many brands have a content calendar, but stop using it by the third week. The cause is rarely the template — it is usually because the calendar was planned too ambitiously for the team’s actual capacity.",
+      "My approach: decide the realistic number of weekly slots first, then fill in the themes. Not the other way around. Every slot carries three minimum details — format (feed, carousel, or reels), theme, and posting time. Everything else follows during production.",
+      "Posting times aren’t guessed. They come from the audience’s active hours in Insights, then get tested over several weeks. If a slot consistently underperforms, the slot moves — the content doesn’t get the blame.",
+      "With a rhythm the team can sustain, posting frequency became stable and content interactions rose 100% compared with the previous period — without adding anyone to the team.",
     ],
     date: "28 Feb 2026",
     category: "Content Strategy",
-    readingTime: "3 menit",
+    readingTime: "3 min read",
   },
   {
     slug: "menjual-topik-teknis-di-media-sosial",
-    title: "Cara Menjual Topik Teknis di Media Sosial",
+    title: "How to Sell Technical Topics on Social Media",
     excerpt:
-      "Sertifikasi ISO bukan topik yang menghentikan scroll. Kecuali cara menyampaikannya diubah.",
+      "ISO certification isn’t a topic that stops the scroll. Unless you change the way it’s told.",
     content: [
-      "Standar mutu, audit, dan sertifikasi adalah topik yang penting bagi bisnis tapi terdengar berat di feed sosial media. Konten yang menjelaskan klausul apa adanya hampir pasti dilewati.",
-      "Yang berhasil justru konten yang berangkat dari pertanyaan yang sudah ada di kepala audiens — kekhawatiran soal reputasi, biaya, atau proses yang dianggap ribet. Standar teknisnya tetap disampaikan, tapi masuk sebagai jawaban, bukan sebagai pembuka.",
-      "Format juga menentukan. Carousel cocok untuk penjelasan bertahap, sementara reels lebih kuat untuk mengangkat momen dan isu yang sedang ramai. Satu unggahan dengan pendekatan ini menembus 33.128 views, 16.446 reach, dan 268 interaksi — jauh di atas rata-rata post reguler.",
-      "Topik teknis tidak perlu disederhanakan sampai kehilangan isi. Yang perlu diubah adalah urutan penyampaiannya.",
+      "Quality standards, audits, and certification are important topics for businesses, but they sound heavy in a social media feed. Content that explains the clauses as they are will almost certainly be skipped.",
+      "What works is content that starts from questions already on the audience’s mind — worries about reputation, cost, or a process that seems complicated. The technical standards are still delivered, but they come in as the answer, not as the opener.",
+      "Format matters too. Carousels suit step-by-step explanations, while reels are stronger for picking up moments and trending issues. One post using this approach reached 33,128 views, 16,446 reach, and 268 interactions — well above the average regular post.",
+      "Technical topics don’t need to be simplified until they lose their substance. What needs to change is the order in which they’re told.",
     ],
     date: "14 Feb 2026",
     category: "Social Media",
-    readingTime: "3 menit",
+    readingTime: "3 min read",
   },
 ];
 

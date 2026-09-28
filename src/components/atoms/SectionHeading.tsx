@@ -4,7 +4,7 @@ import { RevealText } from "@/components/atoms/RevealText";
 
 type Props = {
   eyebrow?: string;
-  title: string;
+  title?: string;
   description?: ReactNode;
   align?: "left" | "center";
   className?: string;
@@ -26,15 +26,17 @@ export function SectionHeading({
       )}
     >
       {eyebrow && (
-        <p className="text-xs font-bold uppercase tracking-[0.35em] text-slate-500">
+        <p className="text-sm text-ash">
           {eyebrow}
         </p>
       )}
-      <RevealText as="h2" className="font-display text-4xl text-slate-900 sm:text-5xl lg:text-6xl">
-        {title}
-      </RevealText>
+      {title && (
+        <RevealText as="h2" className="font-display pb-1 text-[40px] text-ink sm:text-[52px] lg:text-[64px]">
+          {title}
+        </RevealText>
+      )}
       {description && (
-        <p className={cn("max-w-2xl text-base text-slate-600", align === "center" && "mx-auto")}>
+        <p className={cn("max-w-2xl text-lg font-[430] leading-[1.5] text-muted", align === "center" && "mx-auto")}>
           {description}
         </p>
       )}

@@ -9,15 +9,11 @@ type Props = {
 
 export function ExperienceTimeline({ experiences, educations }: Props) {
   return (
-    <section id="experience" className="space-y-16 pt-10">
-      <SectionHeading
-        eyebrow="Experience"
-        title="Perjalanan Karier"
-        description="Dari divisi acara dan dokumentasi kampus, ke pengelolaan sosial media dan iklan berbayar untuk perusahaan sertifikasi."
-      />
+    <section id="experience" className="space-y-12">
+      <SectionHeading title="Experience" />
 
       <div className="relative max-w-4xl mx-auto">
-        <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-0.5 bg-slate-200 transform md:-translate-x-1/2 z-0" />
+        <div className="absolute left-4 md:left-1/2 top-4 bottom-4 w-px bg-line transform md:-translate-x-1/2 z-0" />
 
         <div className="space-y-12">
           {experiences.map((experience, index) => (
@@ -31,22 +27,22 @@ export function ExperienceTimeline({ experiences, educations }: Props) {
       </div>
 
       <div className="mx-auto max-w-4xl space-y-6 pt-8">
-        <p className="text-xs font-bold uppercase tracking-[0.3em] text-slate-500">
-          Pendidikan
-        </p>
+        <h3 className="text-[26px] font-[450] leading-[1.18] tracking-[-0.009em] text-ink">
+          Education
+        </h3>
         <div className="grid gap-4 md:grid-cols-2">
           {educations.map((education) => (
             <div
               key={education.school}
-              className="rounded-3xl border border-slate-200 bg-white/50 p-6 shadow-sm backdrop-blur"
+              className="rounded-card bg-mist p-6"
             >
-              <span className="text-xs font-bold text-slate-500">
+              <span className="text-sm text-ash">
                 {education.period}
               </span>
-              <h3 className="mt-2 text-lg font-bold text-slate-900">
+              <h4 className="mt-2 text-lg font-medium text-ink">
                 {education.school}
-              </h3>
-              <p className="mt-2 text-sm text-slate-600">{education.degree}</p>
+              </h4>
+              <p className="mt-2 text-[15px] text-muted">{education.degree}</p>
             </div>
           ))}
         </div>

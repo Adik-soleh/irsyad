@@ -3,7 +3,6 @@ import metaAds from "@/assets/work/meta-ads.png";
 import social from "@/assets/work/social.png";
 import corporateComm from "@/assets/work/corporate-comm.png";
 import content from "@/assets/work/content.png";
-import graphic from "@/assets/work/graphic.png";
 
 export const images = {
   work: {
@@ -12,6 +11,5 @@ export const images = {
     social,
     corporateComm,
     content,
-    graphic,
   },
 };

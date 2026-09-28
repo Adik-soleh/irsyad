@@ -3,22 +3,20 @@ import { HeroSection } from "@/components/organisms/HeroSection";
 import { ResultsBoard } from "@/components/organisms/ResultsBoard";
 import { ProjectsShowcase } from "@/components/organisms/ProjectsShowcase";
 import { ExperienceTimeline } from "@/components/organisms/ExperienceTimeline";
-import { NewsShowcase } from "@/components/organisms/NewsShowcase";
 import { ContactSection } from "@/components/organisms/ContactSection";
 import { Footer } from "@/components/organisms/Footer";
 import { AboutTechStack } from "@/components/organisms/AboutTechStack";
 import {
   capabilities,
+  credentials,
   contactChannels,
   educations,
   experiences,
   heroContent,
   navItems,
-  newsEntries,
   skillCategories,
   socialLinks,
   stats,
-  tools,
   works,
 } from "@/data/content";
 
@@ -38,13 +36,11 @@ export function EditorialTemplate() {
           <div className="relative z-10 flex flex-col gap-20 pt-4 sm:gap-24">
             <ResultsBoard stats={stats} />
             <Divider />
-            <AboutTechStack categories={skillCategories} capabilities={capabilities} tools={tools} />
+            <AboutTechStack categories={skillCategories} capabilities={capabilities} credentials={credentials} />
             <Divider />
             <ProjectsShowcase works={works} />
             <Divider />
             <ExperienceTimeline experiences={experiences} educations={educations} />
-            <Divider />
-            <NewsShowcase entries={newsEntries} />
             <Divider />
             <ContactSection channels={contactChannels} />
           </div>

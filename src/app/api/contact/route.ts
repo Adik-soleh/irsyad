@@ -7,7 +7,7 @@ export async function POST(request: Request) {
 
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: "Nama, email, dan pesan wajib diisi" },
+        { error: "Name, email, and message are required" },
         { status: 400 }
       );
     }
@@ -19,11 +19,11 @@ export async function POST(request: Request) {
 
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    return NextResponse.json({ success: true, message: "Pesan berhasil dikirim!" }, { status: 200 });
+    return NextResponse.json({ success: true, message: "Message sent successfully!" }, { status: 200 });
   } catch (error) {
     console.error("Contact API error:", error);
     return NextResponse.json(
-      { error: "Terjadi kesalahan internal server" },
+      { error: "Internal server error" },
       { status: 500 }
     );
   }

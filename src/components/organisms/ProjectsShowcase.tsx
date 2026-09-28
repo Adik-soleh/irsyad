@@ -20,16 +20,16 @@ export function ProjectsShowcase({ works }: { works: Work[] }) {
       <div className="space-y-4">
         <p className="text-xs font-bold uppercase tracking-[0.35em] text-slate-500">Selected Work</p>
         <RevealText as="h2" className="font-display text-4xl text-slate-900 sm:text-5xl lg:text-6xl">
-          Apa yang Saya Kerjakan
+          What I Do
         </RevealText>
         <p className="max-w-2xl text-base text-slate-600">
-          Enam bidang kerja yang saya pegang sehari-hari, ditulis seperti lembar kampanye — objective,
-          audiens, kanal, format, dan hasilnya.
+          The areas I work on every day, written up like campaign sheets — objective,
+          audience, channel, format, and results.
         </p>
       </div>
 
       <div className="grid gap-10 lg:grid-cols-[minmax(0,200px)_minmax(0,1fr)] lg:gap-14">
-        <nav aria-label="Daftar karya" className="hidden lg:block">
+        <nav aria-label="Work list" className="hidden lg:block">
           <ol className="sticky top-28 space-y-1 border-l border-slate-200">
             {works.map((work, index) => (
               <li key={work.title}>

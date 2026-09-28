@@ -12,6 +12,7 @@ type Props = {
 
 export function ClassicWorkCard({ work, index }: Props) {
   const isEven = index % 2 === 0;
+  const { objective, execution, performance } = work;
 
   return (
     <motion.div
@@ -23,8 +24,8 @@ export function ClassicWorkCard({ work, index }: Props) {
         isEven ? "" : "lg:flex-row-reverse"
       }`}
     >
-      <div className="relative w-full lg:w-1/2 rounded-[32px] overflow-hidden group border border-slate-200 shadow-xl bg-slate-50">
-        <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="group relative w-full rounded-float bg-paper p-2 shadow-float lg:w-1/2">
+        <div className="relative aspect-[4/3] overflow-hidden rounded-image bg-mist">
           <Image
             src={work.cover}
             alt={work.title}
@@ -33,59 +34,47 @@ export function ClassicWorkCard({ work, index }: Props) {
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
-        <div className="absolute top-6 left-6 z-20 flex gap-2">
-          <span className="rounded-full bg-slate-900/90 backdrop-blur px-4 py-1.5 text-xs font-semibold text-white shadow">
+        <div className="absolute left-6 top-6 z-20 flex gap-2">
+          <span className="rounded-full bg-paper/90 px-3 py-1 text-sm text-ink backdrop-blur">
             {work.year}
           </span>
         </div>
       </div>
 
-      <div className="w-full lg:w-1/2 space-y-8">
+      <div className="w-full space-y-8 lg:w-1/2">
         <div>
-          <h3 className="font-display text-3xl text-slate-900 sm:text-4xl">
+          <h3 className="font-display text-[34px] text-ink sm:text-[44px]">
             {work.title}
           </h3>
-          <div className="mt-4 flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-slate-500">
-            {work.tags.map((tag) => (
-              <span key={tag} className="border border-slate-200 rounded-full px-3 py-1 bg-slate-50">
-                {tag}
-              </span>
-            ))}
-          </div>
+          <p className="mt-3 text-sm text-ash">{work.tags.join(" · ")}</p>
         </div>
 
-        <div className="space-y-6 text-slate-700">
-          <p className="text-lg leading-relaxed">{work.description}</p>
-
-          {(work.challenge || work.approach || work.impact) && (
-            <div className="space-y-4 pt-4 border-t border-slate-200">
-              {work.challenge && (
-                <div className="flex gap-3">
-                  <Target className="mt-1 text-slate-900 shrink-0" size={20} />
-                  <div>
-                    <strong className="text-slate-900 block mb-1">Tantangan</strong>
-                    <span className="text-sm">{work.challenge}</span>
-                  </div>
-                </div>
-              )}
-              {work.approach && (
-                <div className="flex gap-3">
-                  <Lightbulb className="mt-1 text-slate-900 shrink-0" size={20} />
-                  <div>
-                    <strong className="text-slate-900 block mb-1">Pendekatan</strong>
-                    <span className="text-sm">{work.approach}</span>
-                  </div>
-                </div>
-              )}
-              {work.impact && (
-                <div className="flex gap-3">
-                  <TrendingUp className="mt-1 text-slate-900 shrink-0" size={20} />
-                  <div>
-                    <strong className="text-slate-900 block mb-1">Hasil</strong>
-                    <span className="text-sm">{work.impact}</span>
-                  </div>
-                </div>
-              )}
+        <div className="space-y-4 border-t border-line pt-6 text-muted">
+          {objective && (
+            <div className="flex gap-3">
+              <Target className="mt-0.5 shrink-0 text-ink" size={18} strokeWidth={1.5} />
+              <div>
+                <strong className="mb-1 block text-[15px] font-medium text-ink">Objective</strong>
+                <span className="text-[15px] leading-[1.5]">{objective}</span>
+              </div>
+            </div>
+          )}
+          {execution && (
+            <div className="flex gap-3">
+              <Lightbulb className="mt-0.5 shrink-0 text-ink" size={18} strokeWidth={1.5} />
+              <div>
+                <strong className="mb-1 block text-[15px] font-medium text-ink">Execution</strong>
+                <span className="text-[15px] leading-[1.5]">{execution}</span>
+              </div>
+            </div>
+          )}
+          {performance && (
+            <div className="flex gap-3">
+              <TrendingUp className="mt-0.5 shrink-0 text-ink" size={18} strokeWidth={1.5} />
+              <div>
+                <strong className="mb-1 block text-[15px] font-medium text-ink">Performance</strong>
+                <span className="text-[15px] leading-[1.5]">{performance}</span>
+              </div>
             </div>
           )}
         </div>

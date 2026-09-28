@@ -31,9 +31,9 @@ export type Work = {
   cover: StaticImageData;
   spec: WorkSpec;
   note?: string;
-  challenge?: string;
-  approach?: string;
-  impact?: string;
+  objective?: string;
+  execution?: string;
+  performance?: string;
 };
 
 export type Experience = {
@@ -76,7 +76,8 @@ export type HeroContent = {
   greeting: string;
   name: string;
   tagline: string;
-  headline: string;
+  roles?: string[];
+  headline?: string;
   summary: string;
   skills: string[];
   photo: string;
@@ -99,8 +100,9 @@ export type SkillCategory = {
   skills: string[];
 };
 
-export type Tool = {
-  name: string;
+export type Credential = {
+  title: string;
+  issuer?: string;
 };
 
 export type Capability = {
