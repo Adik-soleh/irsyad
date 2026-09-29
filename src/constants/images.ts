@@ -1,8 +1,8 @@
-import performance from "@/assets/work/performance.png";
-import metaAds from "@/assets/work/meta-ads.png";
-import social from "@/assets/work/social.png";
-import corporateComm from "@/assets/work/corporate-comm.png";
-import content from "@/assets/work/content.png";
+import performance from "@/assets/work/performance_marketing_analyst.png";
+import metaAds from "@/assets/work/digital_advertising_specialist.png";
+import social from "@/assets/work/social_media_strategist.png";
+import corporateComm from "@/assets/work/corporate_communication.png";
+import content from "@/assets/work/corporate_content_creator.png";
 
 export const images = {
   work: {

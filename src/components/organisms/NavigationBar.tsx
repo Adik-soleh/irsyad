@@ -74,7 +74,7 @@ export function NavigationBar({ items, socialLinks }: Props) {
               aria-label="Back to top"
               className="font-display whitespace-nowrap text-2xl text-ink"
             >
-              Irsyad<span className="italic text-muted">.</span>
+              Irsyad<span className="text-muted">.</span>
             </Link>
           </div>
 

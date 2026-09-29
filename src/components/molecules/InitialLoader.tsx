@@ -1,24 +1,33 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 const STORAGE_KEY = "initial_loader_seen";
 
+const subscribeNoop = () => () => {};
+
+const readShouldShow = () => {
+  try {
+    return !sessionStorage.getItem(STORAGE_KEY);
+  } catch {
+    return false;
+  }
+};
+
 export default function InitialLoader() {
-  const [visible, setVisible] = useState(false);
+  const shouldShow = useSyncExternalStore(subscribeNoop, readShouldShow, () => false);
+  const [hidden, setHidden] = useState(false);
   const [fading, setFading] = useState(false);
+  const visible = shouldShow && !hidden;
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    const seen = sessionStorage.getItem(STORAGE_KEY);
-    if (seen) return;
+    if (!shouldShow) return;
 
-    setVisible(true);
     document.body.style.overflow = "hidden";
 
     const fadeTimer = setTimeout(() => setFading(true), 1800);
     const hideTimer = setTimeout(() => {
-      setVisible(false);
+      setHidden(true);
       document.body.style.overflow = "";
       sessionStorage.setItem(STORAGE_KEY, "1");
     }, 2400);
@@ -28,7 +37,7 @@ export default function InitialLoader() {
       clearTimeout(hideTimer);
       document.body.style.overflow = "";
     };
-  }, []);
+  }, [shouldShow]);
 
   if (!visible) return null;
 
@@ -44,7 +53,7 @@ export default function InitialLoader() {
           {"Irsyad Rafly".split("").map((ch, i) => (
             <span
               key={i}
-              className="font-display inline-block text-4xl italic opacity-0 md:text-5xl"
+              className="font-display inline-block text-4xl opacity-0 md:text-5xl"
               style={{
                 animation: `letterIn 0.6s ease-out ${i * 0.05}s forwards`,
               }}

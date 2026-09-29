@@ -77,10 +77,7 @@ export const stats: Stat[] = [
 ];
 
 export const heroContent: HeroContent = {
-  greeting: "Portfolio",
   name: "Hi, I'm Irsyad Rafly Wahyudi",
-  tagline: "Digital Marketing Specialist",
-  roles: ["Corporate Communication", "Brand Management"],
   summary:
     "I’m a results-driven and versatile Digital Marketing & Corporate Communications Specialist with proven experience in end-to-end brand management, performance marketing, and media relations across Indonesia and Malaysia.",
   skills: [
@@ -136,13 +133,31 @@ export const skillCategories: SkillCategory[] = [
 ];
 
 export const credentials: Credential[] = [
-  { issuer: "Robert Bosch Malaysia", title: "Internship Completion Certificate" },
-  { issuer: "HRD Corp Malaysia", title: "Media Training" },
-  { issuer: "BNSP", title: "Digital Marketing Professional Certification" },
-  { title: "Professional Diploma in Information Technology (DNIIT)" },
-  { title: "Malaysian University English Test (MUET)" },
-  { issuer: "PT Mutu International Tbk", title: "Certificate of Recommendation" },
-  { issuer: "KOPASSUS", title: "Leadership Training Certificate" },
+  { issuer: "Robert Bosch Malaysia", title: "Internship Completion Certificate", year: "2026" },
+  { issuer: "HRD Corp Malaysia", title: "Media Training", year: "2026" },
+  {
+    issuer: "Indonesian Professional Certification Authority (IPCA)",
+    title: "Certified Digital Marketing Specialist",
+    year: "2026",
+  },
+  { issuer: "PT MSA Certification", title: "Certificate of Recommendation", year: "2026" },
+  {
+    issuer: "Malaysia Examinations Council",
+    title: "Malaysian University English Test (MUET)",
+    year: "2025",
+  },
+  { issuer: "PT Mutu International Tbk", title: "Certificate of Recommendation", year: "2025" },
+  {
+    issuer: "National Institute of Information Technology",
+    title: "Professional Diploma in Information Technology (DNIIT)",
+    year: "2024",
+  },
+  {
+    issuer: "University of Indonesia",
+    title: "Professional Certificate in Digital Marketing",
+    year: "2024",
+  },
+  { issuer: "KOPASSUS", title: "Leadership Training Certificate", year: "2021" },
 ];
 
 export const capabilities: Capability[] = [
@@ -358,7 +373,7 @@ export const educations: Education[] = [
   {
     school: "Asia e University Malaysia",
     degree: "Bachelor of Information and Communication Technology",
-    period: "2022 — Present",
+    period: "2022 — 2026",
   },
   {
     school: "CCIT — Faculty of Engineering, University of Indonesia",
