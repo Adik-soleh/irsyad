@@ -56,14 +56,6 @@ export function HeroSection({ content, socialLinks }: Props) {
       >
         <div className="space-y-10">
           <motion.div variants={itemVariants} className="space-y-6">
-            <p className="text-[15px] text-ash">
-              {content.greeting} · {content.tagline}
-              {content.roles?.map((role) => (
-                <span key={role} className="block">
-                  {role}
-                </span>
-              ))}
-            </p>
             <RevealText
               as="h1"
               className="font-display font-display-xl pb-2 text-[length:14vw] text-ink sm:text-[length:min(14vw,90px)] lg:text-[length:min(7vw,90px)]"
@@ -71,7 +63,7 @@ export function HeroSection({ content, socialLinks }: Props) {
               <span className="block whitespace-nowrap">{firstLine}</span>
               {accent && (
                 <span className="block whitespace-nowrap">
-                  {secondLine} <em className="italic">{accent}</em>
+                  {secondLine} {accent}
                 </span>
               )}
             </RevealText>

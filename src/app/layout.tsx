@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Source_Serif_4 } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import InitialLoader from "@/components/molecules/InitialLoader";
 import { CursorFollower } from "@/components/atoms/CursorFollower";
 
 const inter = Inter({
   variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const sourceSerif = Source_Serif_4({
-  variable: "--font-serif",
-  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 
@@ -139,7 +133,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${sourceSerif.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         <InitialLoader />
         <CursorFollower />
         {children}

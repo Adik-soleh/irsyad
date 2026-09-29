@@ -25,19 +25,14 @@ export function ClassicWorkCard({ work, index }: Props) {
       }`}
     >
       <div className="group relative w-full rounded-float bg-paper p-2 shadow-float lg:w-1/2">
-        <div className="relative aspect-[4/3] overflow-hidden rounded-image bg-mist">
+        <div className="relative aspect-video overflow-hidden rounded-image bg-mist">
           <Image
             src={work.cover}
             alt={work.title}
             fill
-            className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+            className="object-contain object-center"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-        </div>
-        <div className="absolute left-6 top-6 z-20 flex gap-2">
-          <span className="rounded-full bg-paper/90 px-3 py-1 text-sm text-ink backdrop-blur">
-            {work.year}
-          </span>
         </div>
       </div>
 

@@ -73,10 +73,7 @@ export type ContactChannel = {
 };
 
 export type HeroContent = {
-  greeting: string;
   name: string;
-  tagline: string;
-  roles?: string[];
   headline?: string;
   summary: string;
   skills: string[];
@@ -103,6 +100,7 @@ export type SkillCategory = {
 export type Credential = {
   title: string;
   issuer?: string;
+  year: string;
 };
 
 export type Capability = {

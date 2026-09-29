@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import { ClassicTemplate } from "@/components/templates/ClassicTemplate";
 import { EditorialTemplate } from "@/components/templates/EditorialTemplate";
 import { DesignSwitcher } from "@/components/organisms/DesignSwitcher";
@@ -15,26 +15,28 @@ const SHOW_SWITCHER = false;
 const isVariant = (value: string | null): value is DesignVariant =>
   value === "classic" || value === "editorial";
 
+const subscribeNoop = () => () => {};
+
+const readInitialVariant = (): DesignVariant | null => {
+  const fromQuery = new URLSearchParams(window.location.search).get("design");
+  if (isVariant(fromQuery)) return fromQuery;
+
+  if (!SHOW_SWITCHER) return null;
+
+  try {
+    const stored = window.localStorage.getItem(STORAGE_KEY);
+    if (isVariant(stored)) return stored;
+  } catch {}
+  return null;
+};
+
 export function DesignShell() {
-  const [variant, setVariant] = useState<DesignVariant>(DEFAULT_VARIANT);
-
-  useEffect(() => {
-    const fromQuery = new URLSearchParams(window.location.search).get("design");
-    if (isVariant(fromQuery)) {
-      setVariant(fromQuery);
-      return;
-    }
-
-    if (!SHOW_SWITCHER) return;
-
-    try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      if (isVariant(stored)) setVariant(stored);
-    } catch {}
-  }, []);
+  const initialVariant = useSyncExternalStore(subscribeNoop, readInitialVariant, () => null);
+  const [chosenVariant, setChosenVariant] = useState<DesignVariant | null>(null);
+  const variant = chosenVariant ?? initialVariant ?? DEFAULT_VARIANT;
 
   const handleChange = (next: DesignVariant) => {
-    setVariant(next);
+    setChosenVariant(next);
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     try {

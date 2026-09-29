@@ -13,7 +13,6 @@
   --color-foreground: var(--foreground);
   --color-brand: var(--brand-ink);
   --font-sans: var(--font-sans);
-  --font-serif: var(--font-serif);
 }
 
 @theme {
@@ -39,8 +38,9 @@
 }
 
 .font-display {
-  font-family: var(--font-serif), "Source Serif 4", Georgia, ui-serif, serif;
-  font-weight: 400;
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  font-weight: 450;
   letter-spacing: -0.015em;
   line-height: 1.15;
 }

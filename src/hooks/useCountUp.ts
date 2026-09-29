@@ -18,13 +18,15 @@ export function useCountUp<T extends HTMLElement>({ to, decimals = 0, durationMs
     if (!node || done) return;
 
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let frame = 0;
     if (reduced) {
-      setValue(to);
-      setDone(true);
-      return;
+      frame = requestAnimationFrame(() => {
+        setValue(to);
+        setDone(true);
+      });
+      return () => cancelAnimationFrame(frame);
     }
 
-    let frame = 0;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return;

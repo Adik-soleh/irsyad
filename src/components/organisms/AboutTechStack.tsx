@@ -60,7 +60,7 @@ export function AboutTechStack({ categories, capabilities, credentials }: Props)
               transition={{ delay: (idx % 4) * 0.08 }}
               className="group relative overflow-hidden rounded-card bg-mist p-6"
             >
-              <span className="font-display text-3xl italic text-ash transition-colors group-hover:text-ink">
+              <span className="font-display text-3xl text-ash transition-colors group-hover:text-ink">
                 {String(idx + 1).padStart(2, "0")}
               </span>
               <h4 className="mt-4 text-lg font-medium text-ink">
@@ -81,17 +81,20 @@ export function AboutTechStack({ categories, capabilities, credentials }: Props)
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {credentials.map((credential, idx) => (
             <motion.div
-              key={credential.title}
+              key={`${credential.issuer ?? ""}-${credential.title}`}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: (idx % 3) * 0.08 }}
               className="flex flex-col rounded-card bg-mist p-6"
             >
-              {credential.issuer && (
+              <div className="flex items-start justify-between gap-3">
                 <span className="text-sm text-ash">{credential.issuer}</span>
-              )}
-              <h4 className={cn("text-lg font-medium leading-[1.35] text-ink", credential.issuer && "mt-2")}>
+                <span className="shrink-0 rounded-full bg-paper px-2.5 py-0.5 text-xs font-medium text-muted">
+                  {credential.year}
+                </span>
+              </div>
+              <h4 className="mt-2 text-lg font-medium leading-[1.35] text-ink">
                 {credential.title}
               </h4>
             </motion.div>
